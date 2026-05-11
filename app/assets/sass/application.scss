@@ -1,0 +1,105 @@
+// global styles for <a> and <p> tags
+$govuk-global-styles: true;
+$govuk-new-link-styles: true;
+
+// We can't mount GOV.UK Frontend's assets at root as it's done automatically by the extensions framework.
+$govuk-assets-path: '/govuk/assets/';
+
+// Import GOV.UK Frontend and any extension styles if extensions have been configured
+@import ".tmp/sass/extensions";
+
+// Patterns that aren't in Frontend
+@import "patterns/contents-list";
+@import "patterns/mainstream-guide";
+@import "patterns/pagination";
+@import "patterns/related-items";
+@import "patterns/task-list";
+
+// Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+
+
+.govuk-width-container {
+  max-width: 1280px;
+}
+
+ .govuk-header__logo {
+ 	display: none;
+ }
+
+
+ .govuk-header__link {
+	text-decoration: underline;
+	text-decoration-thickness: 2px;
+	text-underline-offset: 0.2em;
+}
+
+.govuk-header__link-current {
+	text-decoration: underline;
+	text-decoration-thickness: 6px;
+	text-underline-offset: 13px;
+}
+
+#header-nav {
+	float: left;
+	max-width: 600px;
+}
+#header-searchbox {
+	float: right;
+}
+
+
+
+//Navbar container full width
+.nav-container {
+  margin-left: calc(50% - 50vw);
+  width: 100vw;
+  background-color:#f3f2f1;
+//  border-bottom: 1px solid #bfc1c3;
+  padding: 15px 0px;
+  @media (min-width: 768px) {
+  // mega-padding  padding: 210px 0 310px 0;
+  padding: 0;
+  }
+}
+
+//navbar white on the homepage, its grey elsewhere
+.navbarWhite {
+  background-color:#fff;
+}
+
+.navbar__last {
+
+ float:none;
+ @media (min-width: 768px) {
+   float:right;
+ }
+
+}
+
+
+// assorted EXui hacks
+
+.exui-tabpanel {
+	border:none !important;
+	padding-left: 0 !important;
+}
+.exui-tabpanel-right {
+	border: 1px solid grey;
+}
+.exui-event-current {
+	border-left: #1d70b8 0.5em solid;
+}
+.exui-event td:first-child {
+	padding-left: 0.5em ;
+}
+
+.hang-formnum {
+	font-weight: 600;
+	width:2.5em;
+	display: inline-block;
+	margin-left: -2.5em;
+
+}
+.exui-event:hover {
+	background-color: #e8e8e8;
+}

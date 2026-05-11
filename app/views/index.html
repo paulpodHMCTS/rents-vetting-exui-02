@@ -1,0 +1,65 @@
+{% set section = 'cases' %}
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Prototyping RPT Market Rent Request Vetting
+        <span class="govuk-caption-xl">GOV.UK Prototype Kit {{releaseVersion}}</span>
+      </h1>{{releaseVersion | log }}
+      <p>
+        Sketching out some screens in code that we probably need
+      </p>
+
+      
+
+      <h2 class="govuk-heading-m">Cases</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Find which case: 
+          <a href="case-list">Case list</a>
+        </li>
+        <li>
+          Work on <a href="case-dashboard">a case</a>, navigate using tabbed UI - default as:
+          <ol>
+          <li><a href="case-dashboard">History</a></li>
+          <span>...then tab links to:
+          <li>Summary</a></li>
+          <li>State</a></li>
+          <li>Case details</a></li>
+          <li>Case parties</a></li>
+          <li>Orders and decisions</a></li>
+          <li>Case documents</a></li>
+          <li>Bundles</a></li>
+          <li>Hearings and inspections</a></li>
+          </ol>
+
+          <span>Might make sense to break these out as static-html page pseudo-tabs at some point</span>
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Cases</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Create a case manually: 
+          <a href="case-create">Create</a>
+        </li>
+        <li>
+          Input manually - would this be required, given scanning and MOJ Forms MR1? If it is required follow the re-flowed updated version or the direct paper conversion?
+          <ol>
+          <li><a href="case-create-mr1-01">MR1 - chunked tenant details</a></li>
+          <li><a href="#">Summary</a>
+          </ol>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+{% endblock %}

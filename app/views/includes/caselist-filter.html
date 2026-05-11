@@ -1,0 +1,184 @@
+{% set filtersForm %}
+
+
+
+       <h2 class="govuk-heading-m govuk-!-margin-bottom-3">Filter by</h2>
+
+     <form  method="post" novalidate action="apply-filters">
+
+
+       {{ govukCheckboxes({
+         idPrefix: 'runType',
+         name: 'runType',
+         classes: "govuk-checkboxes--small",
+         fieldset: {
+           legend: {
+             text: 'State',
+             classes: 'govuk-fieldset__legend--s'
+           }
+         },
+         items: [
+           {
+             value: 'vetting',
+             text: 'Vetting',
+             checked:  checked("runType", "annual")
+           },
+           {
+             value: 'mr2',
+             text: 'Awaiting MR2',
+             checked:  checked("runType", "supplementary")
+           },
+           {
+             value: 'two-part tariff',
+             text: 'Two-part tariff',
+             checked:  checked("runType", "two-part tariff")
+           }
+         ]
+       }) }}
+
+       {{ govukCheckboxes({
+        idPrefix: 'region',
+        name: 'region',
+        classes: "govuk-checkboxes--small",
+        fieldset: {
+          legend: {
+            text: 'Region',
+            classes: 'govuk-fieldset__legend--s'
+          }
+        },
+        items: [
+          {
+            value: 'anglian',
+            text: 'Anglian',
+            checked:  checked("region", "anglian")
+          },
+          {
+            value: 'north west',
+            text: 'North West',
+            checked:  checked("region", "north west")
+          },
+          {
+            value: 'north east',
+            text: 'North East',
+            checked:  checked("region", "north east")
+          },
+          {
+            value: 'midlands',
+            text: 'Midlands',
+            checked:  checked("region", "midlands")
+          },
+          {
+            value: 'south west',
+            text: 'South West',
+            checked:  checked("region", "south west")
+          },
+          {
+            value: 'southern',
+            text: 'Southern',
+            checked:  checked("region", "southern")
+          },
+          {
+            value: 'thames',
+            text: 'Thames',
+            checked:  checked("region", "thames")
+          },
+          {
+            value: 'wales',
+            text: 'Wales',
+            checked:  checked("region", "wales")
+          }
+        ]
+      }) }}
+
+      {{ govukCheckboxes({
+        idPrefix: 'status',
+        name: 'status',
+        classes: "govuk-checkboxes--small",
+        fieldset: {
+          legend: {
+            text: 'Status',
+            classes: 'govuk-fieldset__legend--s'
+          }
+        },
+        items: [
+          {
+            value: 'building',
+            text: 'Building',
+            checked:  checked("status", "building")
+          },
+          {
+            value: 'cancelled',
+            text: 'Cancelled',
+            checked:  checked("status", "cancelled")
+          },
+          {
+            value: 'empty',
+            text: 'Empty',
+            checked:  checked("status", "empty")
+          },
+          {
+            value: 'error',
+            text: 'Error',
+            checked:  checked("status", "error")
+          },
+          {
+            value: 'ready',
+            text: 'Ready',
+            checked:  checked("status", "ready")
+          },
+          {
+            value: 'review',
+            text: 'Review',
+            checked:  checked("status", "review")
+          },
+          {
+            value: 'sent',
+            text: 'Sent',
+            checked:  checked("status", "sent")
+          }
+        ]
+      }) }}
+
+
+       {{ govukInput({
+         id: 'createdYear',
+         name: 'createdYear',
+         value: data['createdYear'],
+         classes: "govuk-input--width-4",
+         label: {
+           text: 'Year created',
+           classes: 'govuk-label--s'
+         }
+
+       }) }}
+
+       <div class="govuk-button-group">
+           {{ govukButton({
+         text: "Apply filters"
+       }) }}
+
+
+       {{ govukButton({
+           text: "Clear filters",
+           classes: "govuk-button--secondary",
+           name: "clearFilters",
+           value: "true"
+         }) }}
+
+         </div>
+
+
+
+     </form>
+
+
+     {% endset %}
+
+
+
+     {{ govukDetails({
+       summaryText: "Filter case list",
+       html: filtersForm | safe,
+       classes: "govuk-!-margin-bottom-4",
+       open: data['openDetails']
+     }) }}

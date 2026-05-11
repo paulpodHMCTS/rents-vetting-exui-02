@@ -1,0 +1,80 @@
+<header class="govuk-header" data-module="govuk-header" style="border-bottom: none;padding-bottom: 0.5em;">
+  <div class="govuk-header__container govuk-width-container" style="border-bottom: none;">
+    <!-- Exui has no crown no govuk branding and uses the - - - -->
+    <!-- left hand space for MyHMCTS or other internal  - - - - -->
+    <!-- service branding, and top-tab links for main functions -->
+  
+    <div class="govuk-header__content" style="left:0px">
+
+      <div id="service-umbrella">
+
+        <a href="#" class=" govuk-header__service-name" style="margin-left:-0.66em;color: white;text-decoration: none;">
+          Market Rent Appeal - Vetting
+        </a>
+
+      </div>
+    
+    
+    </div>
+  
+  </div>
+</header>
+
+<div class="govuk-header" style="background-color: #333;height:48px">
+  <div class="govuk-header__container govuk-width-container" style="border-bottom: none;padding-bottom: 0.5em;">
+
+    <nav aria-label="Menu" class="govuk-header__navigation" id="header-nav">
+      <!-- OMIT - probably never in use on mobile 
+      <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" hidden="">
+        Menu
+      </button>
+      -->
+
+      <ul id="navigation" class="govuk-header__navigation-list">
+        <li class="govuk-header__navigation-item">
+          <a class="govuk-header__link" href="/">
+            My work
+          </a>
+        </li>
+
+        <li class="govuk-header__navigation-item">
+          <a class="govuk-header__link {{ 'govuk-header__link-current' if 'cases' in section }}" href="case-list.html">
+            Case list
+          </a>
+        </li>
+
+        <li class="govuk-header__navigation-item">
+          <a class="govuk-header__link {{ 'govuk-header__link-current' if 'create' in section }}"  href="case-create.html">
+            Create case
+          </a>
+        </li>
+
+        <li class="govuk-header__navigation-item">
+          <a class="govuk-header__link" href="/">
+            Find case
+          </a>
+        </li>
+
+        <li class="govuk-header__navigation-item">
+          <a class="govuk-header__link" href="/">
+            Search
+          </a>
+        </li>
+      </ul>
+
+    </nav>
+
+    <div id="header-searchbox">
+      <div class="govuk-form-group">
+        
+          <label for="account-number" style="color:white">
+            16 digit case reference:
+          </label>
+        
+        <input class="govuk-input govuk-input--width-10" id="account-number" name="accountNumber" type="text" spellcheck="false" aria-describedby="account-number-hint" inputmode="numeric" style="padding:8px;height:1.8em;font-size: 1em;">
+      </div>
+    </div>
+  </div>
+</div>
+
+<br clear="all">

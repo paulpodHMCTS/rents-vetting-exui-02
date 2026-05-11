@@ -1,0 +1,122 @@
+{% set section = 'create' %}
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div id="case-id" style="float:left;width: 700px;">
+        <h1 class="govuk-heading-xl">
+          Create new case
+          <span class="govuk-caption-xl">Manual entry if scanning or digital not available</span>
+        </h1>
+
+         <p style="margin:-1.5em 0 1em 0">This is speculative, our main assumption is all applications are digital, or get digitised - never input manually but ... is possible?</p>
+      </div>
+      
+     
+
+      <div id="next-stepper" style="float:right;">
+       
+         
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="sort" style="float:left">
+              <span style="position:relative;top:7px;margin-right: 12px;">Next step
+            </label>
+
+            <div style="float:left">
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="choose" selected>Select action</option>
+                <option value="updated">Confirm payment</option>
+                <option value="views">Review details</option>
+                <option value="comments">Match duplicate</option>
+              </select>
+            </div>
+            
+            <div style="float:left;margin-left:6px">
+              <button class="govuk-button">Go</button>
+            </div>
+
+          </div>
+
+          <br clear="all">
+
+ 
+        
+      </div>
+
+      <br clear="all">
+
+      <!-- PRE-ROLL QUESTIONS, might be more technical considering user
+
+      Which type of application do you want to make?
+
+      Challenge the rent increase in a landlord's notice proposing a new rent
+      including if you want to challenge the legal validity of the landlord’s notice
+      Challenge my rent as excessive within the first 6 months of the tenancy
+      Continue
+      Save for later -->
+
+
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+
+    <form class="form" action="" method="post" style="max-width: 880px;">
+        
+        {{ govukRadios({
+          classes: "govuk-radios",
+          name: "served",
+          fieldset: {
+            legend: {
+              text: "Application type",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: ""
+          },
+          items: [
+            {
+              value: "s13-4",
+              text: "On paper form, Section 13(4)"
+            },
+            {
+              value: "s22-1",
+              text: "On paper, Section 22(1) "
+            },
+            {
+              value: "other",
+              text: "Other"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save and continue",
+            href: "case-create-mr1-01"
+          }) }}
+          {{ govukButton({
+            text: "Save for later",
+            classes: "govuk-button--secondary",
+            href: ""
+          }) }}
+        </div>
+      </form>
+
+
+
+
+         
+
+    </div>
+  </div>
+
+{% endblock %}

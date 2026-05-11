@@ -1,0 +1,193 @@
+{% set section = 'create' %}
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div id="case-id" style="float:left;width: 700px;">
+        <h1 class="govuk-heading-xl">
+          Create new case
+          <span class="govuk-caption-xl">Manual entry if scanning or digital not available</span>
+        </h1>
+
+         <p style="margin:-1.5em 0 1em 0">Assumptions on this are <i>ignoring the new MOJ forms input for citizens</i> and instead grouping the data inputs into same paper-form pages, with no "nice" styling due to ExUI</p>
+      </div>
+      
+
+
+      <div id="next-stepper" style="float:right;">
+       
+         
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="sort" style="float:left">
+              <span style="position:relative;top:7px;margin-right: 12px;">Next step
+            </label>
+
+            <div style="float:left">
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="choose" selected>Select action</option>
+                <option value="updated">Confirm payment</option>
+                <option value="views">Review details</option>
+                <option value="comments">Match duplicate</option>
+              </select>
+            </div>
+            
+            <div style="float:left;margin-left:6px">
+              <button class="govuk-button">Go</button>
+            </div>
+
+          </div>
+
+          <br clear="all">
+
+ 
+        
+      </div>
+
+      <br clear="all">
+
+
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+
+    <form class="form" action="" method="post" style="max-width: 880px;">
+        
+        {% call govukFieldset({
+          legend: {
+            text: "Section 2 – Tenant’s information",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
+
+          {{ govukInput({
+            label: {
+              html: "<span class=hang-formnum>2.1</span>First name"
+            },
+            id: "name-first",
+            name: "nameFirst"
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Last name"
+            },
+            id: "name-last",
+            name: "nameLast"
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Company name (if provided)"
+            },
+            id: "name-company",
+            name: "nameCompany"
+          }) }}
+
+          
+
+
+          {{ govukRadios({
+          classes: "govuk-radios",
+          name: "applicantType",
+          fieldset: {
+            legend: {
+              html: "<span class=hang-formnum>2.2</span>Applicant type (capacity)",
+              isPageHeading: false
+            }
+          },
+          
+          items: [
+            {
+              value: "tenant",
+              text: "Tenant"
+            },
+            {
+              value: "joint",
+              text: "Joint tenants"
+            }
+          ]
+        }) }}
+
+
+        {{ govukInput({
+          label: {
+            html: "<span class=hang-formnum>2.3</span>Address<br>First line of address"
+          },
+          id: "address-first",
+          name: "addressFirst"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Second line of address "
+          },
+          id: "address-second",
+          name: "addressSecond"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Town or city"
+          },
+          id: "address-town",
+          name: "addressTown"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "County (optional)"
+          },
+          id: "address-county",
+          name: "addressCounty"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Postcode"
+          },
+          id: "address-postcode",
+          name: "addressPostcode"
+        }) }}
+
+        
+          {{ govukInput({
+            label: {
+              html: "<span class=hang-formnum>2.4</span>Reference number for correspondence (if provided)"
+            },
+            id: "applicant-ref",
+            name: "applicantRef"
+          }) }}
+
+
+        {% endcall %}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save and continue",
+            href: "case-create-mr1-02"
+          }) }}
+          {{ govukButton({
+            text: "Save for later",
+            classes: "govuk-button--secondary",
+            href: ""
+          }) }}
+        </div>
+      </form>
+
+
+
+
+         
+
+    </div>
+  </div>
+
+{% endblock %}

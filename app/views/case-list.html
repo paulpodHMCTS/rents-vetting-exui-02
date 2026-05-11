@@ -1,0 +1,80 @@
+{% set section = 'cases' %}
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">
+        Case list
+        <!--<span class="govuk-caption-xl">{{releaseVersion}}</span>-->
+      </h1>{{releaseVersion | log }}
+      
+      {% include "includes/caselist-filter.html" %}
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">
+          Your cases
+          <br>
+          <span class="govuk-table__caption--s" style="font-weight: normal;">Showing 1 to 25 of 4003 results</span>
+        </caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Case number</th>
+            <th scope="col" class="govuk-table__header">Status</th>
+            <th scope="col" class="govuk-table__header">Date of receipt</th>
+            <th scope="col" class="govuk-table__header">Sent via</th>
+            <th scope="col" class="govuk-table__header">Fee paid</th>
+            <th scope="col" class="govuk-table__header">Scans</th>
+            <th scope="col" class="govuk-table__header">Prechecks</th>
+            <th scope="col" class="govuk-table__header">Extra</th>
+            <th scope="col" class="govuk-table__header">Extra</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="case-dashboard.html">5678 9123 4567 1234</a></th>
+            <td class="govuk-table__cell">MR2 with landlord<br>14 days remaining</td>
+            <td class="govuk-table__cell">02/04/2026</td>
+            <td class="govuk-table__cell">Digital</td>
+            <td class="govuk-table__cell"><a href=#>17/04/2026</a></td>
+            <td class="govuk-table__cell">-</td>
+            <td class="govuk-table__cell">Passed</td>
+            <td class="govuk-table__cell">Additional</td>
+            <td class="govuk-table__cell">Columns</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="case-dashboard.html">9123 4567 1234 5678</a></th>
+            <td class="govuk-table__cell">MR1 duplicate<br>with legal officer</td>
+            <td class="govuk-table__cell">17/04/2026</td>
+            <td class="govuk-table__cell">Post</td>
+            <td class="govuk-table__cell"><a href=#>17/04/2026</a></td>
+            <td class="govuk-table__cell"><a href=#>View</a></td>
+            <td class="govuk-table__cell">Passed</td>
+            <td class="govuk-table__cell">Additional</td>
+            <td class="govuk-table__cell">Columns</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="case-dashboard.html">4567 1234 5678 9123</a></th>
+            <td class="govuk-table__cell">Registered<br>waiting for payment</td>
+            <td class="govuk-table__cell">27/04/2026</td>
+            <td class="govuk-table__cell">Email</td>
+            <td class="govuk-table__cell">N<br><a href=#>Send reminder</a></td>
+            <td class="govuk-table__cell">-</td>
+            <td class="govuk-table__cell">Passed</td>
+            <td class="govuk-table__cell">Additional</td>
+            <td class="govuk-table__cell">Columns</td>
+          </tr>
+        </tbody>
+      </table>
+         
+
+    </div>
+  </div>
+
+{% endblock %}

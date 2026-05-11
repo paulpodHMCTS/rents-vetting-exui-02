@@ -1,0 +1,195 @@
+{% set section = 'create' %}
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div id="case-id" style="float:left;">
+        <h1 class="govuk-heading-xl">
+          Create new case
+          <span class="govuk-caption-xl">When does a case number get issued? Here or later?</span>
+        </h1>
+      </div>
+      
+
+
+      <div id="next-stepper" style="float:right;">
+       
+         
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="sort" style="float:left">
+              <span style="position:relative;top:7px;margin-right: 12px;">Next step
+            </label>
+
+            <div style="float:left">
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="choose" selected>Select action</option>
+                <option value="updated">Confirm payment</option>
+                <option value="views">Review details</option>
+                <option value="comments">Match duplicate</option>
+              </select>
+            </div>
+            
+            <div style="float:left;margin-left:6px">
+              <button class="govuk-button">Go</button>
+            </div>
+
+          </div>
+
+          <br clear="all">
+
+ 
+        
+      </div>
+
+      <br clear="all">
+
+
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+
+    <form class="form" action="" method="post" style="max-width: 880px;">
+
+
+        {% call govukFieldset({
+          legend: {
+            text: "Applicant information",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
+
+         {{ govukInput({
+            label: {
+              html: "<span class=hang-formnum>2.5</span>Contact details<br>Phone number"
+            },
+            id: "applicant-phone",
+            name: "applicantPhone"
+          }) }}
+
+           {{ govukInput({
+            label: {
+              text: "Email address"
+            },
+            id: "applicant-email",
+            name: "applicantEmail"
+          }) }}
+
+          {{ govukInput({
+            label: {
+              html: "<span class=hang-formnum>2.6</span>Details of tenant’s representative (if any)<br>First name"
+            },
+            id: "repname-first",
+            name: "repnameFirst"
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Last name"
+            },
+            id: "repname-last",
+            name: "repnameLast"
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Company name "
+            },
+            id: "repname-company",
+            name: "repnameCompany"
+          }) }}
+
+          {{ govukInput({
+          label: {
+            html: "<span class=hang-formnum>2.7</span>Address<br>First line of address"
+          },
+          id: "address-first",
+          name: "addressFirst"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Second line of address "
+          },
+          id: "address-second",
+          name: "addressSecond"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Town or city"
+          },
+          id: "address-town",
+          name: "addressTown"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "County (optional)"
+          },
+          id: "address-county",
+          name: "addressCounty"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Postcode"
+          },
+          id: "address-postcode",
+          name: "addressPostcode"
+        }) }}
+
+
+        {{ govukInput({
+            label: {
+              html: "<span class=hang-formnum>2.8</span>DX number for correspondence (if provided)"
+            },
+            id: "rep-dx",
+            name: "applicantRef"
+          }) }}
+
+        {{ govukInput({
+            label: {
+              html: "<span class=hang-formnum>2.9</span>Reference number for correspondence (if provided)"
+            },
+            id: "rep-ref",
+            name: "applicantRef"
+          }) }}
+
+
+
+
+          
+  
+
+        {% endcall %}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save and continue",
+            href: "case-create-mr1-02"
+          }) }}
+          {{ govukButton({
+            text: "Save for later",
+            classes: "govuk-button--secondary",
+            href: ""
+          }) }}
+        </div>
+      </form>
+
+
+
+
+         
+
+    </div>
+  </div>
+
+{% endblock %}

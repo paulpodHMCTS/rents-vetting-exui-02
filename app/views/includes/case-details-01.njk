@@ -1,0 +1,351 @@
+
+
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+<h2 class="govuk-heading-m">About the tenancy</h2>
+<div style="max-width: 880px;">
+
+<p>NOTE: this is done here as a summary list component (ExUI has these) with a restricted line length (880px) but I have also seen similar data rendered using the summary card format (more grey, more boxes). has cross links to docs but maybe that is not possible on ExUI?</p>
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Tenant is"
+      },
+      value: {
+        text: "Individual tenant"
+      }
+    },
+    {
+      key: {
+        text: "Tenancy type"
+      },
+      value: {
+        html: "<p>Assured tenancy including assured shorthold tenancy, rental value determination (landlord's notice of increase)</p>"
+      }
+    },
+    {
+      key: {
+        text: "Notice"
+      },
+      value: {
+        html: "<p>Section 13(4) of the Housing Act 1988</p>View <a href=notice.pdf>notice.pdf</a>"
+      }
+    },
+    {
+      key: {
+        text: "Date tenancy started"
+      },
+      value: {
+        text: "5 January 2026"
+      }
+    }
+    
+  ]
+}) }}
+
+
+<br>
+<h2 class="govuk-heading-m">Current rent and other charges</h2>
+
+       
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "How often"
+      },
+      value: {
+        text: "Monthly"
+      }
+    },
+    {
+      key: {
+        text: "Amount"
+      },
+      value: {
+        text: "£1200"
+      }
+    },
+    {
+      key: {
+        text: "Council tax included"
+      },
+      value: {
+        text: "No"
+      }
+    },
+    {
+      key: {
+        text: "Utilities included"
+      },
+      value: {
+        text: "No"
+      }
+    },
+    {
+      key: {
+        text: "Additional services included"
+      },
+      value: {
+        text: "Gardening of shared areas"
+      }
+    },
+    {
+      key: {
+        text: "Additional services charged for separately"
+      },
+      value: {
+        html: "<p>Maintenance charge has been £400 quarterly.</p><p>Repairs have been charged as required and not a fixed amount. Most recently a boiler repair for £150.</p>"
+      }
+    }
+  ]
+}) }}
+
+<br>
+<h2 class="govuk-heading-m">Property details</h2>
+
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Accommodation"
+      },
+      value: {
+        html: "First floor flat<br>Access to shared garden area"
+      }
+    },
+    {
+      key: {
+        text: "Floor plan"
+      },
+      value: {
+        text: "Supplied by tenant"
+      }
+    },
+    {
+      key: {
+        text: "Indoor features"
+      },
+      value: {
+        html: "Gas central heating with radiators in most rooms<br>Double glazing on most windows<br>Wood floors in most rooms, lino in kitchen<br>"
+      }
+    },
+    {
+      key: {
+        text: "Other facilities"
+      },
+      value: {
+        html: "Small balcony off living room<br>Access to shared back garden<br>Storage shed at end of garden"
+      }
+    },
+    {
+      key: {
+        text: "Shared with landlord"
+      },
+      value: {
+        text: "No"
+      }
+    },
+    {
+      key: {
+        text: "Is furniture provided"
+      },
+      value: {
+        text: "Yes"
+      }
+    }
+    ,
+    {
+      key: {
+        text: "Details of furniture provided"
+      },
+      value: {
+        html: "Sofa and two armchairs, coffee table, TV unit, dining table, four dining chairs in living room.<br>Bed base unit and mattress.<br>Desk and office chair in bedroom."
+      }
+    }
+  ]
+}) }}
+
+<br>
+
+
+
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Exterior"
+      },
+      value: {
+        html: "Exterior"
+      }
+    },
+    {
+      key: {
+        text: "Room 1"
+      },
+      value: {
+        html: " Living room 4m x 3.5m"
+      }
+    },
+    {
+      key: {
+        text: "Room 2"
+      },
+      value: {
+        html: "Kitchen (corner of living room) 2.2m x 3.2m"
+      }
+    },
+    {
+      key: {
+        text: "Room 3"
+      },
+      value: {
+        html: "Bedroom 4m x 4m"
+      }
+    },
+    {
+      key: {
+        text: "Room 4"
+      },
+      value: {
+        html: "Bathroom 4m x 2.2m<br>Shows some peeling paint on the ceiling, and the loose extractor fan cover (broken)"
+      }
+    },
+    {
+      key: {
+        text: "Room 4"
+      },
+      value: {
+        html: "Bathroom 4m x 2.2m<br>Photo 2 shows black mould near the floor on the painted wall beside the door."
+      }
+    },
+    {
+      key: {
+        text: "Room 4"
+      },
+      value: {
+        html: "Bathroom 4m x 2.2m<br>Photo 3 shows close up of the silicone around the bath having perished with mould and the ceiling peeling paint closer."
+      }
+    },
+    {
+      key: {
+        text: "Room 4"
+      },
+      value: {
+        html: "Bathroom 4m x 2.2m<br>Photo 4 shows the silicone seal at the floor cracked with black mould and leaking."
+      }
+    },
+    {
+      key: {
+        text: "Room 5"
+      },
+      value: {
+        html: "Hall / corridor 1.8m x 4m<br><br>"
+      }
+    }
+  ]
+}) }}
+
+
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Tenants have made changes or improvements"
+      },
+      value: {
+        text: "Yes"
+      }
+    },
+    {
+      key: {
+        text: "Changes made"
+      },
+      value: {
+        html: "Living room walls painted<br>Bedroom room walls painted"
+      }
+    },
+    {
+      key: {
+        text: "Evidence provided"
+      },
+      value: {
+        html: "<p>1. <a href=>Receipt uploaded</a></p><p>2. <a href=>Photo uploaded</a></p><p>3. <a href=>Photo uploaded</a></p>"
+      }
+    },
+    {
+      key: {
+        text: "Landlord repair responsibility"
+      },
+      value: {
+        text: "Repair to shared areas, electrical wiring, boilers heating and hot water, bathroom fittings, kitchen fittings, doors and windows, structure to the overall property including roof."
+      }
+    },
+    {
+      key: {
+        text: "Tenant repair responsibility"
+      },
+      value: {
+        text: "Replacing light bulbs, unblocking toilets/sinks, toilet seats, ventilating to prevent mould, and reporting larger issues and providing access for repairs"
+      }
+    }
+  ]
+}) }}
+
+
+ <br>
+<h2 class="govuk-heading-m">Proposed rents and evidence</h2>
+
+
+ {{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Current rent"
+      },
+      value: {
+        text: "£1100 monthly"
+      }
+    },
+    {
+      key: {
+        text: "Your proposed rent"
+      },
+      value: {
+        text: "£1400 monthly"
+      }
+    },
+    {
+      key: {
+        text: "Tenant proposed rent"
+      },
+      value: {
+        text: "£1200 monthly"
+      }
+    },
+    {
+      key: {
+        text: "Reason provided"
+      },
+      value: {
+        text: "Similar flats in the same building within the past 12 months are rented at much less than the increased rent of £1400 and do not have any substantial difference."
+      }
+    },
+    {
+      key: {
+        text: "Supporting evidence"
+      },
+      value: {
+        html: "<p>1. <a href=#>collected-rents-zoopla.pdf</a></p><p>2. <a href=#>tenancy-agreement-flat-b.pdf</a></p><p>3. <a href=#>tenancy-agreement-flat-d.pdf</a></p>"
+      }
+    }
+  ]
+}) }}
+</div>
