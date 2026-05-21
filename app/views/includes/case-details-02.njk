@@ -1,0 +1,158 @@
+
+
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+<div style="max-width: 880px;">
+
+<p>NOTE: minimal details for people to actually use</p>
+
+
+
+<br>
+<h2 class="govuk-heading-m">Current rent and other charges</h2>
+
+       
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "How often"
+      },
+      value: {
+        text: "Monthly"
+      }
+    },
+    {
+      key: {
+        text: "Amount"
+      },
+      value: {
+        text: "£1200"
+      }
+    },
+    {
+      key: {
+        text: "Council tax included"
+      },
+      value: {
+        text: "No"
+      }
+    },
+    {
+      key: {
+        text: "Utilities included"
+      },
+      value: {
+        text: "No"
+      }
+    }
+  ]
+}) }}
+
+<br>
+<h2 class="govuk-heading-m">Property details</h2>
+
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Accommodation"
+      },
+      value: {
+        html: "First floor flat<br>Access to shared garden area"
+      }
+    },
+    {
+      key: {
+        text: "Floor plan"
+      },
+      value: {
+        text: "Supplied by tenant"
+      }
+    },
+    {
+      key: {
+        text: "Shared with landlord"
+      },
+      value: {
+        text: "No"
+      }
+    },
+    {
+      key: {
+        text: "Is furniture provided"
+      },
+      value: {
+        text: "Yes"
+      }
+    }
+    
+  ]
+}) }}
+
+<br>
+
+
+
+
+{{ govukSummaryList({
+  rows: [
+    
+
+    {
+      key: {
+        text: "Tenant comments:"
+      },
+      value: {
+        html: "<ul style=margin-left:-2em><li>Bathroom shows some peeling paint on the ceiling, and the loose extractor fan cover (broken)</li><li>Black mould near the floor on the painted wall beside the door</li><li>Photos show close up of the silicone around the bath having perished with mould</li><li>the ceiling has peeling paint</li><li>the silicone seal at the floor cracked with black mould and leaking.</li></ul>"
+      }
+    }
+  ]
+}) }}
+
+
+
+
+ <br>
+<h2 class="govuk-heading-m">Proposed rents and evidence</h2>
+
+
+ {{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Current rent"
+      },
+      value: {
+        text: "£1100 monthly"
+      }
+    },
+    {
+      key: {
+        text: "Landlord proposed rent"
+      },
+      value: {
+        text: "£1400 monthly"
+      }
+    },
+    {
+      key: {
+        text: "Tenant proposed rent"
+      },
+      value: {
+        text: "£1200 monthly"
+      }
+    },
+    {
+      key: {
+        text: "Tenant's reason"
+      },
+      value: {
+        text: "Similar flats in the same building within the past 12 months are rented at much less than the increased rent of £1400 and do not have any substantial difference."
+      }
+    }
+  ]
+}) }}
+</div>

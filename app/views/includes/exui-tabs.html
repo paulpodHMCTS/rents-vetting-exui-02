@@ -12,7 +12,7 @@
     </li>
     <li class="govuk-tabs__list-item">
       <a class="govuk-tabs__tab" href="#Summary">
-        Summary
+        Checklist
       </a>
     </li>
     <li class="govuk-tabs__list-item">
@@ -76,8 +76,17 @@
 
   <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="Summary">
     <section>
-      <h2 class="govuk-heading-l">Summary</h2>
+      <h2 class="govuk-heading-l">Checklist: Vetting</h2>
     </section>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li><strike>Allocate case officer to case</strike></li>
+      <li>Check for duplicate</li>
+      <li>Check payment</li>
+      <li>Check minimum documents supplied</li>
+      <li>Sense check documents for errors</li>
+      <li>Do some more things</li>
+
   </div>
 
 
@@ -87,6 +96,8 @@
     <section>
       <h2 class="govuk-heading-l">State</h2>
     </section>
+
+    <p>Has started vetting</p>
   </div>
 
 
@@ -96,7 +107,7 @@
     <section>
       <h2 class="govuk-heading-l">Case details</h2>
 
-      {% include "includes/case-details-01.njk" %}
+      {% include "includes/case-details-02.njk" %}
          
 
     </section>

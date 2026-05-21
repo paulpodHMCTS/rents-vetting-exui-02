@@ -1,0 +1,205 @@
+{% set section = 'create' %}
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div id="case-id" style="float:left;width: 700px;">
+        <h2 class="govuk-heading-m" style="margin-bottom:0.5em">Vetting: 1234 5678 9256 1345
+          <span class="govuk-caption-m" style="margin-top:0.2em">15 Garden Drive, Luton, Bedfordshire LU1 1AB</span>
+        </h2>
+
+        <h1 class="govuk-heading-xl" style="margin-bottom:0.75em">
+          Include a due date?
+          <!--<span class="govuk-caption-xl" style="margin-top:0.2em">Send the request with a date when the response is required</span>-->
+        </h1>
+
+         <!--<p style="margin:-1.5em 0 1em 0">Assumptions on this are: we are concerned with fixing paper form issues, missing info isn't automatically requested</p>-->
+      </div>
+      
+
+
+      <div id="next-stepper" style="float:right;">
+       
+         
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="sort" style="float:left">
+              <span style="position:relative;top:7px;margin-right: 12px;">Next step
+            </label>
+
+            <div style="float:left">
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="choose" selected>Select action</option>
+                <option value="updated">Confirm payment</option>
+                <option value="request">Issue request</option>
+                <option value="views">Review details</option>
+                <option value="comments">Match duplicate</option>
+              </select>
+            </div>
+            
+            <div style="float:left;margin-left:6px">
+              <a href="case-issue-request"><button class="govuk-button">Go</button></a>
+            </div>
+
+          </div>
+
+          <br clear="all">
+
+ 
+        
+      </div>
+
+      <br clear="all">
+
+      <div>
+      
+
+
+
+
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+
+    <form class="form" action="" method="post" style="max-width: 880px;">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading visually-hidden">
+              Include a due date?
+            </h1>
+          </legend>
+          <div id="contact-hint" class="govuk-hint visually-hidden">
+            Select one option
+          </div>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
+              <label class="govuk-label govuk-radios__label" for="contact">
+                Yes
+              </label>
+            </div>
+
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+              <div class="govuk-form-group">
+
+                {% set otherTime %}
+                {{ govukInput({
+                  id: "other-time-period",
+                  name: "otherTimePeriod",
+                  type: "num",
+                  classes: "govuk-!-width-one-third",
+                  label: {
+                    text: "How many days?"
+                  }
+                }) }}
+                {% endset -%}
+                
+
+
+                {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+                {{ govukRadios({
+                  name: "dueDate",
+                  fieldset: {
+                    legend: {
+                      text: "Select a time period"
+                    }
+                  },
+                  items: [
+                    {
+                      value: "14",
+                      text: "14 days"
+                    },
+                    {
+                      value: "21",
+                      text: "21 days"
+                    },
+                    {
+                      value: "28",
+                      text: "28 days"
+                    },
+                    {
+                      value: "120",
+                      text: "120 days"
+                    },
+                    {
+                      value: "other",
+                      text: "Other time period",
+                      conditional: {
+                        html: otherTime
+                      }
+                    }
+                  ]
+                }) }}
+
+
+                {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+                  {{ govukCheckboxes({
+                    name: "requestReminder",
+                    fieldset: {
+                      legend: {
+                        text: "Send a reminder notification for this due date?",
+                        isPageHeading: false,
+                        classes: "govuk-fieldset__legend visually-hidden"
+                      }
+                    },
+                    items: [            
+                      {
+                        value: "remind",
+                        text: "Send a reminder notification for this due date"
+                      }
+                    ]
+                  }) }}
+
+
+              </div>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" >
+              <label class="govuk-label govuk-radios__label" for="contact-2">
+                No
+              </label>
+            </div>
+
+
+            
+          </div>
+        </fieldset>
+      </div>
+       
+
+        
+        
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Previous step",
+            classes: "govuk-button--secondary",
+            href: ""
+          }) }}
+
+          {{ govukButton({
+            text: "Continue to parties",
+            href: "case-issue-parties"
+          }) }}
+        </div>
+      </form>
+
+
+
+
+         
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,169 @@
+{% set section = 'create' %}
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div id="case-id" style="float:left;width: 880px;">
+        <h2 class="govuk-heading-m" style="margin-bottom:0.5em">Vetting: 1234 5678 9256 1345
+          <span class="govuk-caption-m" style="margin-top:0.2em">15 Garden Drive, Luton, Bedfordshire LU1 1AB</span>
+        </h2>
+
+        <h1 class="govuk-heading-xl" style="margin-bottom:0.75em">
+          Who should receive this request?
+          <!--<span class="govuk-caption-xl" style="margin-top:0.2em"></span>-->
+        </h1>
+
+         <!--<p style="margin:-1.5em 0 1em 0">Assumptions on this are: we are concerned with fixing paper form issues, missing info isn't automatically requested</p>-->
+      </div>
+      
+
+
+      <div id="next-stepper" style="float:right;">
+       
+         
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="sort" style="float:left">
+              <span style="position:relative;top:7px;margin-right: 12px;">Next step
+            </label>
+
+            <div style="float:left">
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="choose" selected>Select action</option>
+                <option value="updated">Confirm payment</option>
+                <option value="request">Issue request</option>
+                <option value="views">Review details</option>
+                <option value="comments">Match duplicate</option>
+              </select>
+            </div>
+            
+            <div style="float:left;margin-left:6px">
+              <a href="case-issue-request"><button class="govuk-button">Go</button></a>
+            </div>
+
+          </div>
+
+          <br clear="all">
+
+ 
+        
+      </div>
+
+      <br clear="all">
+
+
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+
+    <form class="form" action="" method="post" style="max-width: 880px;">
+        
+       {% set tenantChannels %}
+         {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+          {{ govukCheckboxes({
+            name: "nationality",
+            fieldset: {
+              legend: {
+                text: "Notify them by:",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "british",
+                text: "Email",
+                hint: {
+                  text: "tenant@email.com"
+                }
+              },
+              {
+                value: "SMS",
+                text: "SMS text message",
+                hint: {
+                  text: "07718272722"
+                }
+              },
+              {
+                value: "Post",
+                text: "Post",
+                hint: {
+                  html: "<p class=govuk-hint>Address 1<br>Address 2<br>Town<br>Postcode</p>"
+                }
+              }
+            ]
+          }) }}
+        
+      {% endset -%}
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+          {{ govukCheckboxes({
+            name: "request",
+            fieldset: {
+              legend: {
+                text: "Who should receive this request?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m visually-hidden"
+              }
+            },
+            items: [
+              {
+                value: "tenant",
+                text: "Tenant applicant",
+                conditional: {
+                  html: tenantChannels
+                }
+              },
+              {
+                value: "jointtenants",
+                text: "Other joint tenants"
+              },
+              {
+                value: "tenantrep",
+                text: "Tenant’s representative"
+              },
+              {
+                value: "landlord",
+                text: "Landlord"
+              },
+              {
+                value: "landlordrep",
+                text: "Landlord’s representative"
+              }
+            ]
+          }) }}
+
+        
+        
+        <div class="govuk-button-group">
+          
+          {{ govukButton({
+            text: "Previous step",
+            classes: "govuk-button--secondary",
+            href: ""
+          }) }}
+
+          {{ govukButton({
+            text: "Continue to summary",
+            href: "case-issue-check"
+          }) }}
+        </div>
+      </form>
+
+
+
+
+         
+
+    </div>
+  </div>
+
+{% endblock %}

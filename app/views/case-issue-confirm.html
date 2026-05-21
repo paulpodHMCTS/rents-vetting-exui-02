@@ -1,0 +1,121 @@
+{% set section = 'create' %}
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div id="case-id" style="float:left;width: 700px;">
+        <h2 class="govuk-heading-m" style="margin-bottom:0.5em">Vetting: 1234 5678 9256 1345
+          <span class="govuk-caption-m" style="margin-top:0.2em">15 Garden Drive, Luton, Bedfordshire LU1 1AB</span>
+        </h2>
+
+        <h1 class="govuk-heading-xl" style="margin-bottom:0.75em">
+          
+          <!--<span class="govuk-caption-xl" style="margin-top:0.2em">Request missing document and details</span>-->
+        </h1>
+
+         <!--<p style="margin:-1.5em 0 1em 0">Assumptions on this are: we are concerned with fixing paper form issues, missing info isn't automatically requested</p>-->
+      </div>
+      
+
+
+      <div id="next-stepper" style="float:right;">
+       
+         
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="sort" style="float:left">
+              <span style="position:relative;top:7px;margin-right: 12px;">Next step
+            </label>
+
+            <div style="float:left">
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="choose" selected>Select action</option>
+                <option value="updated">Confirm payment</option>
+                <option value="request">Issue request</option>
+                <option value="views">Review details</option>
+                <option value="comments">Match duplicate</option>
+              </select>
+            </div>
+            
+            <div style="float:left;margin-left:6px">
+              <a href="case-issue-request"><button class="govuk-button">Go</button></a>
+            </div>
+
+          </div>
+
+          <br clear="all">
+
+ 
+        
+      </div>
+
+      <br clear="all">
+
+     <div style="max-width: 880px;">
+
+      <div class="govuk-panel govuk-panel--confirmation" style="margin-top:-30px;padding-bottom: 0.5em;color: white;">
+        <h1 class="govuk-panel__title">
+          Notification sent 
+        </h1>
+        <div class="govuk-panel__body">
+          
+
+          <div style="text-align: left;">
+            <p style="color: white !important;">
+              Case: <br><strong>1234 5678 9256 1345</strong>
+            </p>
+
+            <p style="margin-bottom:0;color: white !important;">Requesting:
+              <ul class="govuk-list  govuk-list--bullet" style="color: white !important;">
+                <li>a missing tenancy agreement</li>
+                <li>missing landlord or landlord representative address</li>
+              </ul>
+            </p>
+
+        </div>
+
+
+      </div>
+
+    <form class="form" action="" method="post">
+
+      
+
+
+      </div>
+        
+       
+
+        
+        <div class="govuk-button-group">
+          
+          {{ govukButton({
+            text: "Return to case list",
+            classes: "govuk-button--secondary",
+            href: "case-list"
+          }) }}
+
+          {{ govukButton({
+            text: "Return to case dashboard",
+            href: "case-dashboard"
+          }) }}
+        </div>
+      </form>
+
+
+
+
+         
+
+    </div>
+  </div>
+
+{% endblock %}

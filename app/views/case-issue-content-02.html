@@ -1,0 +1,155 @@
+{% set section = 'create' %}
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div id="case-id" style="float:left;width: 880px;">
+        <h2 class="govuk-heading-m" style="margin-bottom:0.5em">Vetting: 1234 5678 9256 1345
+          <span class="govuk-caption-m" style="margin-top:0.2em">15 Garden Drive, Luton, Bedfordshire LU1 1AB</span>
+        </h2>
+
+        <h1 class="govuk-heading-xl" style="margin-bottom:0.75em">
+          Request missing documents or details
+          <!--<span class="govuk-caption-xl" style="margin-top:0.2em">Request missing document and details</span>-->
+        </h1>
+
+         <!--<p style="margin:-1.5em 0 1em 0">Assumptions on this are: we are concerned with fixing paper form issues, missing info isn't automatically requested</p>-->
+      </div>
+      
+
+
+      <div id="next-stepper" style="float:right;">
+       
+         
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="sort" style="float:left">
+              <span style="position:relative;top:7px;margin-right: 12px;">Next step
+            </label>
+
+            <div style="float:left">
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="choose" selected>Select action</option>
+                <option value="updated">Confirm payment</option>
+                <option value="request">Issue request</option>
+                <option value="views">Review details</option>
+                <option value="comments">Match duplicate</option>
+              </select>
+            </div>
+            
+            <div style="float:left;margin-left:6px">
+              <a href="case-issue-request"><button class="govuk-button">Go</button></a>
+            </div>
+
+          </div>
+
+          <br clear="all">
+
+ 
+        
+      </div>
+
+      <br clear="all">
+
+      <div>
+        <!--<p>You are requesting:-->
+          <ul class="govuk-list  govuk-list--bullet">
+            <li> a missing tenancy agreement</li>
+            <li>missing landlord or landlord representative address.</li>
+          </ul>
+        <!--</p>-->
+
+
+
+
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+
+    <form class="form" action="" method="post" style="max-width: 880px;">
+
+      <!--<h3 class="govuk-heading-s">Header</h3>
+
+      <p>
+        The header will automatically generated with tribunal, service, and case reference numbers.
+      </p>-->
+
+
+      
+
+      <!--<h3 class="govuk-heading-s">Message body</h3>-->
+
+      <!--<p>
+        Template text has been added to the box below.
+      </p>-->
+
+      <div class="govuk-form-group">
+        
+       
+        <textarea class="govuk-textarea" id="message-body" name="messageBody" rows="10" aria-describedby="more-detail-hint" >
+          Your application for a market rent appeal has been received, but we are missing a few things.
+
+          1. Supply us with a copy of your tenancy agreement. It might be called a contract, short term tenancy agreement, or something else.
+
+          2. Provide an address for your landlord. We need this to send them the next steps in your application. 
+
+          You may send these documents to the email address rents@hmcts.gov.uk with your case number “1234 5678 9256 1345” in the subject line, or sign in to the market rents dashboard and upload complete the task there.
+
+
+
+
+        </textarea>
+      </div>
+        
+       
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+          {{ govukCheckboxes({
+            name: "requestextra",
+            fieldset: {
+              legend: {
+                text: "Do you need to add more information?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend visually-hidden"
+              }
+            },
+            items: [            
+              {
+                value: "other",
+                text: "Add an additional comment"
+              }
+            ]
+          }) }}
+
+        
+        
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Previous step",
+            classes: "govuk-button--secondary",
+            href: ""
+          }) }}
+
+          {{ govukButton({
+            text: "Continue and save changes",
+            href: "case-issue-content-03"
+          }) }}
+        </div>
+      </form>
+
+
+
+
+         
+
+    </div>
+  </div>
+
+{% endblock %}
