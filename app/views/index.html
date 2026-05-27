@@ -9,10 +9,10 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full">
       <h1 class="govuk-heading-xl">
-        Prototyping RPT Market Rent Request Vetting
-        <span class="govuk-caption-xl">GOV.UK Prototype Kit {{releaseVersion}}</span>
+        Prototyping:<br>Market Rent Request Vetting
+        <!--<span class="govuk-caption-xl">GOV.UK Prototype Kit {{releaseVersion}}</span>-->
       </h1>{{releaseVersion | log }}
       <p>
         Sketching out some screens in code that we need
@@ -45,18 +45,127 @@
         </li>
       </ul>
 
-      
+<div style="overflow: visible;">
+      <p>Note: "standard" tabs for exui are:<br>
+
+      <ul class="govuk-tabs__list">
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">Tasks</li>
+
+        <li class="govuk-tabs__list-item ">Roles & access</li>
+
+        <li class="govuk-tabs__list-item ">Parties</li>
+
+        <li class="govuk-tabs__list-item ">Case details</li>
+
+        <li class="govuk-tabs__list-item ">Case file view</li>
+
+        <li class="govuk-tabs__list-item ">History/Summary</li>
+
+        <li class="govuk-tabs__list-item ">Hearings</li>
+
+        <li class="govuk-tabs__list-item ">Linked cases</li>
+
+        <li class="govuk-tabs__list-item ">Notes</li>
+
+        <li class="govuk-tabs__list-item ">Notifications</li>
+
+        <li class="govuk-tabs__list-item ">Service request</li>
+
+        <li class="govuk-tabs__list-item ">Payment history</li>
+
+        <li class="govuk-tabs__list-item ">Queries</li>
+
+      </ul>
+      </p>
+
+      <p>To follow up: Ros says they can be shown/hidden based on context and usage, as well as ExUI becoming decentalised - need to uncover what this means precisely for improvements at an individual service level. Naming might persist as a common, but usage of components might be allowed to be localised
+    </div>
+
+    <style>
+      .makeit {
+        padding: 2px 6px;
+        margin: 6px 3px ;
+        background-color: #ffee66;
+      }
+      .madeit {
+        padding: 2px 6px;
+        margin: 6px 3px ;
+        background-color: #88ffaa;
+      }
+      li {margin-bottom:0.6em}
+    </style>
+      <p class="govuk-inset-text"> 
+        <span class="makeit">&ddagger;</span>  = make a screen for this
+        <br>
+        <span class="madeit">&dagger;</span>  = made this screen
+      </p>
 
       <ul class="govuk-list govuk-list--bullet">
-        <li>Create a case manually: 
-          <a href="case-create">Create</a>
+        <li>Paper > digital - create a case manually<br>
+        Current assumption rare or not at all: <br>
+          <span class="makeit">&ddagger;</span> <a href="case-create-mr1-01">MR1 - chunked tenant details</a>
         </li>
+
         <li>
-          Input manually - would this be required, given scanning and MOJ Forms MR1? If it is required follow the re-flowed updated version or the direct paper conversion?
+          <span class="makeit">&ddagger;</span> <a href="#">Work allocation</a><br>
+          Assumption is some Work List view in the ExUI, to replace the archaic shared inbox/Outlook workflow:<br>
+          <span class="makeit">&ddagger;</span> <a href="work-list">Work list</a> with <a href="work-list-assign">assign to self</a> functionality
+        </li>
+
+        <li>
+          Checks
           <ol>
-          <li><a href="case-create-mr1-01">MR1 - chunked tenant details</a></li>
-          <li><a href="#">Summary</a>
+            <li>
+              Initial vetting fail - time limits already breached<br>
+              <span class="makeit">&ddagger;</span> <a href="case-issue-ack00">Send acknowledgement to applicant</a> Basic failure respoinse. Just press a button
+            </li>
+
+            <li>
+              Is it a duplicate? <a href="#"></a><br>
+              This only matches on postcode? So any identical postcodes would go to a Legal Officer to disambiguate and act on? Does the LO do case admin = eg. case gets merged?<br>
+              <span class="makeit">&ddagger;</span> <a href="#">Refer to a legal officer</a> - simple one-page form, checkboxes and add comment?</a>
+            </li>
+
+            <li>
+              Present missing items to CO user, assumption creation of this is automatic:<br>
+              Only the essential items need be flagged for user request/notifications<br>
+              <span class="madeit">&ddagger;</span> <a href="case-issue-request">Send a request to the applicant</a> for missing docs, info
+                <ul>
+                  <li>Which docs to <a href="case-issue-request">request</a> (checkboxes, list)</li>
+                  <li>Default <a href="case-issue-content-03">content of request</a> notification message</li>
+                  <li>Optional <a href="case-issue-content-02">edit the message</a></li>
+                  <li>Confirm: <a href="case-issue-draft">draft request</a> saved</li>
+                  <li>Set <a href="case-issue-date">due date</a>, reminder</li>
+                  <li>Pick recipient from <a href="case-issue-parties">parties</a></li>
+                  <li>Choose <a href="case-issue-parties">recipient channel</a></li>
+                  <li>Check <a href="case-issue-check">summary</a></li>
+                  <li>View preview as <a href="case-issue-notify-preview">email</a> or <a href="case-issue-pdf-preview">pdf</a></li>
+                  <li><a href="case-issue-confirm">Confirm</a>: notification or request sent</li>
+
+            </li>
+
+            <li>
+              Separate request form for mismatch info? More detailed, request clarification of possible errors<br>
+              <span class="makeit">&ddagger;</span> <a href="case-issue-correct">Send a request to the applicant</a> for small pieces of data/confirm/correct
+            </li>
+
+            <li>
+              No vetting issses<br>
+              <span class="makeit">&ddagger;</span> <a href="case-issue-ack01">Send acknowledgement to applicant</a> no customisation? Just press a button
+            </li>
+
+            <li>Inspection or hearing at this step? To confirm with Amy/Sharon - seems premature in flow?</li>
+
+            <li>
+              Custom acknowledgment letter<br>
+              <span class="makeit">&ddagger;</span> <a href="case-issue-ack02">Send acknowledgement to applicant</a> Process a response with bespoke directions from LO user or Judge
+            </li>
+
+
+
           </ol>
+
+
         </li>
       </ul>
 
