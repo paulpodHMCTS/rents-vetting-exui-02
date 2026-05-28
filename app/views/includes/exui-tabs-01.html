@@ -1,0 +1,203 @@
+
+<div class="govuk-tabs" data-module="govuk-tabs" style="width:1300px;overflow: visible;">
+  <!--<h2 class="govuk-tabs__title">
+    Contents -- is this just for screen readers?
+  </h2>-->
+
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#History">
+        History
+      </a>
+    </li>
+
+    <li class="govuk-tabs__list-item ">
+      <a class="govuk-tabs__tab" href="#Tasks">
+        Tasks
+      </a>
+    </li>
+
+    <!--<li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#Roles">
+        Roles & access
+      </a>
+    </li>-->
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#Parties">
+        Parties
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#Details">
+        Case details
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#Files">
+        File view
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#Hearings">
+        Hearings
+      </a>
+    </li>
+    <!--<li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#Linked">
+        Linked cases
+      </a>
+    </li>-->
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#Notes">
+        Notes
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#Notifications">
+        Notifications
+      </a>
+    </li>
+    <!-- Additional tabs according to the Spec ... but this might be BS
+    - -- see https://tools.hmcts.net/confluence/spaces/CCE1D/pages/1482327709/Common+Case+Details+View
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#Service">
+        Service request
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#Payments">
+        Payment history
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#Queries">
+        Queries
+      </a>
+    </li>-->
+  </ul>
+
+
+
+
+
+
+  <div class="govuk-tabs__panel exui-tabpanel" id="History">
+    <section>
+    
+
+      {% include "includes/case-history-01.njk" %}
+
+    </section>
+  </div>
+
+
+
+
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="Summary">
+    <section>
+      <h2 class="govuk-heading-l">Checklist: Vetting</h2>
+    </section>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li><strike>Allocate case officer to case</strike></li>
+      <li>Check for duplicate</li>
+      <li>Check payment</li>
+      <li>Check minimum documents supplied</li>
+      <li>Sense check documents for errors</li>
+      <li>Do some more things</li>
+
+  </div>
+
+
+
+
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="State">
+    <section>
+      <h2 class="govuk-heading-l">State</h2>
+    </section>
+
+    <p>Has started vetting</p>
+  </div>
+
+
+
+
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden exui-tabpanel" id="Details">
+    <section>
+      <h2 class="govuk-heading-l">Case details</h2>
+
+      {% include "includes/case-details-02.njk" %}
+         
+
+    </section>
+  </div>
+
+
+
+
+<div class="govuk-tabs__panel govuk-tabs__panel--hidden exui-tabpanel" id="Parties">
+    <section>
+      <h2 class="govuk-heading-l">Case parties</h2>
+
+      {% include "includes/case-parties-01.njk" %}
+         
+
+    </section>
+  </div>
+
+
+
+
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="Orders">
+    <section>
+      <h2 class="govuk-heading-l">Orders & decisions</h2>
+    </section>
+  </div>
+
+
+
+
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden exui-tabpanel" id="Docs">
+    <section>
+      <h2 class="govuk-heading-l">Case documents</h2>
+
+      {% include "includes/case-docs-01.njk" %}
+
+
+    </section>
+  </div>
+
+
+
+
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="Bundles">
+    <section>
+      <h2 class="govuk-heading-l">Bundles</h2>
+    </section>
+  </div>
+
+
+
+
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="Hearings">
+    <section>
+      <h2 class="govuk-heading-l">Hearings</h2>
+    </section>
+  </div>
+
+
+
+
+  <!--<div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="More">
+    <section>
+      <h2 class="govuk-heading-l">One more</h2>
+    </section>
+  </div>-->
+
+</div><!-- end GOV TABS -->
+  
+
+
+</div>
+</nav>
+</div>

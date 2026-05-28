@@ -100,14 +100,22 @@
         color: #eee000;
       }
       .work-tag {
-        background-color: #eee;
+        background-color: #eeffee;
         color: #227700;
         border: solid 1px #339900;
         border-radius: 3px;
         font-size: 14px;
         font-weight: 600;
         padding: 1px 7px;
-
+      }
+      .work-tag-sys {
+        background-color: #eeeeee;
+        color: #666;
+        border: solid 1px #999;
+        border-radius: 3px;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 1px 7px;
       }
     </style>
       <p class="govuk-inset-text"> 
@@ -116,16 +124,20 @@
         <span class="madeit">&dagger;</span>  = made this screen
       </p>
 
-      <ul class="govuk-list govuk-list--bullet">
+      <ul class="govuk-list govuk-list--bullet" style="max-width:880px">
         <li>Paper > digital - create a case manually<br>
         Current assumption rare or not at all: <br>
           <span class="madeit">&dagger;</span> Keying in an MR1 - <a href="case-create-mr1-01"> in a page-by-page replica</a> of the paper form
         </li>
 
         <li>
-          <span class="makeit">&ddagger;</span> <a href="#">Work allocation</a><br>
+          Register application <span class="work-tag-sys">PT-08.01</span> <br>
           Assumption is some Work List view in the ExUI, to replace the archaic shared inbox/Outlook workflow:<br>
-          <span class="makeit">&ddagger;</span> <a href="work-list">Work list</a> with <a href="work-list-assign">assign to self</a> functionality
+          Once submitted and paid (or HwF) add to a <a href="work-list">Work list</a>...
+        </li>
+          <li>
+          <span class="makeit">&ddagger;</span> <a href="#">Work allocation</a> <span class="work-tag">PT-08.02</span><br>
+          where Case officer can <a href="work-list-assign">assign to self</a>, register application, review submitted data + docs in the ExUI front end
         </li>
 
         <li>
@@ -137,7 +149,7 @@
             </li>
 
             <li>
-              Is it a duplicate? <a href="#"></a><br>
+              Is it a duplicate? <a href="#"></a> <span class="work-tag">PT-010.01</span><br>
               This only matches on postcode? So any identical postcodes would go to a Legal Officer to disambiguate and act on? Does the LO do case admin = eg. case gets merged?<br>
               <span class="makeit">&ddagger;</span> <a href="#">Refer to a legal officer</a> - simple one-page form, checkboxes and add comment?</a>
             </li>
