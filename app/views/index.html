@@ -48,7 +48,7 @@
 <div style="overflow: visible;">
       <p>Note: "standard" tabs for exui are:<br>
 
-      <ul class="govuk-tabs__list">
+      <ul class="govuk-tabs__list" >
         <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">Tasks</li>
 
         <li class="govuk-tabs__list-item ">Roles & access</li>
@@ -93,6 +93,22 @@
         background-color: #88ffaa;
       }
       li {margin-bottom:0.6em}
+      ul.sublist-done li::marker {
+        color: #88ffaa;
+      }
+      ul.sublist-todo li::marker {
+        color: #eee000;
+      }
+      .work-tag {
+        background-color: #eee;
+        color: #227700;
+        border: solid 1px #339900;
+        border-radius: 3px;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 1px 7px;
+
+      }
     </style>
       <p class="govuk-inset-text"> 
         <span class="makeit">&ddagger;</span>  = make a screen for this
@@ -103,7 +119,7 @@
       <ul class="govuk-list govuk-list--bullet">
         <li>Paper > digital - create a case manually<br>
         Current assumption rare or not at all: <br>
-          <span class="makeit">&ddagger;</span> <a href="case-create-mr1-01">MR1 - chunked tenant details</a>
+          <span class="madeit">&dagger;</span> Keying in an MR1 - <a href="case-create-mr1-01"> in a page-by-page replica</a> of the paper form
         </li>
 
         <li>
@@ -126,11 +142,12 @@
               <span class="makeit">&ddagger;</span> <a href="#">Refer to a legal officer</a> - simple one-page form, checkboxes and add comment?</a>
             </li>
 
-            <li>
+            <li>Missing information request  <span class="work-tag">PT-010.02</span>
               Present missing items to CO user, assumption creation of this is automatic:<br>
               Only the essential items need be flagged for user request/notifications<br>
               <span class="madeit">&ddagger;</span> <a href="case-issue-request">Send a request to the applicant</a> for missing docs, info
-                <ul style="padding:0.3em;margin-left: 2em;">
+                <ul class="sublist-done" style="padding:0.3em;margin-left: 2em;">
+
                   <li>Which docs to <a href="case-issue-request">request</a> (checkboxes, list)</li>
                   <li>Default <a href="case-issue-content-03">content of request</a> notification message</li>
                   <li>Optional <a href="case-issue-content-02">edit the message</a></li>
@@ -151,15 +168,36 @@
             </li>
 
             <li>
-              No vetting issses<br>
+              No vetting issses <span class="work-tag">PT-011.01</span><br>
               <span class="makeit">&ddagger;</span> <a href="case-issue-ack01">Send acknowledgement to applicant</a> no customisation? Just press a button
             </li>
 
-            <li>Inspection or hearing at this step? To confirm with Amy/Sharon - seems premature in flow?</li>
+            <li>
+              Juristictional issue <span class="work-tag">PT-012.02</span> <br>
+              <span class="makeit">&ddagger;</span> Allow case officers to refer for <strong>vetting issues</strong> to a LO
+
+              <ul class="sublist-todo" style="padding:0.3em;margin-left: 2em;">
+
+                  <li>Case officer <a href="case-issue-ref02">refers to Legal officer</a> can review, refer to Judge</li>
+                  <li>Legal officer can review, <a href="case-issue-ref03">escalate to Judge</a>, refer to Judge</li>
+                  <li>Legal officer can provide directions back to <a href="case-issue-ref04">Case officer</a>, to action</li>
+                  <br>
+
+                  <span style="display:inline-block;padding-bottom:1em">
+                    Also - additional tasks on a work list view for:
+                  </span>
+
+                  <li>LO <a href="case-receive-referral-01">receiving a referral</a></li>
+                  <li>Judge <a href="case-receive-referral-02">receiving a referral</a> (not sure about this)</li>
+                  <li>Case officer <a href="case-receive-direction-01">receiving direction</a> back</li>
+                </ul>
+            </li>
+
+            <li>Inspection or hearing at this step? To confirm with Amy/Sharon - seems premature in <i>vetting</i> flow?</li>
 
             <li>
-              Custom acknowledgment letter<br>
-              <span class="makeit">&ddagger;</span> <a href="case-issue-ack02">Send acknowledgement to applicant</a> Process a response with bespoke directions from LO user or Judge
+              Custom acknowledgment letter  <span class="work-tag">PT-011.02</span><br>
+              <span class="makeit">&ddagger;</span> <a href="case-issue-ack02">Send acknowledgement to applicant</a> Process a response with bespoke directions from LO user or Judge (possible strike out warning)
             </li>
 
 
