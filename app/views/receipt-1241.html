@@ -12,16 +12,16 @@
     <div class="govuk-grid-column-full">
 
       <div id="case-id" style="float:left;width: 880px;">
-        <h2 class="govuk-heading-m" style="margin-bottom:0.5em">Vetting: 1234 5678 9256 1345
+        <h2 class="govuk-heading-m" style="margin-bottom:0.5em">1234 5678 9256 1345
           <span class="govuk-caption-m" style="margin-top:0.2em">15 Garden Drive, Luton, Bedfordshire LU1 1AB</span>
         </h2>
 
         <h1 class="govuk-heading-xl" style="margin-bottom:0.75em">
-          Summary
-          <span class="govuk-caption-xl" style="margin-top:0.2em">Request missing document or details</span>
+          Payment details
+          <span class="govuk-caption-xl" style="margin-top:0.2em">Receipt and payment history</span>
         </h1>
 
-         <!--<p style="margin:-1.5em 0 1em 0">Assumptions on this are: we are concerned with fixing paper form issues, missing info isn't automatically requested</p>-->
+         <p style="margin:-1.5em 0 1em 0">Assumptions on this are: might need to include HwF references, links to process docs, payment attempts, failures, as well as completed receipts etc.</p>
       </div>
       
 
@@ -60,69 +60,61 @@
       <br clear="all">
 
 
-      {% set messageBody %}
-
+      {% set feesBody %}
         <p>
-          Your application for a market rent appeal has been received, but we are missing a few things:
+          <strong>MR1 application</strong><br>
+          <span style="width:10em;display: inline-block;">Standard fee</span> £84.44
         </p>
 
-          <ol class="govuk-list govuk-list--numbered">
-            <li>
-              Supply us with a copy of your tenancy agreement. It might be called a contract, short term tenancy agreement, or something else.
-            </li>
+        <p>
+          <strong>Help with fees</strong><br>
+          <span style="width:10em;display: inline-block;">Full coverage</span>-£84.44
+        </p>
 
-            <li>
-              Provide an address for your landlord. We need this to send them the next steps in your application. 
-            </li>
-          </ol>
-
-          <p>
-            You may send these documents to the email address rents@hmcts.gov.uk with your case number “1234 5678 9256 1345” in the subject line, or sign in to the market rents dashboard and upload complete the task there.
-          </p>
-
-          <p>
-            We need to receive these documents by Thursday 18 June 2026.
-          </p>
+        <p>
+          <strong>Total</strong><br>
+          <span style="width:10em;display: inline-block;">Total paid</span> £0.00
+        </p>
 
       {% endset -%}
 
       {% set recipients %}
 
         <p>
-          <strong>Herbie Hall</strong><br>
-          Tenant applicant
+          <strong>HMCTS central payments</strong><br>
+          Some sort of name
         </p>
 
         <p>
-          <strong>Email</strong><br>
-          h.hall@milestones.bop
+          <strong>Card</strong><br>
+          Debit ending 1211
         </p>
 
         <p>
-          <strong>SMS text message</strong><br>
-          03333&nbsp;373&nbsp;323
+          <strong>Card name</strong><br>
+          Herbie Hall
         </p>
 
         <p>
-          <strong>Post</strong><br>
-          15 Garden Drive<br>
-          Luton<br>
-          Bedfordshire <br>
+          <strong>Postcode</strong><br> 
           LU1 1AB 
         </p>
        
       {% endset -%}
 
-      {% set dueDates %}
+      {% set paymentDates %}
 
         <p>
-          Response due <strong>18 June 2026</strong>
-          
+          Payment attempted 11:02 18 May 2026 card ending 2832 - <strong>Fail</strong>
+        </p>
+
+        <p>
+          Payment attempted 11:05 18 May 2026 card ending 1211 - <strong>Success</strong>
         </p>
 
 
         <p>
-          A reminder notification will be sent
+          Email and SMS notifications were sent 11:06 18 May 2026
         </p>
        
 
@@ -138,10 +130,10 @@
         rows: [
           {
             key: {
-              text: "Request"
+              text: "Receipt"
             },
             value: {
-              html: "missing tenancy agreement<br>missing landlord or landlord’s representative address"
+              html: "Email to hhall@gmail.com and SMS to 07718765432"
             },
             actions: {
               items: [
@@ -155,16 +147,16 @@
           },
           {
             key: {
-              text: "Message body"
+              text: "Fees"
             },
             value: {
-              html: messageBody
+              html: feesBody
             },
             actions: {
               items: [
                 {
                   href: "#",
-                  html: "Change",
+                  html: "",
                   visuallyHiddenText: "request-items"
                 }
               ]
@@ -172,16 +164,16 @@
           },
           {
             key: {
-              text: "Due dates"
+              text: "Payment made"
             },
             value: {
-              html: dueDates
+              html: paymentDates
             },
             actions: {
               items: [
                 {
                   href: "#",
-                  html: "Change",
+                  html: "",
                   visuallyHiddenText: "request-items"
                 }
               ]
@@ -198,12 +190,7 @@
               items: [
                 {
                   href: "#",
-                  text: "Add",
-                  visuallyHiddenText: "contact details"
-                },
-                {
-                  href: "#",
-                  text: "Change",
+                  text: "",
                   visuallyHiddenText: "contact details"
                 }
               ]
@@ -220,25 +207,14 @@
         
         <div class="govuk-button-group">
           {{ govukButton({
-            text: "Previous step",
+            text: "Receipt as PDF",
             classes: "govuk-button--secondary",
             href: ""
           }) }}
 
+         
           {{ govukButton({
-            text: "Preview as email",
-            classes: "govuk-button--secondary",
-            href: "case-issue-notify-preview"
-          }) }}
-
-          {{ govukButton({
-            text: "Preview as PDF",
-            classes: "govuk-button--secondary",
-            href: ""
-          }) }}
-
-          {{ govukButton({
-            text: "Send",
+            text: "Resend notifications",
             href: "case-issue-confirm"
           }) }}
         </div>
