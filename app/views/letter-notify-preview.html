@@ -1,0 +1,108 @@
+{% set section = 'create' %}
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div id="case-id" style="float:left;width: 700px;">
+        <h1 class="govuk-heading-xl">
+          Preview email
+          <!--<span class="govuk-caption-xl">Manual entry if scanning or digital not available</span>-->
+        </h1>
+
+        
+      </div>
+      
+     
+
+      <div id="next-stepper" style="float:right;">
+       
+         
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="sort" style="float:left">
+              <span style="position:relative;top:7px;margin-right: 12px;">Next step
+            </label>
+
+            <div style="float:left">
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="choose" selected>Select action</option>
+                <option value="updated">Confirm payment</option>
+                <option value="views">Review details</option>
+                <option value="comments">Match duplicate</option>
+              </select>
+            </div>
+            
+            <div style="float:left;margin-left:6px">
+              <button class="govuk-button">Go</button>
+            </div>
+
+          </div>
+
+          <br clear="all">
+
+ 
+        
+      </div>
+
+      <br clear="all">
+
+      
+      <div id="email-preview" style="border:6px solid #eee;border-radius: 10px;width: 800px;margin-bottom:1em">
+        <div id="fake-email-header" style="background-color:black">
+          <div class="govuk-heading-m" style="color:white;padding:0.35em 0"><span style="display: inline-block;padding-left:1.3em;text-decoration-line: underline;text-decoration-color: #1d70b8;text-underline-offset: 14px;
+text-decoration-thickness: 8px;">HM Courts & Tribunals Service<span style="color:black">stretch the space more more more me</span></span></div>
+        </div>
+
+        <div style="padding: 0 2em 2em 2em;">
+            <p>
+            Your application for a market rent appeal has been received, but we are missing a few things:</p>
+
+            <p>
+            Supply us with a copy of your tenancy agreement. It might be called a contract, short term tenancy agreement, or something else.</p>
+
+            <p>
+            Provide an address for your landlord. We need this to send them the next steps in your application.</p>
+
+            <p>
+              You may send these documents to the email address <a href="#">rents@hmcts.gov.uk</a> with your case number <strong>1234 5678 9256 1345</strong> in the subject line, or <a href="#">sign into your market rents dashboard</a> and upload files to complete the task there.</p>
+
+            <p>
+              We need to receive these documents by Thursday 18 June 2026</p>
+        </div>
+
+      </div>
+
+
+
+        <div class="govuk-button-group">
+          
+          {{ govukButton({
+            text: "Back to summary",
+            classes: "govuk-button--secondary",
+            href: "case-issue-check"
+          }) }}
+
+          {{ govukButton({
+            text: "Send now",
+            href: "case-issue-confirm"
+          }) }}
+        </div>
+      </form>
+
+
+
+
+         
+
+    </div>
+  </div>
+
+{% endblock %}
