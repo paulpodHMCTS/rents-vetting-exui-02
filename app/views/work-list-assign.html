@@ -12,13 +12,152 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <h1 class="govuk-heading-xl">
-        Work list
+        Assign to work list
         <span class="govuk-caption-l">{{ globals.caseofficer }}</span>
       </h1>{{releaseVersion | log }}
-      
-      {% include "includes/caselist-filter.html" %}
 
-      <table class="govuk-table">
+
+
+      <div >
+        {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Case number"
+            },
+            value: {
+              html: "4567 5678 9123 1234"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Status"
+            },
+            value: {
+              html: "New to review<br>14 days remaining"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  html: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Date of receipt"
+            },
+            value: {
+              html: "28/05/2026"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  html: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Sent via"
+            },
+            value: {
+              html: "28/05/2026"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  html: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Fee paid"
+            },
+            value: {
+              html: "28/05/2026"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  html: "Payment receipt"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Next action"
+            },
+            value: {
+              html: "Waiting for a case officer"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Assign to me",
+                  visuallyHiddenText: "contact details"
+                },
+                {
+                  href: "#",
+                  text: "Assign to someone else",
+                  visuallyHiddenText: "contact details"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+
+
+
+    
+        
+        
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Back to Case list",
+            classes: "govuk-button--secondary",
+            href: "case-list"
+          }) }}
+
+          {{ govukButton({
+            text: "Assign to someone else",
+            classes: "govuk-button--secondary",
+            href: ""
+          }) }}
+
+          {{ govukButton({
+            text: "Assign to me and start",
+            href: "case-dashboard-01"
+          }) }}
+        </div>
+      </form>
+      
+      
+      </div>
+
+      <table class="govuk-table" style="display:none;">
         <caption class="govuk-table__caption govuk-table__caption--m">
           Your cases
           <br>

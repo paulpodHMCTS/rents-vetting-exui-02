@@ -1,6 +1,7 @@
 {% set section = 'cases' %}
 
 {% extends "layout.html" %}
+{% import '_globals.html' as globals %}
 
 {% block pageTitle %}
   Home – GOV.UK Prototype Kit
@@ -13,8 +14,8 @@
 
       <div id="case-id" style="float:left;">
         <h1 class="govuk-heading-xl">
-          Case 1234 5678 9256 1345 
-          <span class="govuk-caption-xl">15 Garden Drive, Luton, Bedfordshire LU1 1AB</span>
+          Case {{ globals.case_number }}
+          <span class="govuk-caption-xl">{{ globals.case_property }}</span>
         </h1>
       </div>
       

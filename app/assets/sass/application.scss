@@ -111,3 +111,18 @@ $govuk-assets-path: '/govuk/assets/';
 .table-head-arrows {
 	
 }
+
+// Just for me during dev + screengrabs, blue links not purple (visited)
+a:visited {
+	color: #1d70b8 !important;
+}
+// overide *all* the links as blue, but then
+// I need to refix the links in the header and buttons LOL
+a.govuk-button, a.govuk-header__link {
+	color: white !important;
+}
+// except the secondary buttons, which need to remain grey, JFC
+a.govuk-button--secondary {
+	color: black !important;
+}
+

@@ -5972,3 +5972,15 @@ x:-moz-any-link {
 .visually-hidden {
   display: none;
 }
+
+a:visited {
+  color: #1d70b8 !important;
+}
+
+a.govuk-button, a.govuk-header__link {
+  color: white !important;
+}
+
+a.govuk-button--secondary {
+  color: black !important;
+}

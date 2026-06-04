@@ -1,6 +1,7 @@
 {% set section = 'create' %}
 
 {% extends "layout.html" %}
+{% import '_globals.html' as globals %}
 
 {% block pageTitle %}
   Home – GOV.UK Prototype Kit
@@ -12,7 +13,7 @@
     <div class="govuk-grid-column-full">
 
       <div id="case-id" style="float:left;width: 700px;">
-        <h1 class="govuk-heading-xl" style="margin-bottom: 0.5em;">
+        <h1 class="govuk-heading-xl" style="margin: -0.76em 0 0.5em 0;">
           Preview email
           <!--<span class="govuk-caption-xl">Manual entry if scanning or digital not available</span>-->
         </h1>
@@ -228,12 +229,16 @@
 
               
 
-                <p>Send it by email to marketrents@justice.gov.uk. You can also post it to:</p>
+                <p>Send it by email to <a href="#">marketrents@justice.gov.uk</a></p>
 
-                <p>First-tier Tribunal (Property Chamber) Residential Property – Market Rents
-                PO Box 10057<br>
-                Leicester <br>
-                LE19 9EP</p>
+                <p>You can also post it to:<br>
+                <strong>
+                  First-tier Tribunal (Property Chamber)<br>
+                  Residential Property – Market Rents<br>
+                  PO Box 10057<br>
+                  Leicester <br>
+                  LE19 9EP
+                </strong></p>
 
                 <p>Include your case reference number [case ref] with anything you send us. </p>
 
