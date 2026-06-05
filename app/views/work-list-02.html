@@ -1,6 +1,7 @@
 {% set section = 'work' %}
 
 {% extends "layout.html" %}
+{% import '_globals.html' as globals %}
 
 {% block pageTitle %}
   Home – GOV.UK Prototype Kit
@@ -12,28 +13,53 @@
     <div class="govuk-grid-column-full">
       <h1 class="govuk-heading-xl">
         Work list
-        <!--<span class="govuk-caption-xl">{{releaseVersion}}</span>-->
+        <span class="govuk-caption-l">{{ globals.case_officer }}</span>
       </h1>{{releaseVersion | log }}
       
       {% include "includes/caselist-filter.html" %}
 
+
+      <nav _ngcontent-ng-c1727731223="" role="navigation" class="hmcts-sub-navigation ng-star-inserted" aria-label="Sub navigation">
+        <ul _ngcontent-ng-c1727731223="" class="hmcts-sub-navigation__list">
+
+          <li _ngcontent-ng-c1727731223="" class="hmcts-sub-navigation__item ng-star-inserted">
+            <a _ngcontent-ng-c1727731223="" data-selector="sub-nav-link" class="hmcts-sub-navigation__link" aria-current="page" href="/work/my-work/list"> My tasks <!----></a>
+          </li>
+
+          <li _ngcontent-ng-c1727731223="" class="hmcts-sub-navigation__item ng-star-inserted">
+            <a _ngcontent-ng-c1727731223="" data-selector="sub-nav-link" class="hmcts-sub-navigation__link" href="/work/my-work/available"> Available tasks <!----></a>
+          </li>
+
+          <li _ngcontent-ng-c1727731223="" class="hmcts-sub-navigation__item ng-star-inserted">
+            <a _ngcontent-ng-c1727731223="" data-selector="sub-nav-link" class="hmcts-sub-navigation__link" href="/work/my-work/my-cases"> My cases <!----></a>
+          </li>
+
+          <!-- removed this for now as not relevant, not sure what it is, for these users
+          <li _ngcontent-ng-c1727731223="" class="hmcts-sub-navigation__item ng-star-inserted">
+            <a _ngcontent-ng-c1727731223="" data-selector="sub-nav-link" class="hmcts-sub-navigation__link" href="/work/my-work/my-access"> My access </a>
+          </li> -->x
+
+        </ul>
+      </nav>
+
+
       <table class="govuk-table">
         <caption class="govuk-table__caption govuk-table__caption--m">
-          All cases
+          <!--My cases-->
           <br>
-          <span class="govuk-table__caption--s" style="font-weight: normal;">Showing 1 to 25 of 4003 results</span>
+          <span class="govuk-table__caption--s" style="font-weight: normal;">Showing 1 to 25 of 45 cases</span>
         </caption>
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Case number</th>
-            <th scope="col" class="govuk-table__header">Status</th>
-            <th scope="col" class="govuk-table__header">Date of receipt</th>
-            <th scope="col" class="govuk-table__header">Sent via</th>
-            <th scope="col" class="govuk-table__header">Fee paid</th>
-            <th scope="col" class="govuk-table__header">Scans</th>
-            <th scope="col" class="govuk-table__header">Prechecks</th>
-            <th scope="col" class="govuk-table__header">Next</th>
-            <th scope="col" class="govuk-table__header">Action</th>
+            <th scope="col" class="govuk-table__header table-head-arrows">Case number</th>
+            <th scope="col" class="govuk-table__header table-head-arrows">Status</th>
+            <th scope="col" class="govuk-table__header table-head-arrows">Date of receipt</th>
+            <th scope="col" class="govuk-table__header table-head-arrows">Sent via</th>
+            <th scope="col" class="govuk-table__header table-head-arrows">Fee paid</th>
+            <th scope="col" class="govuk-table__header table-head-arrows">Scans</th>
+            <th scope="col" class="govuk-table__header table-head-arrows">Prechecks</th>
+            <th scope="col" class="govuk-table__header table-head-arrows">Next</th>
+            <th scope="col" class="govuk-table__header table-head-arrows">Action</th>
           </tr>
         </thead>
         <tbody class="govuk-table__body">
@@ -42,13 +68,13 @@
             <td class="govuk-table__cell">New to review<br>14 days remaining</td>
             <td class="govuk-table__cell">28/05/2026</td>
             <td class="govuk-table__cell">Digital</td>
-            <td class="govuk-table__cell"><a href=#>29/05/2026</a></td>
+            <td class="govuk-table__cell"><a href="receipt-1241">29/05/2026</a></td>
             <td class="govuk-table__cell">-</td>
             <td class="govuk-table__cell">Passed</td>
             <td class="govuk-table__cell">Waiting CO</td>
-            <td class="govuk-table__cell"><a href="case-dashboard-01">Review application</a><!--<br><a href="work-list-01">Return to pool</a>--></td>
+            <td class="govuk-table__cell"><a href="work-list-02">Review case</a></td>
           </tr>
-          <!--<tr class="govuk-table__row">
+          <tr class="govuk-table__row">
             <td scope="row" class="govuk-table__cell"><a href="case-dashboard.html">4567 5678 9123 1234</a></th>
             <td class="govuk-table__cell">New to review<br>14 days remaining</td>
             <td class="govuk-table__cell">28/04/2026</td>
@@ -57,7 +83,7 @@
             <td class="govuk-table__cell">-</td>
             <td class="govuk-table__cell">Passed</td>
             <td class="govuk-table__cell">Waiting CO</td>
-            <td class="govuk-table__cell"><a href="work-list-assign">Assign to me</a></td>
+            <td class="govuk-table__cell"><a href="work-list-assign">Review case</a></td>
           </tr>
           <tr class="govuk-table__row">
             <td scope="row" class="govuk-table__cell"><a href="case-dashboard.html">9123 4567 1234 5678</a></th>
@@ -80,7 +106,7 @@
             <td class="govuk-table__cell">Passed</td>
             <td class="govuk-table__cell">Waiting LO</td>
             <td class="govuk-table__cell"><span class="govuk-hint">in LO work list<br>F Smith</span></td>
-          </tr>-->
+          </tr>
         </tbody>
       </table>
          

@@ -1,0 +1,81 @@
+
+      <p>Documents from the tenant</p>
+
+      <p>NOTE: this might be an ExUI file browser with icons, and 2+ columns? To ask precise usage requirements</p>
+
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+
+<div style="max-width: 880px;">
+
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Completed MR1"
+      },
+      value: {
+        html: "<a href=mr1-submitted.pdf>mr1-submitted.pdf</a>"
+      }
+    },
+    {
+      key: {
+        text: "Tenancy agreement"
+      },
+      value: {
+        html: "<a href=tenancy.pdf>tenancy.pdf</a>"
+      }
+    },
+    {
+      key: {
+        text: "Notice"
+      },
+      value: {
+        html: "<p>Section 13(4) of the Housing Act 1988</p>
+        <p> <a href=notice.pdf>notice.pdf</a></p>"
+      }
+    },
+    {
+      key: {
+        text: "Property photographs"
+      },
+      value: {
+        html: "<p>Exterior. <a href=/public/images/exterior.jpg >Exterior</a></p>
+        <p>Room 1. <a href=/public/images/grotty-bathroom-01.jpg >Living room</a></p>
+        <p>Room 2. <a href=/public/images/kitchen.jpg>Kitchen (corner of living room)</a></p>
+        <p>Room 3. <a href=/public/images/bedroom.jpg>Bedroom</a></a></p>
+        <p>Room 4. <a href=/public/images/grotty-bathroom-01.jpg>Bathroom</a></p>
+        <p>Room 4. <a href=/public/images/grotty-bathroom-02.jpg>Bathroom</a></p>
+        <p>Room 4. <a href=/public/images/grotty-bathroom-03.jpg>Bathroom</a></p>
+        <p>Room 4. <a href=/public/images/grotty-bathroom-04.jpg>Bathroom</a></p>
+        "
+      }
+    },
+    {
+      key: {
+        text: "Changes or improvements made"
+      },
+      value: {
+        html: "Evidence supplied:<p>1. <a href=>Receipt uploaded</a></p>
+        <p>2. <a href=>Photo uploaded</a></p>
+        <p>3. <a href=>Photo uploaded</a></p>"
+      }
+    },
+    {
+      key: {
+        text: "Rent amount proposed, supporting evidence"
+      },
+      value: {
+        html: "<p>1. <a href=#>collected-rents-zoopla.pdf</a></p>
+        <p>2. <a href=#>tenancy-agreement-flat-b.pdf</a></p>
+        <p>3. <a href=#>tenancy-agreement-flat-d.pdf</a></p>"
+      }
+    }
+
+    
+  ]
+}) }}
+
+
+</div>

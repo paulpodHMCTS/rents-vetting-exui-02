@@ -8599,6 +8599,30 @@ x:-moz-any-link {
   }
 }
 
+.hmcts-sub-navigation__list {
+  font-size: 1.2em;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 10px 0;
+  border-bottom: 1px solid #1d70b8;
+}
+
+.hmcts-sub-navigation__item {
+  box-shadow: none;
+  display: inline-block;
+  margin-right: 20px;
+  margin-top: 0;
+}
+
+.hmcts-sub-navigation__link[aria-current=page] {
+  color: #black;
+  position: relative;
+  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-thickness: 6px;
+  text-underline-offset: 11px;
+}
+
 .exui-tabpanel {
   border: none !important;
   padding-left: 0 !important;
@@ -8640,5 +8664,9 @@ a.govuk-button, a.govuk-header__link {
 }
 
 a.govuk-button--secondary {
+  color: black !important;
+}
+
+a.govuk-tabs__tab {
   color: black !important;
 }

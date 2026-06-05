@@ -20,7 +20,7 @@
 
       
 
-      <h2 class="govuk-heading-m">Cases</h2>
+      <!--<h2 class="govuk-heading-m">Cases</h2>
 
       <ul class="govuk-list govuk-list--bullet">
         <li>Find which case: 
@@ -34,17 +34,18 @@
           <li>Summary</a></li>
           <li>State</a></li>
           <li>etc</a></li>
-          <!--<li>Case parties</a></li>
+          <li>Case parties</a></li>
           <li>Orders and decisions</a></li>
           <li>Case documents</a></li>
           <li>Bundles</a></li>
-          <li>Hearings and inspections</a></li>-->
+          <li>Hearings and inspections</a></li>
           </ol>
 
-          <!--<span>Might make sense to break these out as static-html page pseudo-tabs at some point</span>-->
+          <span>Might make sense to break these out as static-html page pseudo-tabs at some point</span>
         </li>
-      </ul>
+      </ul>-->
 
+<!--
 <div style="overflow: visible;">
       <p>Note: "standard" tabs for exui are:<br>
 
@@ -79,7 +80,7 @@
       </p>
 
       <p>To follow up: Ros says they can be shown/hidden based on context and usage, as well as ExUI becoming decentalised - need to uncover what this means precisely for improvements at an individual service level. Naming might persist as a common, but usage of components might be allowed to be localised
-    </div>
+    </div>-->
 
     <style>
       .makeit {
@@ -125,22 +126,40 @@
       </p>
 
       <ul class="govuk-list govuk-list--bullet" style="max-width:880px">
-        <li>Paper > digital - create a case manually<br>
-        Current assumption rare or not at all: <br>
-          <span class="madeit">&dagger;</span> Keying in an MR1 - <a href="case-create-mr1-01"> in a page-by-page replica</a> of the paper form
+        
+        <li style="margin-bottom:1em">Paper > digital - create a case manually<br>
+        Current assumption rare or not at all, or not these users: <br>
+          <span class="madeit">&dagger;</span> Keying in an MR1 - <a href="case-create-mr1-01"> in a page-by-page replica</a> of the paper form  <span class="work-tag">PT-0x.0x</span>
         </li>
 
-        <li>
-          Register application <span class="work-tag-sys">PT-08.01</span> <br>
-          Assumption is some Work List view in the ExUI, to replace the archaic shared inbox/Outlook workflow:<br>
-          Once submitted and paid (or HwF) add to a <a href="work-list-01">Work list</a>...
+
+        <li style="margin-bottom:1em">
+          <span class="madeit">&dagger;</span> <a href="case-list-00">Cases -> Work allocation</a> <span class="work-tag">PT-08.01</span>
+          <br>
+          Where Case officer can assign to self, register new application, review submitted data + docs in the ExUI front end.
+          <br>
+          I have made this possible from the <a href="case-list-00">Case List</a> view, as this seems to more closely align to what the CO user currently does from the <strong>shared inbox in outlook</strong> 
         </li>
+
+        <li style="margin-bottom:1em">
+          <span class="madeit">&dagger;</span> A CO user's <a href="work-list-01">Work list</a> <span class="work-tag">PT-08.02</span>
+          <br>
+          Where Case officer can act one their new cases, and see status of existing ones. 
+          <br  style="margin-bottom:1em">
+          Tasks tab, I presume would provide a wider range of casework actions, but for a new case to get from 'vetting' to active case it just needs this...
+        </li>
+
+        <li style="margin-bottom:1em">
+          <span class="madeit">&dagger;</span> A new cases <a href="case-dashboard-01">Summary</a> tab <span class="work-tag">PT-0x.0x</span>
+          <br>
+          Where Case officer can act on a new case: The default tab for a case is the Summary tab where we collect the data the CO user would skim the 3 docs and spot problems.
+          <br style="margin-bottom:1em">
+          I have put 'semi-automated' duplicate checks - search Postcode, search Email address - as the two user needs to check this (email being a request new way). Click to check. <i>This of course could just be fully automated.</i>
+        </li>
+
+        <p>this stuff below needs updating with the single <a href="letter-request">multi-request form</a></p>
+
           <li>
-          <span class="makeit">&ddagger;</span> <a href="work-list-01">Work allocation</a> <span class="work-tag">PT-08.02</span><br>
-          where Case officer can <a href="work-list-02">assign to self</a>, register application, review submitted data + docs in the ExUI front end
-        </li>
-
-        <li>
           Checks
           <ol>
             <li>
@@ -172,7 +191,7 @@
                   <li><a href="case-issue-confirm">Confirm</a>: notification or request sent</li>
                 </ul>
 
-            </li>
+            </li></ol>
 
             <li>
               Separate request form for mismatch info? More detailed, request clarification of possible errors<br>
