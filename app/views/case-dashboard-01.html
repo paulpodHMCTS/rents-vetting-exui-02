@@ -54,11 +54,111 @@
 
       <br clear="all">
 
-      
-      {% include "includes/exui-tabs-01.html" %}
-         
 
-    </div>
-  </div>
+      <div class="govuk-tabs" data-module="govuk-tabs" style="width:1340px;overflow: visible;">
+          <!--<h2 class="govuk-tabs__title">
+            Contents -- is this just for screen readers?
+          </h2>-->
+          <ul class="govuk-tabs__list">
+            <li class="govuk-tabs__list-item ">
+              <a class="govuk-tabs__tab" href="#">
+                Tasks
+              </a>
+            </li>
+
+            <li class="govuk-tabs__list-item">
+              <a class="govuk-tabs__tab" href="#">
+                Roles & access<!-- -  sure what it means for us -->
+              </a>
+            </li>
+
+            <li class="govuk-tabs__list-item">
+              <a class="govuk-tabs__tab" href="#">
+                Parties
+              </a>
+            </li>
+            <li class="govuk-tabs__list-item">
+              <a class="govuk-tabs__tab" href="#">
+                Case details
+              </a>
+            </li>
+            <li class="govuk-tabs__list-item">
+              <a class="govuk-tabs__tab" href="#">
+                File view
+              </a>
+            </li>
+            <!--<li class="govuk-tabs__list-item">
+              <a class="govuk-tabs__tab" href="#Flags">
+                Case flags - omitted as I have no idea what this is
+              </a>
+            </li>-->
+             <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+              <a class="govuk-tabs__tab" href="#">
+                Summary
+              </a>
+            </li>
+
+            <li class="govuk-tabs__list-item">
+              <a class="govuk-tabs__tab" href="#">
+                Hearings
+              </a>
+            </li>
+            <!--<li class="govuk-tabs__list-item">
+              <a class="govuk-tabs__tab" href="#Linked">
+                Linked cases - potentially put in for duplicates or near-dupes
+              </a>
+            </li>-->
+            <li class="govuk-tabs__list-item ">
+              <a class="govuk-tabs__tab" href="#">
+                History
+              </a>
+            </li>
+            <li class="govuk-tabs__list-item">
+              <a class="govuk-tabs__tab" href="#">
+                Notes
+              </a>
+            </li>
+            <li class="govuk-tabs__list-item">
+              <a class="govuk-tabs__tab" href="#">
+                Notifications
+              </a>
+            </li>
+            <!-- Additional tabs according to the Spec ... 
+            - -- see https://tools.hmcts.net/confluence/spaces/CCE1D/pages/1482327709/Common+Case+Details+View
+            <li class="govuk-tabs__list-item">
+              <a class="govuk-tabs__tab" href="#Service">
+                Service request - omitted as no idea what it would do here
+              </a>
+            </li>-->
+            <li class="govuk-tabs__list-item">
+              <a class="govuk-tabs__tab" href="case-payment-receipt-01">
+                Payments
+              </a>
+            </li>
+            <!-- not sure what this would do here
+            <li class="govuk-tabs__list-item">
+              <a class="govuk-tabs__tab" href="#Queries">
+                Queries
+              </a>
+            </li>-->
+          </ul>
+          <!-- end tabs -->
+
+
+
+          <div class="govuk-tabs__panel exui-tabpanel" id="Summary">
+            <section>
+              <h2 class="govuk-heading-l">Summary</h2>
+
+               {% include "includes/case-summary-01.njk" %}
+
+            </section>
+          </div><!-- end tab-panel for content -->
+
+        </div><!-- end GOV TABS -->
+  
+
+    </div><!-- end grid col full -->
+  </div><!-- end grid row -->
 
 {% endblock %}

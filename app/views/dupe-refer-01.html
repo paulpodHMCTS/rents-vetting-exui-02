@@ -18,8 +18,8 @@
         </h2>
 
         <h1 class="govuk-heading-xl" style="margin-bottom:0.75em">
-          Request something from the applicant
-          <!--<span class="govuk-caption-xl" style="margin-top:0.2em"></span>-->
+          Send referral to Legal Officer
+          <span class="govuk-caption-xl" style="margin-top:0.2em">New case might be a duplicate</span>
         </h1>
 
          <!--<p style="margin:-1.5em 0 1em 0">Assumptions on this are: we are concerned with fixing paper form issues, missing info isn't automatically requested</p>-->
@@ -78,43 +78,6 @@
       {% endset -%}
 
 
-      {% set missinginfos %}
-      <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="info-request" name="info-request" type="checkbox" value="miss13">
-
-          <label class="govuk-label govuk-checkboxes__label" for="info-request">
-            Section 13 notice missing
-          </label>
-      </div>
-
-      <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="info-request" name="info-request" type="checkbox" value="misstenancy">
-
-          <label class="govuk-label govuk-checkboxes__label" for="info-request">
-            Tenancy agreement not provided
-          </label>
-      </div>
-
-      <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="info-request" name="info-request" type="checkbox" value="misslandlord">
-
-          <label class="govuk-label govuk-checkboxes__label" for="info-request">
-            Landlord's name and address
-          </label>
-      </div>
-
-      <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="info-request" name="info-request" type="checkbox" value="missmr1detail">
-
-          <label class="govuk-label govuk-checkboxes__label" for="info-request">
-            Something from the MR1 form
-          </label>
-      </div>
-       
-      {% endset -%}
-        
-       
-
         {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
           {{ govukCheckboxes({
@@ -122,22 +85,21 @@
             name: "info-request",
             fieldset: {
               legend: {
-                text: "What are you requesting from the applicant?",
+                text: "Why do you think this is a duplicate?",
                 isPageHeading: false,
                 classes: "govuk-fieldset__legend--m"
               }
             },
             items: [
               {
-                value: "missfee",
-                text: "Application fee not paid"
+                value: "email-match",
+                text: "Email found to be a duplicate of case 2341 2315 3423 6950",
+                checked: true
               },
               {
-                value: "missinfo",
-                text: "Missing information or document",
-                conditional: {
-                  html: missinginfos
-                }
+                value: "other-matches",
+                text: "Additional details in the other case match this one",
+                checked: true
               },
               
               {
@@ -161,7 +123,7 @@
           }) }}
 
           {{ govukButton({
-            text: "Continue to message"
+            text: "Send referral"
           }) }}
         </div>
       </form>

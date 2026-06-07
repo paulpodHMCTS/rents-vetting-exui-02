@@ -1,35 +1,31 @@
 
-<div style="width: 66%">
+<div style="width: 58%;float:left">
   <!--<h2 class="govuk-heading-l">Summary</h2>-->
 
 
-  <!--<p>Key items from the application:</p>-->
+  <p>Key items from the application:</p>
 
   <!--<p style="font-size: 0.9em;"><i>Note: cribbed from p11 UR report "What are COs looking for when skimming
 documents?" ...makes sense but naming of items may need checking. I like this as it gets to the point of collecting the docs in the first place, and can pick out missing info directly.</i></p>-->
 
-  
+  <!--<ul class="govuk-list govuk-list--bullet">
+
+      <li>Section 1.1 - type of appeal</li>
+      <li>Name of parties</li>
+      <li>Address</li>
+      <li>Request for hearing or inspection</li>
+      <li>Name of parties</li>
+      <li>Verification that details on section 13 match MR1</li>
+      <li>New rental amount</li>
+      <li>Start of rental increase</li>
+      <li>Date signed by landlord</li>
+      <li>Name of tenant(s)</li>
+      <li>Date tenancy started</li>
+      <li>Rent amount</li>
+
+  </ul>-->
 
   <form class="form" action="" method="post" >
-      <style>
-        .sumnumlist {
-          display:inline-block;
-          width:2em;
-          font-weight: 600;
-        }
-        
-      </style>
-
-      {% set tenantType %}
-      <div style="width:500px">
-      <ul class="govuk-list" style="margin-bottom: 0;">
-        <li><span class="sumnumlist">1.1</span> Challenging a rent increase in a section 13 notice</li>
-        <li><span class="sumnumlist">1.2</span> Assured tenancy</li>
-        <li><span class="sumnumlist">1.3</span> On or after 1 May 2026</li>
-        <li><span class="sumnumlist">1.4</span> Not social housing, fee payable</li>
-      </ul>
-      </div>
-      {% endset -%}
 
       {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
@@ -42,7 +38,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               html: "Type of appeal"
             },
             value: {
-              html: "<div style=width:500px>Challenging a rent increase in a section 13 notice</div>"
+              text: "Sole tenant"
             },
             actions: {
               items: [
@@ -135,10 +131,10 @@ documents?" ...makes sense but naming of items may need checking. I like this as
           },
           {
             key: {
-              text: "Document"
+              text: "Issues"
             },
             value: {
-              html: "<a href=mr1.pdf>View document (opens in a new tab)</a>"
+              html: ""
             },
             actions: {
               items: [
@@ -223,16 +219,16 @@ documents?" ...makes sense but naming of items may need checking. I like this as
           },
           {
             key: {
-              text: "Document"
+              text: "Issues"
             },
             value: {
-              html: "<a href=section13.pdf>View document (opens in a new tab)</a>"
+              html: ""
             },
             actions: {
               items: [
                 {
                   href: "#",
-                  text: ""
+                  html: ""
                 }
               ]
             }
@@ -297,13 +293,13 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               text: "Document"
             },
             value: {
-              html: "<a href=tenancy.pdf>View document (opens in a new tab)</a>"
+              html: "Check file"
             },
             actions: {
               items: [
                 {
                   href: "#",
-                  text: ""
+                  text: "Open file in new window"
                 }
               ]
             }
@@ -329,15 +325,77 @@ documents?" ...makes sense but naming of items may need checking. I like this as
 
           {{ govukButton({
             text: "Continue",
-            href: "case-response-01-ack-request.html"
+            href: "happy-acks"
           }) }}
         </div>
       </form>
 
+      </div>
 
 
+<div class="exui-tabpanel-right" style="width: 37%;float:right;padding:1em 0.5em 1em 1em">
+   <h2 class="govuk-heading-m ">Duplicate found for "LU1 1AB"</h2>
 
+   <p>1 other match in active cases</p>
 
+   <div >
+
+   {{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Match"
+      },
+      value: {
+        html: "19 Garden Drive,<br>Luton,<br>Bedfordshire<br>LU1 1AB"
+      }
+    },
+    {
+      key: {
+        text: "Case number"
+      },
+      value: {
+        html: "<a href=#>2341 2315 3423 6950</a>"
+      }
+    },
+    {
+      key: {
+        text: "Date received"
+      },
+      value: {
+        text: "2 March 2026, 1:13:35 pm"
+      }
+    },
+    {
+      key: {
+        text: "Tenant name"
+      },
+      value: {
+        text: "Hugh Davis"
+      }
+    },
+    {
+      key: {
+        text: "Tenant email"
+      },
+      value: {
+        html: "huge.davis@hotmail.com"
+      }
+    },
+    {
+      key: {
+        text: "Current status"
+      },
+      value: {
+        html: "Waiting MR3<br>due date 09/06/2026"
+      }
+    }
+    
+  ]
+}) }}
+</div>
+
+<p><a href="#">Flag as duplicate to LO</a></p>
 
 </div>
 

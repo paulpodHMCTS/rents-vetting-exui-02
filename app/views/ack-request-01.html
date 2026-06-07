@@ -18,8 +18,8 @@
         </h2>
 
         <h1 class="govuk-heading-xl" style="margin-bottom:0.75em">
-          Request something from the applicant
-          <!--<span class="govuk-caption-xl" style="margin-top:0.2em"></span>-->
+          Send acknowledgements
+          <span class="govuk-caption-xl" style="margin-top:0.2em">All OK</span>
         </h1>
 
          <!--<p style="margin:-1.5em 0 1em 0">Assumptions on this are: we are concerned with fixing paper form issues, missing info isn't automatically requested</p>-->
@@ -65,87 +65,29 @@
 
     <form class="form" action="" method="post" style="max-width: 880px;">
 
-      {% set otherThing %}
-        {{ govukInput({
-          id: "other-request",
-          name: "otherThing",
-          type: "text",
-          classes: "",
-          label: {
-            text: "What other information are you requesting?"
-          }
-        }) }}
-      {% endset -%}
-
-
-      {% set missinginfos %}
-      <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="info-request" name="info-request" type="checkbox" value="miss13">
-
-          <label class="govuk-label govuk-checkboxes__label" for="info-request">
-            Section 13 notice missing
-          </label>
-      </div>
-
-      <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="info-request" name="info-request" type="checkbox" value="misstenancy">
-
-          <label class="govuk-label govuk-checkboxes__label" for="info-request">
-            Tenancy agreement not provided
-          </label>
-      </div>
-
-      <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="info-request" name="info-request" type="checkbox" value="misslandlord">
-
-          <label class="govuk-label govuk-checkboxes__label" for="info-request">
-            Landlord's name and address
-          </label>
-      </div>
-
-      <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="info-request" name="info-request" type="checkbox" value="missmr1detail">
-
-          <label class="govuk-label govuk-checkboxes__label" for="info-request">
-            Something from the MR1 form
-          </label>
-      </div>
-       
-      {% endset -%}
-        
-       
 
         {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
           {{ govukCheckboxes({
-            idPrefix: "info-request",
-            name: "info-request",
+            idPrefix: "send-acks",
+            name: "send-acks",
             fieldset: {
               legend: {
-                text: "What are you requesting from the applicant?",
+                text: "Send acknowledgments to parties",
                 isPageHeading: false,
                 classes: "govuk-fieldset__legend--m"
               }
             },
             items: [
               {
-                value: "missfee",
-                text: "Application fee not paid"
+                value: "MR1-ok",
+                text: "Application complete, fee paid, inform tenant",
+                checked: true
               },
               {
-                value: "missinfo",
-                text: "Missing information or document",
-                conditional: {
-                  html: missinginfos
-                }
-              },
-              
-              {
-                value: "other",
-                text: "Something else",
-                conditional: {
-                  html: otherThing
-                }
+                value: "MR2-send",
+                text: "Inform landlord of MR1 receipt, send MR2 ",
+                checked: true
               }
             ]
           }) }}
@@ -161,7 +103,7 @@
           }) }}
 
           {{ govukButton({
-            text: "Continue to message"
+            text: "Continue"
           }) }}
         </div>
       </form>

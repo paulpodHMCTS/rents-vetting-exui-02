@@ -1,0 +1,271 @@
+{% set section = 'work' %}
+
+{% extends "layout.html" %}
+{% import '_globals.html' as globals %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div id="case-id" style="float:left;width: 890px;">
+        <h2 class="govuk-heading-m" style="margin-bottom:0.5em">Case {{ globals.case_number }}
+          <span class="govuk-caption-m" style="margin-top:0.2em">{{ globals.case_property}}</span>
+        </h2>
+
+        <h1 class="govuk-heading-xl" style="margin-bottom:0.75em">
+          Preview drafts
+          <!--<span class="govuk-caption-l" style="margin-top:0.2em">Standard acknowledgments, 2 items</span>-->
+        </h1>
+
+         <!--<p style="margin:-1.5em 0 1em 0">Assumptions on this are: we are concerned with fixing paper form issues, missing info isn't automatically requested</p>-->
+      </div>
+      
+
+
+      <div id="next-stepper" style="float:right;">
+       
+         
+
+          <!--<div class="govuk-form-group">
+            <label class="govuk-label" for="sort" style="float:left">
+              <span style="position:relative;top:7px;margin-right: 12px;">Next step
+            </label>
+
+            <div style="float:left">
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="choose" selected>Select action</option>
+                <option value="updated">Confirm payment</option>
+                <option value="request">Issue request</option>
+                <option value="views">Review details</option>
+                <option value="comments">Match duplicate</option>
+              </select>
+            </div>
+            
+            <div style="float:left;margin-left:6px">
+              <a href="case-issue-request"><button class="govuk-button">Go</button></a>
+            </div>
+
+          </div>-->
+
+          <br clear="all">
+
+ 
+        
+      </div>
+
+      <br clear="all">
+
+<div style="width: 88%">
+  
+
+  <!--<p style="font-size: 0.9em;"><i>Note: cribbed from p11 UR report "What are COs looking for when skimming
+documents?" ...makes sense but naming of items may need checking. I like this as it gets to the point of collecting the docs in the first place, and can pick out missing info directly.</i></p>-->
+
+  <ul class="govuk-list govuk-list--bullet">
+
+      <li>Standard acknowledgments</li>
+      <li>Tenant via email</li>
+      <li>Landlord via post</li>
+      <li>No issues</li>
+
+  </ul>
+
+  <br>
+
+  <form class="form" action="" method="post" >
+      {% set tenantEmailSum %}
+        <p>Tenant email: {{ globals.case_tenantemail }}</p>
+        <p>Notify by post not requested</p>
+      {% endset -%}
+
+      {% set previewTenantMessage %}
+        <p class="govuk-hint">Standard header</p>
+        <p>Dear Herbie Hall,</p>
+        <p>Your application for a market rent determination has been received, and the fee has been paid.</p>
+        <p>Your landlord or their representative has been notified and they have 28 days to respond with any information they wish to provide.</p>
+        <p>You will receive further notification of actions to take after that time.</p>
+        <p>Yours sincerely,<p>
+        <p>{{ globals.case_officer }}
+        <br>on behalf of the First-tier Tribunal (Property Chamber)</p>
+        <p class="govuk-hint">Standard footer</p>
+
+      {% endset -%}
+
+
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+      <h3 class="govuk-heading-m">To Tenant</h3>
+
+      {{ govukSummaryList({
+        rows: [
+          
+          {
+            key: {
+              text: "Tenant name"
+            },
+            value: {
+              text: globals.case_tenantname
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  html: ""
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Send to"
+            },
+            value: {
+              html: tenantEmailSum
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Message text"
+            },
+            value: {
+              html: previewTenantMessage
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change"
+                },
+                {
+                  href: "case-response-01-preview-tenant-email.html",
+                  text: "Preview"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+ 
+       {% set landlordPostSum %}
+        <p>17 Wagstaff Way<br>
+        Luton<br>
+        Bedfordshire<br>
+        LL8 4RA</p>
+        <p>Email not yet confirmed by landlord</p>
+      {% endset -%}
+
+      {% set previewLandlordMessage %}
+        <p class="govuk-hint">Standard header</p>
+        <p>Dear {{ globals.case_landlordname }},</p>
+        <p>An application for a market rent determination has been received for your property {{ globals.case_property}}, following a rent increase notice.</p>
+        <p>You or your representative have 28 days to respond with any information they wish to provide.</p>
+        <p>Follow the instructions at hmcts.gov.uk/landlord-mr2 to complete the MR2 online, or request a paper form from us.</p>
+        <p>Yours sincerely,<p>
+        <p>{{ globals.case_officer }}
+        <br>on behalf of the First-tier Tribunal (Property Chamber)</p>
+        <p class="govuk-hint">Standard footer</p>
+
+      {% endset -%}
+
+
+      <h3 class="govuk-heading-m">To Landlord</h3>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              html: "Landlord name"
+            },
+            value: {
+              text: globals.case_landlordname
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: ""
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              html: "Send to"
+            },
+            value: {
+              html: landlordPostSum
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              html: "Message text"
+            },
+            value: {
+              html: previewLandlordMessage
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change"
+                },
+                {
+                  href: "case-response-01-preview-landlord-letter.html",
+                  text: "Preview"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      
+
+    
+        
+        
+        <div class="govuk-button-group">
+          
+          {{ govukButton({
+            text: "Return to case",
+            classes: "govuk-button--secondary",
+            href: ""
+          }) }}
+
+          {{ govukButton({
+            text: "Send"
+          }) }}
+        </div>
+      </form>
+
+
+
+
+         
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,231 @@
+{% set section = 'work' %}
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div id="case-id" style="float:left;width: 880px;">
+        <h2 class="govuk-heading-m" style="margin-bottom:0.5em">Case {{ globals.case_number }}
+          <span class="govuk-caption-m" style="margin-top:0.2em">{{ globals.case_property}}</span>
+        </h2>
+        
+        <h1 class="govuk-heading-xl" style="margin-bottom:0.75em">
+          Payment history
+          <!--<span class="govuk-caption-xl" style="margin-top:0.2em">Receipt and payment history</span>-->
+        </h1>
+
+         <p style="margin:-1.5em 0 1em 0">Assumptions on this are: might need to include HwF references, links to process docs, payment attempts, failures, as well as completed receipts etc.</p>
+      </div>
+      
+
+
+      <div id="next-stepper" style="float:right;">
+       
+         
+
+          <!--<div class="govuk-form-group">
+            <label class="govuk-label" for="sort" style="float:left">
+              <span style="position:relative;top:7px;margin-right: 12px;">Next step
+            </label>
+
+            <div style="float:left">
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="choose" selected>Select action</option>
+                <option value="updated">Confirm payment</option>
+                <option value="request">Issue request</option>
+                <option value="views">Review details</option>
+                <option value="comments">Match duplicate</option>
+              </select>
+            </div>
+            
+            <div style="float:left;margin-left:6px">
+              <a href="case-issue-request"><button class="govuk-button">Go</button></a>
+            </div>
+
+          </div>-->
+
+          <br clear="all">
+
+ 
+        
+      </div>
+
+      <br clear="all">
+
+
+      {% set feesBody %}
+        <p>
+          <strong>MR1 application</strong><br>
+          <span style="width:10em;display: inline-block;">Standard fee</span> £84.44
+        </p>
+
+        <p>
+          <strong>Help with fees</strong><br>
+          <span style="width:10em;display: inline-block;">HwF reference XYZ123</span>-£84.44
+        </p>
+
+        <p>
+          <strong>Total</strong><br>
+          <span style="width:10em;display: inline-block;">Total paid</span> £0.00
+        </p>
+
+      {% endset -%}
+
+      {% set recipients %}
+
+        <p>
+          <strong>HMCTS central payments</strong><br>
+          Some sort of name
+        </p>
+
+        <p>
+          <strong>Card</strong><br>
+          Debit ending xxxx-1211
+        </p>
+
+        <p>
+          <strong>Card name</strong><br>
+          Herbie Hall
+        </p>
+
+        <p>
+          <strong>Postcode</strong><br> 
+          LU1 1AB 
+        </p>
+       
+      {% endset -%}
+
+      {% set paymentDates %}
+
+        <p>
+          Payment attempted 11:02 18 May 2026 card ending 2832 - <strong>Fail</strong>
+        </p>
+
+        <p>
+          Payment attempted 11:05 18 May 2026 card ending 1211 - <strong>Success</strong>
+        </p>
+
+
+        <p>
+          Email and SMS notifications were sent 11:06 18 May 2026
+        </p>
+       
+
+      {% endset -%}
+        
+
+
+      <form class="form" action="" method="post" >
+
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Receipt"
+            },
+            value: {
+              html: "Email to hhall@gmail.com and SMS to 07718765432"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "request-items"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Fees"
+            },
+            value: {
+              html: feesBody
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  html: "",
+                  visuallyHiddenText: "request-items"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Payment made"
+            },
+            value: {
+              html: paymentDates
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  html: "",
+                  visuallyHiddenText: "request-items"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Recipient and method"
+            },
+            value: {
+              html: recipients
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "",
+                  visuallyHiddenText: "contact details"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+
+
+
+    
+        
+        
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Receipt as PDF",
+            classes: "govuk-button--secondary",
+            href: ""
+          }) }}
+
+         
+          {{ govukButton({
+            text: "Resend notifications",
+            href: "case-issue-confirm"
+          }) }}
+        </div>
+      </form>
+
+
+
+
+         
+
+    </div>
+  </div>
+
+{% endblock %}

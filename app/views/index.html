@@ -11,22 +11,32 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <h1 class="govuk-heading-xl">
-        Prototyping:<br>Market Rent Request Vetting
-        <!--<span class="govuk-caption-xl">GOV.UK Prototype Kit {{releaseVersion}}</span>-->
+        Prototyping:
+        <span class="govuk-caption-xl" style="margin-top:0.2em">Market Rent Determination, initial application vetting</span>
+        
       </h1>{{releaseVersion | log }}
       <p>
         Sketching out some screens in code that we need to support these User research scenarios:
 
         <ul class="govuk-list govuk-list--bullet">
-          <li>0. work list allocate tasks</li>
+          <li>
+            0. work list allocate tasks<br>
+            Key screens: <a href="case-list-00">Case list</a> &rightarrow; <a href="work-list-01">My Work</a>
 
-          <li>1. review happy path application -> MR2 (short?)</li>
+          </li>
 
-          <li>2. deal with an out of time late app -> Strike out (short?)</li>
+          <li>
+            1. review happy path application, send MR2<br>
+            Key screens: <a href="work-list-01">My Work (my cases)</a> &rightarrow;  <a href="case-dashboard-01">Review case</a> &rightarrow; <a href="case-response-01-summary">Preview standard responses</a> &rightarrow; Sent
+          </li>
 
-          <li>3. deal with a missing info, missing payment case -> multi request -></li>
+          <li>2. deal with missing info<br>
+            Key screens:  <a href="work-list-01">My Work (my cases)</a> &rightarrow; <a href="case-dashboard-02">Review case</a> &rightarrow; <a href="case-payment-receipt-01">Review payment history</a> &rightarrow; <a href="case-info-request-01">Send multiple information requests</a> &rightarrow; Preview &rightarrow; Sent
+          </li>
 
-          <li>4. section 13 not valid (notice period?) -> or some other CO-based actions</li>
+          <li>3. deal with an out of time late app &rightarrow; Strike out (short?)</li>
+
+          <li>4. section 13 not valid (notice period?) &rightarrow; CO-based actions</li>
 
         </ul>
       </p>

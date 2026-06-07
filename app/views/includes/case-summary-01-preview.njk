@@ -1,48 +1,58 @@
 
-<div style="width: 66%">
-  <!--<h2 class="govuk-heading-l">Summary</h2>-->
+<div style="width: 58%">
+  <h2 class="govuk-heading-l">Preview acknowledgments</h2>
 
 
-  <!--<p>Key items from the application:</p>-->
+  <p>2 items</p>
 
   <!--<p style="font-size: 0.9em;"><i>Note: cribbed from p11 UR report "What are COs looking for when skimming
 documents?" ...makes sense but naming of items may need checking. I like this as it gets to the point of collecting the docs in the first place, and can pick out missing info directly.</i></p>-->
 
-  
+  <!--<ul class="govuk-list govuk-list--bullet">
+
+      <li>Section 1.1 - type of appeal</li>
+      <li>Name of parties</li>
+      <li>Address</li>
+      <li>Request for hearing or inspection</li>
+      <li>Name of parties</li>
+      <li>Verification that details on section 13 match MR1</li>
+      <li>New rental amount</li>
+      <li>Start of rental increase</li>
+      <li>Date signed by landlord</li>
+      <li>Name of tenant(s)</li>
+      <li>Date tenancy started</li>
+      <li>Rent amount</li>
+
+  </ul>-->
 
   <form class="form" action="" method="post" >
-      <style>
-        .sumnumlist {
-          display:inline-block;
-          width:2em;
-          font-weight: 600;
-        }
-        
-      </style>
 
-      {% set tenantType %}
-      <div style="width:500px">
-      <ul class="govuk-list" style="margin-bottom: 0;">
-        <li><span class="sumnumlist">1.1</span> Challenging a rent increase in a section 13 notice</li>
-        <li><span class="sumnumlist">1.2</span> Assured tenancy</li>
-        <li><span class="sumnumlist">1.3</span> On or after 1 May 2026</li>
-        <li><span class="sumnumlist">1.4</span> Not social housing, fee payable</li>
-      </ul>
-      </div>
+
+      {% set previewTenantMessage %}
+        <p>Standard header</p>
+        <p>Dear Herbie Hall,</p>
+        <p>Your application for a market rent determination has been received, and the fee has been paid.</p>
+        <p>Your landlord or their representative has been notified and they have 28 days to respond with any information they wish to provide.</p>
+        <p>You will receive further notification of actions to take after that time.</p>
+        <p>Yours sincerely,<p>
+        <p>[caseworker name?]<br>on behalf of the First-tier Tribunal (Property Chamber)</p>
+        <p>Standard footer</p>
+
       {% endset -%}
+
 
       {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
-      <h3 class="govuk-heading-m">MR1</h3>
+      <h3 class="govuk-heading-m"></h3>
 
       {{ govukSummaryList({
         rows: [
           {
             key: {
-              html: "Type of appeal"
+              html: "Send to"
             },
             value: {
-              html: "<div style=width:500px>Challenging a rent increase in a section 13 notice</div>"
+              text: "Tenant"
             },
             actions: {
               items: [
@@ -71,10 +81,10 @@ documents?" ...makes sense but naming of items may need checking. I like this as
           },
           {
             key: {
-              text: "Tenant address"
+              text: "Send using"
             },
             value: {
-              html: "15 Garden Drive,<br>Luton,<br>Bedfordshire<br>LU1 1AB"
+              html: "Email: h.hall@milestones.bop"
             },
             actions: {
               items: [
@@ -87,16 +97,16 @@ documents?" ...makes sense but naming of items may need checking. I like this as
           },
           {
             key: {
-              text: "Tenant email"
+              text: "Message text"
             },
             value: {
-              html: "h.hall@milestones.bop"
+              html: previewTenantMessage
             },
             actions: {
               items: [
                 {
                   href: "#",
-                  text: "Check for duplicates"
+                  text: "Change"
                 }
               ]
             }
@@ -135,10 +145,10 @@ documents?" ...makes sense but naming of items may need checking. I like this as
           },
           {
             key: {
-              text: "Document"
+              text: "Issues"
             },
             value: {
-              html: "<a href=mr1.pdf>View document (opens in a new tab)</a>"
+              html: ""
             },
             actions: {
               items: [
@@ -223,16 +233,16 @@ documents?" ...makes sense but naming of items may need checking. I like this as
           },
           {
             key: {
-              text: "Document"
+              text: "Issues"
             },
             value: {
-              html: "<a href=section13.pdf>View document (opens in a new tab)</a>"
+              html: ""
             },
             actions: {
               items: [
                 {
                   href: "#",
-                  text: ""
+                  html: ""
                 }
               ]
             }
@@ -297,13 +307,13 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               text: "Document"
             },
             value: {
-              html: "<a href=tenancy.pdf>View document (opens in a new tab)</a>"
+              html: "Check file"
             },
             actions: {
               items: [
                 {
                   href: "#",
-                  text: ""
+                  text: "Open file in new window"
                 }
               ]
             }
@@ -329,7 +339,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
 
           {{ govukButton({
             text: "Continue",
-            href: "case-response-01-ack-request.html"
+            href: "happy-acks"
           }) }}
         </div>
       </form>
