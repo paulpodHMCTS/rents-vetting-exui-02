@@ -151,7 +151,7 @@
                   <span style="color:#999">From</span>
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  rents@hmcts.gov.uk
+                  marketrents@hmcts.gov.uk
                 </dd>
                
               </div>
@@ -169,7 +169,7 @@
                   <span style="color:#999">Subject</span>
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  Your market rents application is not complete (1234 5678 9256 1345)
+                  Completing your market rent determination - Case {{ globals.case_number }}
                 </dd>
                 
               </div>
@@ -178,11 +178,11 @@
             </div>
 
 
-            <p>Dear [Tenant name]</p>
+            <p>Dear {{ globals.case_tenantname }}</p>
 
             <h3 class="govuk-heading-m">RE: Housing Act 1988 - Section 13</h3>
 
-            <p>PREMISES: [Property address]</p>
+            <p>PREMISES: {{ globals.case_property }}</p>
 
             <p>We have received your MR1 application form to request a market rent determination for the address above. </p>
             

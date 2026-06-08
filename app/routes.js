@@ -7,27 +7,15 @@ module.exports = router
 
 
 // request missing items from the tenant 
-router.post('/letter-request', function(req, res) {
+router.post('/multi-request', function(req, res) {
 
     var inforequest = req.session.data['info-request'] 
 
-    console.log("requested: " + inforequest)
+    console.log("requested-01: " + inforequest)
 
        
     res.redirect("/letter-preview")
    
 })
 
-
-// request missing items from the tenant 
-router.post('/case-response-02-multi-request', function(req, res) {
-
-    var inforequest = req.session.data['info-request'] 
-
-    console.log("requested: " + inforequest)
-
-       
-    res.redirect("/letter-preview")
-   
-})
 

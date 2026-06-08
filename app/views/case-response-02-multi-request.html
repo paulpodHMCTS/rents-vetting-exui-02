@@ -63,16 +63,19 @@
 
     {% from "govuk/components/input/macro.njk" import govukInput %}
 
-    <form class="form" action="" method="post" style="max-width: 880px;">
+    <form class="form" action="/multi-request" method="post" style="max-width: 880px;">
 
       {% set otherThing %}
         {{ govukInput({
           id: "other-request",
           name: "otherThing",
           type: "text",
+          hint: {
+            text: "For example, no floorplan or room descriptions were provided but are required"
+          },
           classes: "",
           label: {
-            text: "What other information are you requesting?"
+            text: "What are you requesting?"
           }
         }) }}
       {% endset -%}
@@ -83,7 +86,7 @@
           <input class="govuk-checkboxes__input" id="info-request" name="info-request" type="checkbox" value="miss13">
 
           <label class="govuk-label govuk-checkboxes__label" for="info-request">
-            Section 13 notice missing
+            Section 13 notice 
           </label>
       </div>
 
@@ -91,7 +94,7 @@
           <input class="govuk-checkboxes__input" id="info-request" name="info-request" type="checkbox" value="misstenancy">
 
           <label class="govuk-label govuk-checkboxes__label" for="info-request">
-            Tenancy agreement not provided
+            Tenancy agreement 
           </label>
       </div>
 
@@ -130,11 +133,11 @@
             items: [
               {
                 value: "missfee",
-                text: "Application fee not paid"
+                text: "Application fee "
               },
               {
                 value: "missinfo",
-                text: "Missing information or document",
+                text: "Information or document",
                 conditional: {
                   html: missinginfos
                 }
@@ -161,9 +164,7 @@
           }) }}
 
           {{ govukButton({
-            text: "Continue to message",
-            href: "letter-preview"
-
+            text: "Preview message"
           }) }}
         </div>
       </form>
