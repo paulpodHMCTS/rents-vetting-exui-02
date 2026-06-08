@@ -66,12 +66,15 @@
   <!--<p style="font-size: 0.9em;"><i>Note: cribbed from p11 UR report "What are COs looking for when skimming
 documents?" ...makes sense but naming of items may need checking. I like this as it gets to the point of collecting the docs in the first place, and can pick out missing info directly.</i></p>-->
 
+<p>Message summary:</p>
+
   <ul class="govuk-list govuk-list--bullet">
 
-      <li>Standard acknowledgments</li>
-      <li>Tenant via email</li>
-      <li>Landlord via post</li>
-      <li>No issues</li>
+      <li><strong>Application status:</strong> Complete, no issues</li>
+      <li><strong>Letters:</strong> Standard acknowledgments</li>
+      <li><strong>Tenant:</strong> Sending by email</li>
+      <li><strong>Landlord:</strong> Sending by post</li>
+
 
   </ul>
 
@@ -79,19 +82,30 @@ documents?" ...makes sense but naming of items may need checking. I like this as
 
   <form class="form" action="" method="post" >
       {% set tenantEmailSum %}
-        <p>Tenant email: {{ globals.case_tenantemail }}</p>
-        <p>Notify by post not requested</p>
+        <p><strong>Post:</strong><br> Not requested</p>
+        <p><strong>Email:</strong><br> {{ globals.case_tenantemail }}</p>
+    
       {% endset -%}
 
       {% set previewTenantMessage %}
         <p class="govuk-hint">Standard header</p>
         <p>Dear Herbie Hall,</p>
-        <p>Your application for a market rent determination has been received, and the fee has been paid.</p>
-        <p>Your landlord or their representative has been notified and they have 28 days to respond with any information they wish to provide.</p>
-        <p>You will receive further notification of actions to take after that time.</p>
-        <p>Yours sincerely,<p>
+        <p>We have received your application to request a market rent determination for the address above. </p>
+        <h2><strong>What happens next</strong></h2>
+        <p>Your application has been sent to your landlord or their representative along with an optional MR2 reply form. </p>
+        <p>Here is what will happen next:</p>
+        <ol>
+          <li>Your landlord has 28 days to complete the MR2 reply form and send it to you and the Tribunal.</li><br>
+          <li>If your landlord sends you a completed MR2 form, you may complete the optional MR3 tenant reply form included with this message. If you do, you must send it to your landlord and the Tribunal within 14 days.</li><br>
+          <li>The Tribunal will make its decision based on your MR1 application form and any MR2 and MR3 replies received.</li><br>
+          <li>When the Tribunal has made its decision, we will let you know by email and post.</li><br>
+          </ol> 
+        <p>If we need anything else from you, we will contact you directly.</p>
+
+
+        <p><br>Yours sincerely,<p>
         <p>{{ globals.case_officer }}
-        <br>on behalf of the First-tier Tribunal (Property Chamber)</p>
+        <br>Case Officer</p>
         <p class="govuk-hint">Standard footer</p>
 
       {% endset -%}
@@ -161,22 +175,35 @@ documents?" ...makes sense but naming of items may need checking. I like this as
 
  
        {% set landlordPostSum %}
-        <p>17 Wagstaff Way<br>
+        <p><strong>Post:</strong><br>17 Wagstaff Way<br>
         Luton<br>
         Bedfordshire<br>
         LL8 4RA</p>
-        <p>Email not yet confirmed by landlord</p>
+        <p><strong>Email:</strong> <br>Address not confirmed</p>
       {% endset -%}
 
       {% set previewLandlordMessage %}
         <p class="govuk-hint">Standard header</p>
         <p>Dear {{ globals.case_landlordname }},</p>
-        <p>An application for a market rent determination has been received for your property {{ globals.case_property}}, following a rent increase notice.</p>
-        <p>You or your representative have 28 days to respond with any information they wish to provide.</p>
-        <p>Follow the instructions at hmcts.gov.uk/landlord-mr2 to complete the MR2 online, or request a paper form from us.</p>
+        <p>We have received an application from your tenant requesting a market rent determination for the address above.</p> 
+        <p>A copy of their application is included with this message.</p>
+        <h2>What you need to do</h2>
+
+        <p>You have 28 days from the date of this message to respond to this application. You can <a href="#">respond online</a> or by completing the MR2 reply form included with this message.</p>
+        <p>You must send your response to your tenant as well as to the Tribunal.</p>
+        <p>You do not have to respond, but if you do not, the Tribunal will make its decision without your input.</p>
+        <h2>What happens next</h2>
+        <ol><li>If you choose to respond, your tenant will have 14 days to respond online or using the MR3 tenant reply form.</li><br>
+          <li>The Tribunal will make its decision based on the tenant's initial application and any responses received.</li><br>
+          <li>When the Tribunal has made its decision, we will let you know by email and post.</li><br>
+        </ol>
+        <p>If we need anything else from you, we will contact you directly.</p>
+
+
+
         <p>Yours sincerely,<p>
         <p>{{ globals.case_officer }}
-        <br>on behalf of the First-tier Tribunal (Property Chamber)</p>
+        <br>Case Officer</p>
         <p class="govuk-hint">Standard footer</p>
 
       {% endset -%}

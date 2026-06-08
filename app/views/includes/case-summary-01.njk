@@ -33,13 +33,13 @@ documents?" ...makes sense but naming of items may need checking. I like this as
 
       {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
-      <h3 class="govuk-heading-m">MR1</h3>
+      <h3 class="govuk-heading-m">MR1 application</h3>
 
       {{ govukSummaryList({
         rows: [
           {
             key: {
-              html: "Type of appeal"
+              html: "Application type"
             },
             value: {
               html: "<div style=width:500px>Challenging a rent increase in a section 13 notice</div>"
@@ -153,7 +153,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
       }) }}
 
 
-      <h3 class="govuk-heading-m">Section 13</h3>
+      <h3 class="govuk-heading-m">Section 13 notice</h3>
 
       {{ govukSummaryList({
         rows: [
@@ -178,7 +178,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               html: "New rent amount"
             },
             value: {
-              text: "£1100 monthly"
+              text: "£1100 per month"
             },
             actions: {
               items: [
@@ -194,7 +194,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               html: "Date of rent increase"
             },
             value: {
-              text: "01 July 2026"
+              text: "1 July 2026"
             },
             actions: {
               items: [
@@ -210,7 +210,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               html: "Date signed by landlord"
             },
             value: {
-              text: "01 June 2026"
+              text: "1 June 2026"
             },
             actions: {
               items: [
@@ -265,7 +265,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               html: "Rent amount"
             },
             value: {
-              text: "£950 monthly"
+              text: "£950 per month"
             },
             actions: {
               items: [
@@ -281,7 +281,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               html: "Date tenancy started"
             },
             value: {
-              text: "01 January 2025"
+              text: "1 January 2025"
             },
             actions: {
               items: [

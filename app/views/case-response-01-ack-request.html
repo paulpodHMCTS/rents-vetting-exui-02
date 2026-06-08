@@ -18,8 +18,8 @@
         </h2>
 
         <h1 class="govuk-heading-xl" style="margin-bottom:0.75em">
-          Send acknowledgements
-          <span class="govuk-caption-xl" style="margin-top:0.2em">All OK</span>
+          Send acknowledgements to parties
+          <span class="govuk-caption-xl" style="margin-top:0.2em">Application can proceed</span>
         </h1>
 
          <!--<p style="margin:-1.5em 0 1em 0">Assumptions on this are: we are concerned with fixing paper form issues, missing info isn't automatically requested</p>-->
@@ -72,21 +72,17 @@
             idPrefix: "send-acks",
             name: "send-acks",
             fieldset: {
-              legend: {
-                text: "Send acknowledgments to parties",
-                isPageHeading: false,
-                classes: "govuk-fieldset__legend--m"
-              }
+
             },
             items: [
               {
                 value: "MR1-ok",
-                text: "Application complete, fee paid, inform tenant",
+                text: "Tenant: Application complete, fee paid or not required",
                 checked: true
               },
               {
                 value: "MR2-send",
-                text: "Inform landlord of MR1 receipt, send MR2 ",
+                text: "Landlord: Application received from tenant, send MR2 ",
                 checked: true
               }
             ]
@@ -103,7 +99,7 @@
           }) }}
 
           {{ govukButton({
-            text: "Continue",
+            text: "Preview drafts",
             href: "case-response-01-summary.html"
           }) }}
         </div>
