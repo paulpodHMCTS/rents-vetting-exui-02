@@ -9,6 +9,48 @@
 
 {% block content %}
 
+<!-- maybe automate list read each for table generation later -->
+
+<!-- random names 
+Fraser Warwick
+Mathew Hartley
+Jillian Tattersall
+Samuel Carey
+Alexis Preston
+Nigel Broughton
+Denis Calvert
+Arthur Arthur
+Felicity Hardman
+-->
+
+<!-- random addresses 
+67 Newington Causeway, London <span class="table-postcode">SE1 6LS</span>
+Flat A, 308 Kensal Road, London <span class="table-postcode">W10 5BE</span>
+26 Lisson Grove, Marylebone, London <span class="table-postcode">NW1 6TZ</span>
+271 Mare Street, Hackney, London <span class="table-postcode">E8 1EE</span>
+52 Medina Road, Finsbury Park, London <span class="table-postcode">N7 7JY</span>
+1 Barnsbury Road, Islington <span class="table-postcode">N1 0EX</span>
+22B Station Road, Aldershot  <span class="table-postcode">GU11 1HP</span>
+13 Dod Street, Poplar, London <span class="table-postcode">E14 7EP</span>
+30 Drysdale Street, London <span class="table-postcode">N1 6LT</span>
+7 Waterford Road, London <span class="table-postcode">SW6 2DL</span>
+6 Nelson House, 50 Wellington Street, Woolwich, London <span class="table-postcode">SE18 6PY</span>
+-->
+
+<!-- associated postcodes
+SE1 6LS
+W10 5BE
+NW1 6TZ
+E8 1EE
+N7 7JY
+N1 0EX
+GU11 1HP
+E14 7EP
+N1 6LT
+SW6 2DL
+SE18 6PY
+-->
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <h1 class="govuk-heading-xl">
@@ -18,6 +60,21 @@
       
       {% include "includes/caselist-filter.html" %}
 
+      <style>
+        .casenumber-col {
+          width: 190px;
+          // never split up a casenumber
+        }
+        .property-col {
+          word-wrap: break-word;
+          max-width: 240px;
+        }
+        .table-postcode {
+          white-space: nowrap;
+          // never split up a postcode incode, outcode
+        }
+      </style>
+
       <table class="govuk-table">
         <caption class="govuk-table__caption govuk-table__caption--m">
           <!--All cases-->
@@ -26,137 +83,158 @@
         </caption>
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Case number</th>
-            <th scope="col" class="govuk-table__header">Status</th>
+            <th scope="col" class="govuk-table__header casenumber-col">Case number</th>
+            <th scope="col" class="govuk-table__header property-col">Property</th>
+            
             <th scope="col" class="govuk-table__header">Date of receipt</th>
-            <th scope="col" class="govuk-table__header">Sent via</th>
+            <th scope="col" class="govuk-table__header">Status</th>
+            
+
             <th scope="col" class="govuk-table__header">Fee paid</th>
-            <th scope="col" class="govuk-table__header">Scans</th>
-            <th scope="col" class="govuk-table__header">Prechecks</th>
-            <th scope="col" class="govuk-table__header">Next</th>
             <th scope="col" class="govuk-table__header">Action</th>
           </tr>
         </thead>
+
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell"><a href="case-dashboard-01.html">{{ globals.case_number }}</a></th>
-            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">New to review</strong><br>14 days remaining</td>
+            <td scope="row" class="govuk-table__cell casenumber-col"><a href="case-dashboard-01.html">{{ globals.case_number }}</a></td>
+            <td class="govuk-table__cell property-col">{{ globals.case_property }}</td>
+
+            
             <td class="govuk-table__cell">28/05/2026</td>
-            <td class="govuk-table__cell">Digital</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">New to review</strong><br>14 days remaining</td>
+
             <td class="govuk-table__cell"><a href=#>29/05/2026</a></td>
-            <td class="govuk-table__cell">-</td>
-            <td class="govuk-table__cell">-</td>
-            <td class="govuk-table__cell">Waiting CO</td>
-            <td class="govuk-table__cell"><a href="case-list-01">Assign to me</a></td>
+            
+
+            <td class="govuk-table__cell"><a href="work-list-01">Assign to me</a></td>
           </tr>
           <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell"><a href="case-dashboard-03.html">7392 8735 9112 0921</a></th>
+            <td scope="row" class="govuk-table__cell"><a href="case-dashboard-02.html">7392 8735 9112 0921</a></td>
+            <td class="govuk-table__cell property-col">67 Newington Causeway, London <span class="table-postcode">SE1 6LS</span></td>
+            
+            <td class="govuk-table__cell">28/05/2026</td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Out of time</strong><br>late application</td>
-            <td class="govuk-table__cell">28/05/2026</td>
-            <td class="govuk-table__cell">Digital</td>
+
             <td class="govuk-table__cell"><a href=#>No</a></td>
-            <td class="govuk-table__cell">-</td>
-            <td class="govuk-table__cell">-</td>
-            <td class="govuk-table__cell">Waiting CO</td>
+            
+
             <td class="govuk-table__cell"><a href="case-list-01">Assign to me</a></td>
           </tr>
           <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell"><a href="#">4567 5678 9123 1234</a></th>
-            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">New to review</strong><br>14 days remaining</td>
+            <td scope="row" class="govuk-table__cell casenumber-col"><a href="case-dashboard-03.html">4567 5678 9123 1234</a></td>
+            <td class="govuk-table__cell property-col">Flat A, 308 Kensal Road, London <span class="table-postcode">W10 5BE</span></td>
+            
             <td class="govuk-table__cell">28/05/2026</td>
-            <td class="govuk-table__cell">Digital</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">New to review</strong><br>14 days remaining</td>
+
             <td class="govuk-table__cell"><a href=#>28/05/2026</a></td>
-            <td class="govuk-table__cell">-</td>
-            <td class="govuk-table__cell">-</td>
-            <td class="govuk-table__cell">Waiting CO</td>
+            
+
             <td class="govuk-table__cell"><a href="work-list-assign">Assign to me</a></td>
           </tr>
           <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell"><a href="#">9123 4567 1234 5678</a></th>
-            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">In Vetting</strong><br>Missing info</td>
+            <td scope="row" class="govuk-table__cell casenumber-col"><a href="case-dashboard-04.html">9123 4567 1234 5678</a></td>
+            <td class="govuk-table__cell property-col">26 Lisson Grove, Marylebone, London <span class="table-postcode">NW1 6TZ</span></td>
+            
             <td class="govuk-table__cell">27/05/2026</td>
-            <td class="govuk-table__cell">Post</td>
-            <td class="govuk-table__cell">No<br><a href=#>Send reminder</a></td>
-            <td class="govuk-table__cell"><a href=#>View</a></td>
-            <td class="govuk-table__cell">-</td>
-            <td class="govuk-table__cell">in your work list<br></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">In Vetting</strong><br>Missing info</td>
+
+            <td class="govuk-table__cell"><a href=#>Not applicable<!--<br>Send reminder--></a></td>
+            
+            
+
             <td class="govuk-table__cell"><!--<span class="govuk-hint">in LO work list<br>D Owens</span>--></td>
           </tr>
           <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell"><a href="#">4567 1234 5678 9123</a></th>
-            <td class="govuk-table__cell">Waiting for LO<br>MR1 duplicate</td>
+            <td scope="row" class="govuk-table__cell casenumber-col"><a href="#">4567 1234 5678 9123</a></td>
+            <td class="govuk-table__cell property-col">271 Mare Street, Hackney, London <span class="table-postcode">E8 1EE</span>
+</td>
+            
             <td class="govuk-table__cell">26/05/2026</td>
-            <td class="govuk-table__cell">Email</td>
-            <td class="govuk-table__cell"><a href=#>No</a><br>Reminder sent</td>
-            <td class="govuk-table__cell">-</td>
-            <td class="govuk-table__cell">-</td>
-            <td class="govuk-table__cell">CO Processing</td>
-            <td class="govuk-table__cell"><!--<span class="govuk-hint">in LO work list<br>F Smith</span>--></td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell"><a href="#">9123 4567 1234 5678</a></th>
             <td class="govuk-table__cell">Waiting for LO<br>MR1 duplicate</td>
+
+            <td class="govuk-table__cell"><a href=#>No</a><br>Reminder sent</td>
+            
+
+            <td class="govuk-table__cell"><!--<span class="govuk-hint">in LO work list<br>F Smith</span>--></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell casenumber-col"><a href="#">9123 4567 1234 5678</a></td>
+            <td class="govuk-table__cell property-col">52 Medina Road, Finsbury Park, London <span class="table-postcode">N7 7JY</span>
+</td>
+            
             <td class="govuk-table__cell">23/05/2026</td>
-            <td class="govuk-table__cell">Post</td>
+            <td class="govuk-table__cell">Waiting for LO<br>MR1 duplicate</td>
+
             <td class="govuk-table__cell"><a href=#>17/04/2026</a></td>
-            <td class="govuk-table__cell"><a href=#>View</a></td>
-            <td class="govuk-table__cell">Passed</td>
-            <td class="govuk-table__cell">Waiting LO</td>
+            
+
             <td class="govuk-table__cell"><!--<span class="govuk-hint">in LO work list<br>D Owens</span>--></td>
           </tr>
           <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell"><a href="#">4567 1234 5678 9123</a></th>
-            <td class="govuk-table__cell">With LO<br>active query</td>
+            <td scope="row" class="govuk-table__cell casenumber-col"><a href="#">4567 1234 5678 9123</a></td>
+            <td class="govuk-table__cell property-col">1 Barnsbury Road, Islington <span class="table-postcode">N1 0EX</span>
+</td>
+            
             <td class="govuk-table__cell">21/05/2026</td>
-            <td class="govuk-table__cell">Email</td>
-            <td class="govuk-table__cell">No<br><a href=#>Send reminder</a></td>
-            <td class="govuk-table__cell">-</td>
-            <td class="govuk-table__cell">-</td>
-            <td class="govuk-table__cell"><span class="govuk-hint">in LO work list<br>D Owens</span></td>
-            <td class="govuk-table__cell"><!--<span class="govuk-hint">in LO work list<br>F Smith</span>--></td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell"><a href="#">9123 4567 1234 5678</a></th>
-            <td class="govuk-table__cell">With LO<br>MR1 duplicate</td>
-            <td class="govuk-table__cell">20/05/2026</td>
-            <td class="govuk-table__cell">Post</td>
-            <td class="govuk-table__cell"><a href=#>17/04/2026</a></td>
-            <td class="govuk-table__cell"><a href=#>View</a></td>
-            <td class="govuk-table__cell">Passed</td>
-            <td class="govuk-table__cell"><span class="govuk-hint">in LO work list<br>D Owens</span></td>
-            <td class="govuk-table__cell"><!--<span class="govuk-hint">in LO work list<br>D Owens</span>--></td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell"><a href="#">4567 1234 5678 9123</a></th>
             <td class="govuk-table__cell">With LO<br>active query</td>
-            <td class="govuk-table__cell">17/05/2026</td>
-            <td class="govuk-table__cell">Email</td>
-            <td class="govuk-table__cell">No<br><a href=#>Send reminder</a></td>
-            <td class="govuk-table__cell">-</td>
-            <td class="govuk-table__cell">-</td>
-            <td class="govuk-table__cell"><span class="govuk-hint">in LO work list<br>D Owens</span></td>
+
+            <td class="govuk-table__cell"><a href=#>No<!--<br>Send reminder--></a></td>
+            
+
             <td class="govuk-table__cell"><!--<span class="govuk-hint">in LO work list<br>F Smith</span>--></td>
           </tr>
           <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell"><a href="#">9123 4567 1234 5678</a></th>
-            <td class="govuk-table__cell">Waiting for MR2<br>due 14/06/2026</td>
-            <td class="govuk-table__cell">15/05/2026</td>
-            <td class="govuk-table__cell">Email</td>
+            <td scope="row" class="govuk-table__cell casenumber-col"><a href="#">9123 4567 1234 5678</a></td>
+            <td class="govuk-table__cell property-col">22B Station Road, Aldershot  <span class="table-postcode">GU11 1HP</span>
+</td>
+           
+            <td class="govuk-table__cell">20/05/2026</td>
+             <td class="govuk-table__cell">With LO<br>MR1 duplicate</td>
+
             <td class="govuk-table__cell"><a href=#>17/04/2026</a></td>
-            <td class="govuk-table__cell">-</td>
-            <td class="govuk-table__cell">Passed</td>
-            <td class="govuk-table__cell">OK</td>
+            
+
             <td class="govuk-table__cell"><!--<span class="govuk-hint">in LO work list<br>D Owens</span>--></td>
           </tr>
           <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell"><a href="#">4567 1234 5678 9123</a></th>
-            <td class="govuk-table__cell">Waiting for MR2<br>due 12/06/2026</td>
+            <td scope="row" class="govuk-table__cell casenumber-col"><a href="#">4567 1234 5678 9123</a></td>
+            <td class="govuk-table__cell property-col">13 Dod Street, Poplar, London <span class="table-postcode">E14 7EP</span>
+</td>
+            
+            <td class="govuk-table__cell">17/05/2026</td>
+            <td class="govuk-table__cell">With LO<br>active query</td>
+
+            <td class="govuk-table__cell"><a href=#>No<!--<br>Send reminder--></a></td>
+            
+
+            <td class="govuk-table__cell"><!--<span class="govuk-hint">in LO work list<br>F Smith</span>--></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell casenumber-col"><a href="#">9123 4567 1234 5678</a></td>
+            <td class="govuk-table__cell property-col">30 Drysdale Street, London <span class="table-postcode">N1 6LT</span>
+</td>
+            
+            <td class="govuk-table__cell">15/05/2026</td>
+            <td class="govuk-table__cell">Waiting for MR2<br>due 14/06/2026</td>
+
+            <td class="govuk-table__cell"><a href=#>17/04/2026</a></td>
+            
+
+            <td class="govuk-table__cell"><!--<span class="govuk-hint">in LO work list<br>D Owens</span>--></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell casenumber-col"><a href="#">4567 1234 5678 9123</a></td>
+            <td class="govuk-table__cell property-col">6 Nelson House, 50 Wellington Street, Woolwich, London <span class="table-postcode">SE18 6PY</span>
+</td>
+            
             <td class="govuk-table__cell">12/05/2026</td>
-            <td class="govuk-table__cell">Email</td>
-            <td class="govuk-table__cell">No<br><a href=#>Send reminder</a></td>
-            <td class="govuk-table__cell">-</td>
-            <td class="govuk-table__cell">-</td>
-            <td class="govuk-table__cell">OK</td>
+            <td class="govuk-table__cell">Waiting for MR2<br>due 12/06/2026</td>
+
+            <td class="govuk-table__cell"><a href=#>No<!--<br>Send reminder--></a></td>
+            
+
             <td class="govuk-table__cell"><!--<span class="govuk-hint">in LO work list<br>F Smith</span>--></td>
           </tr>
         </tbody>
