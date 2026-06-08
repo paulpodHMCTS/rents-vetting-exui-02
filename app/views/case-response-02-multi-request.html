@@ -1,0 +1,177 @@
+{% set section = 'work' %}
+
+{% extends "layout.html" %}
+{% import '_globals.html' as globals %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div id="case-id" style="float:left;width: 890px;">
+        <h2 class="govuk-heading-m" style="margin-bottom:0.5em">Case 1234 5678 9256 1345
+          <span class="govuk-caption-m" style="margin-top:0.2em">15 Garden Drive, Luton, Bedfordshire LU1 1AB</span>
+        </h2>
+
+        <h1 class="govuk-heading-xl" style="margin-bottom:0.75em">
+          Request something from the applicant
+          <!--<span class="govuk-caption-xl" style="margin-top:0.2em"></span>-->
+        </h1>
+
+         <!--<p style="margin:-1.5em 0 1em 0">Assumptions on this are: we are concerned with fixing paper form issues, missing info isn't automatically requested</p>-->
+      </div>
+      
+
+
+      <div id="next-stepper" style="float:right;">
+       
+         
+
+          <!--<div class="govuk-form-group">
+            <label class="govuk-label" for="sort" style="float:left">
+              <span style="position:relative;top:7px;margin-right: 12px;">Next step
+            </label>
+
+            <div style="float:left">
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="choose" selected>Select action</option>
+                <option value="updated">Confirm payment</option>
+                <option value="request">Issue request</option>
+                <option value="views">Review details</option>
+                <option value="comments">Match duplicate</option>
+              </select>
+            </div>
+            
+            <div style="float:left;margin-left:6px">
+              <a href="case-issue-request"><button class="govuk-button">Go</button></a>
+            </div>
+
+          </div>-->
+
+          <br clear="all">
+
+ 
+        
+      </div>
+
+      <br clear="all">
+
+
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+
+    <form class="form" action="" method="post" style="max-width: 880px;">
+
+      {% set otherThing %}
+        {{ govukInput({
+          id: "other-request",
+          name: "otherThing",
+          type: "text",
+          classes: "",
+          label: {
+            text: "What other information are you requesting?"
+          }
+        }) }}
+      {% endset -%}
+
+
+      {% set missinginfos %}
+      <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="info-request" name="info-request" type="checkbox" value="miss13">
+
+          <label class="govuk-label govuk-checkboxes__label" for="info-request">
+            Section 13 notice missing
+          </label>
+      </div>
+
+      <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="info-request" name="info-request" type="checkbox" value="misstenancy">
+
+          <label class="govuk-label govuk-checkboxes__label" for="info-request">
+            Tenancy agreement not provided
+          </label>
+      </div>
+
+      <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="info-request" name="info-request" type="checkbox" value="misslandlord">
+
+          <label class="govuk-label govuk-checkboxes__label" for="info-request">
+            Landlord's name and address
+          </label>
+      </div>
+
+      <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="info-request" name="info-request" type="checkbox" value="missmr1detail">
+
+          <label class="govuk-label govuk-checkboxes__label" for="info-request">
+            Something from the MR1 form
+          </label>
+      </div>
+       
+      {% endset -%}
+        
+       
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+          {{ govukCheckboxes({
+            idPrefix: "info-request",
+            name: "info-request",
+            fieldset: {
+              legend: {
+                text: "What are you requesting from the applicant?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "missfee",
+                text: "Application fee not paid"
+              },
+              {
+                value: "missinfo",
+                text: "Missing information or document",
+                conditional: {
+                  html: missinginfos
+                }
+              },
+              
+              {
+                value: "other",
+                text: "Something else",
+                conditional: {
+                  html: otherThing
+                }
+              }
+            ]
+          }) }}
+
+        
+        
+        <div class="govuk-button-group">
+          
+          {{ govukButton({
+            text: "Return to case",
+            classes: "govuk-button--secondary",
+            href: ""
+          }) }}
+
+          {{ govukButton({
+            text: "Continue to message"
+          }) }}
+        </div>
+      </form>
+
+
+
+
+         
+
+    </div>
+  </div>
+
+{% endblock %}
