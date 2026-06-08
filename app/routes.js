@@ -18,3 +18,16 @@ router.post('/letter-request', function(req, res) {
    
 })
 
+
+// request missing items from the tenant 
+router.post('/case-response-02-multi-request', function(req, res) {
+
+    var inforequest = req.session.data['info-request'] 
+
+    console.log("requested: " + inforequest)
+
+       
+    res.redirect("/letter-preview")
+   
+})
+
