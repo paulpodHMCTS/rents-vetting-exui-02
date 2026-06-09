@@ -89,15 +89,15 @@ documents?" ...makes sense but naming of items may need checking. I like this as
 
       {% set previewTenantMessage %}
         <p class="govuk-hint">Standard header</p>
-        <p>Dear Herbie Hall,</p>
+        <p>Dear {{ globals.case_tenantname }},</p>
         <p>We have received your application to request a market rent determination for the address above. </p>
-        <h2><strong>What happens next</strong></h2>
+        <h2>What happens next</h2>
         <p>Your application has been sent to your landlord or their representative along with an optional MR2 reply form. </p>
         <p>Here is what will happen next:</p>
         <ol>
-          <li>Your landlord has 28 days to complete the MR2 reply form and send it to you and the Tribunal.</li><br>
-          <li>If your landlord sends you a completed MR2 form, you may complete the optional MR3 tenant reply form included with this message. If you do, you must send it to your landlord and the Tribunal within 14 days.</li><br>
-          <li>The Tribunal will make its decision based on your MR1 application form and any MR2 and MR3 replies received.</li><br>
+          <li>Your landlord has 28 days to respond online or complete the MR2 reply form and send it to you and the Tribunal.</li><br>
+          <li>If your landlord chooses to respond, you will have the chance to respond online or through the MR3 tenant reply form. If you do, you must send it to your landlord and the Tribunal within 14 days.</li><br>
+          <li>The Tribunal will make its decision based on your application form and any responses received.</li><br>
           <li>When the Tribunal has made its decision, we will let you know by email and post.</li><br>
           </ol> 
         <p>If we need anything else from you, we will contact you directly.</p>
@@ -191,7 +191,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
 
         <p>You have 28 days from the date of this message to respond to this application. You can <a href="#">respond online</a> or by completing the MR2 reply form included with this message.</p>
         <p>You must send your response to your tenant as well as to the Tribunal.</p>
-        <p>You do not have to respond, but if you do not, the Tribunal will make its decision without your input.</p>
+        <p>You do not have to respond, but if you do not, the Tribunal will make its decision based only on your tenant's application.</p>
         <h2>What happens next</h2>
         <ol><li>If you choose to respond, your tenant will have 14 days to respond online or using the MR3 tenant reply form.</li><br>
           <li>The Tribunal will make its decision based on the tenant's initial application and any responses received.</li><br>
