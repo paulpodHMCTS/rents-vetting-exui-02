@@ -71,11 +71,11 @@
           name: "otherThing",
           type: "text",
           hint: {
-            text: "For example, no floorplan or room descriptions were provided but are required"
+            text: "For example, 'A floorplan' or 'A floorplan and descriptions of each room'"
           },
           classes: "",
           label: {
-            text: "What are you requesting?"
+            text: "If you are requesting more than one thing, list them all here."
           }
         }) }}
       {% endset -%}
@@ -125,7 +125,7 @@
             name: "info-request",
             fieldset: {
               legend: {
-                text: "What are you requesting from the applicant?",
+                text: "What's missing from the application?",
                 isPageHeading: false,
                 classes: "govuk-fieldset__legend--m"
               }
@@ -137,7 +137,7 @@
               },
               {
                 value: "missinfo",
-                text: "Information or document",
+                text: "Information or documents",
                 conditional: {
                   html: missinginfos
                 }
