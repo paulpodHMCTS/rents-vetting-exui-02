@@ -151,7 +151,7 @@
                   <span style="color:#999">From</span>
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  marketrents@hmcts.gov.uk
+                  marketrents@justice.gov.uk
                 </dd>
                
               </div>
@@ -160,7 +160,7 @@
                   <span style="color:#999">To</span>
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  tenant@email.com
+                  {{ globals.case_tenantemail2 }}
                 </dd>
                 
               </div>
@@ -169,7 +169,7 @@
                   <span style="color:#999">Subject</span>
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  Completing your market rent determination - Case {{ globals.case_number }}
+                  Completing your market rent determination - Case {{ globals.case_number2 }}
                 </dd>
                 
               </div>
@@ -178,11 +178,11 @@
             </div>
 
 
-            <p>Dear {{ globals.case_tenantname }}</p>
+            <p>Dear {{ globals.case_tenantname2 }}</p>
 
             <h3 class="govuk-heading-m">RE: Housing Act 1988 - Section 13</h3>
 
-            <p>PREMISES: {{ globals.case_property }}</p>
+            <p>PREMISES: {{ globals.case_property2 }}</p>
 
             <p>We have received your MR1 application form to request a market rent determination for the address above. </p>
             
@@ -265,7 +265,7 @@
                   LE19 9EP
                 </strong></p>
 
-                <p>Include your case reference number [case ref] with anything you send us. </p>
+                <p>Include your case reference number {{ globals.case_number2 }} with anything you send us. </p>
 
                 <p>If we do not receive the information by the deadline, the Tribunal may strike out (cancel) your application.  This is set out in Rule 9 of the Tribunal (Procedure) (First-Tier Tribunal) (Property Chamber) Rules 2013.</p>
 
@@ -296,7 +296,7 @@
 
               <p>Yours sincerely<br><br>
 
-              [Case officer’s name]
+              {{ globals.case_officer }}
               </p>
 
             </div>
