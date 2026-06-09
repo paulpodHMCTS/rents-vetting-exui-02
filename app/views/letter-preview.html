@@ -193,20 +193,20 @@
             {% if 'miss13' in data['info-request'] and 'missfee' in data['info-request'] %}
               <!--<h3 class="govuk-heading-l">BOTH</h3>-->
               <p>
-                Before we can process your application, you must send us some missing information by [info deadline date].</p>
+                Before we can process your application, you must send us some missing information by <strong>{{ globals.case_tenantinfoduedate }}</strong>.</p>
 
                 <p>
-                You must also pay an application fee of £47 by [fee deadline date].
+                You must also pay an application fee of £47 by <strong>{{ globals.case_tenantfeeduedate }}</strong>.
               </p>
             {% elif 'miss13' in data['info-request'] %}
               <!--<h3 class="govuk-heading-l">Missing information</h3>-->
               <p>
-                Before we can process your application, you must send us some missing information by [info deadline date].
+                Before we can process your application, you must send us some missing information by <strong>{{ globals.case_tenantinfoduedate }}</strong>.
               </p>
             {% elif 'missfee' in data['info-request'] %}
               <!--<h3 class="govuk-heading-l">Not paid</h3>-->
               <p>
-                Before we can process your application, you must pay an application fee of £47 by [fee deadline date].
+                Before we can process your application, you must pay an application fee of £47 by <strong>{{ globals.case_tenantfeeduedate }}</strong>.
               </p>
            
             {% endif %}
@@ -223,7 +223,7 @@
 
                 <p>For details on how to pay, see the ‘Ways to Pay’ document included with this message.</p>
 
-                <p>If the fee is not paid by [fee deadline date], your application will be withdrawn and your case will be closed. This is set out in Rule 11(3) of the Tribunal Procedure (First-tier Tribunal) (Property Chamber) Rules 2013.</p>
+                <p>If the fee is not paid by <strong>{{ globals.case_tenantfeeduedate }}</strong>, your application will be withdrawn and your case will be closed. This is set out in Rule 11(3) of the Tribunal Procedure (First-tier Tribunal) (Property Chamber) Rules 2013.</p>
               </div>
             {% endif %}
 
@@ -234,7 +234,7 @@
               <div>
                 <h2 class="govuk-heading-m">Providing the missing information</h2>
 
-                <p>You must send us the following information by [info deadline date]. You must also send a copy to your landlord. </p>
+                <p>You must send us the following information by <strong>{{ globals.case_tenantinfoduedate }}</strong>. You must also send a copy to your landlord. </p>
 
                 <ul class="govuk-list govuk-list--bullet">
                   {% if 'miss13' in data['info-request'] %}
@@ -281,22 +281,23 @@
 
               <p>Your application has already been sent to your landlord along with an optional MR2 reply form. </p>
 
-              <p>They have been told it is currently on hold while we wait for the missing [application fee / information / information and application fee]. </p>
+              <p>They have been told it is currently on hold while we wait for what's missing. </p>
 
               <p>Here is what will happen next: 
 
-              <ol class="govuk-list">
-                <li>Your landlord has 28 days to complete the MR2 reply form and send it to you and the Tribunal. </li>
+              <ol class="govuk-list govuk-list--number">
+                <li>Your landlord has 28 days to respond online or complete the MR2 reply form and send it to you and the Tribunal. </li>
 
-                <li>If your landlord sends you a completed MR2 form, you may complete the optional MR3 tenant reply form included with this message. If you do, you must send it to your landlord and the Tribunal within 14 days. </li>
+                <li>If your landlord chooses to respond, you may respond online or complete the optional MR3 tenant reply form included with this message. If you do, you must send it to your landlord and the Tribunal within 14 days. </li>
 
-                <li>The tribunal will make its decision based on your MR1 application form and any MR2 and MR3 replies received. </li>
+                <li>The tribunal will make its decision based on your application and any replies received. </li>
 
               </ol>
 
               <p>Yours sincerely<br><br>
 
-              {{ globals.case_officer }}
+              {{ globals.case_officer }}<br>
+              Case Officer
               </p>
 
             </div>
