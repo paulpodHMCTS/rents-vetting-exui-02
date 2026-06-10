@@ -13,8 +13,8 @@
     <div class="govuk-grid-column-full">
 
       <div id="case-id" style="float:left;width: 890px;">
-        <h2 class="govuk-heading-m" style="margin-bottom:0.5em">Case {{ globals.case_number3 }}
-          <span class="govuk-caption-m" style="margin-top:0.2em">{{ globals.case_property3 }}</span>
+        <h2 class="govuk-heading-m" style="margin-bottom:0.5em">Case {{ globals.case_number4 }}
+          <span class="govuk-caption-m" style="margin-top:0.2em">{{ globals.case_property4 }}</span>
         </h2>
 
         <h1 class="govuk-heading-xl" style="margin-bottom:0.75em">
@@ -70,10 +70,10 @@ documents?" ...makes sense but naming of items may need checking. I like this as
 
   <ul class="govuk-list govuk-list--bullet">
 
-      <li><strong>Application status:</strong> Complete, late, rejected</li>
-      <li><strong>Letters:</strong> Late application, missed deadline </li>
+      <li><strong>Application status:</strong> Payment deadline passed, no payment received, withdraw case</li>
+      <li><strong>Letters:</strong> No payment, case withdrawn </li>
       <li><strong>Tenant:</strong> Sending by email</li>
-      <li><strong>Landlord:</strong> No response required</li>
+      <li><strong>Landlord:</strong> Sending by post</li>
 
 
   </ul>
@@ -83,35 +83,24 @@ documents?" ...makes sense but naming of items may need checking. I like this as
   <form class="form" action="" method="post" >
       {% set tenantEmailSum %}
         <p><strong>Post:</strong><br> Not requested</p>
-        <p><strong>Email:</strong><br> {{ globals.case_tenantemail3 }}</p>
+        <p><strong>Email:</strong><br> {{ globals.case_tenantemail4 }}</p>
     
       {% endset -%}
 
       {% set previewTenantMessage %}
         <p class="govuk-hint">Standard header</p>
-        <p>Dear {{ globals.case_tenantname3 }},</p>
-        <p>We received your MR1 application form to request a market rent determination for the address above on [Date MR1 received].</p>
-        <p>Your application appears to have been made after the deadline. We are writing to let you know that we may not be able to consider it.</p>
-        <h3>Why your application may be late</h3>
+        <p>Dear {{ globals.case_tenantname4 }},</p>
+        <p>We have not received the application fee for your case.
 
-        <p>You must apply to the Tribunal before the start date of the proposed new rent. This is set out in the Form 4A (Landlord’s notice proposing a new rent) that you received from your landlord.
+        <p>As a result, your application has been withdrawn and your case is closed. This is set out in Rule 11(3) of the Tribunal Procedure (First-Tier Tribunal) (Property Chamber) Rules 2013.</p>
 
-        <h3>The Tribunal cannot extend this deadline.</h3>
+        <h3>If you want your case to be reopened</h3>
 
-        <p>Based on the date [new rent start date] in the Form 4A included with your application, it appears that your application was received after this deadline.
+        <p>You can apply to have your case reinstated within 28 days of receiving this message.</p>
 
-        <h3>What this means</h3>
+        <p>To do this, you must send the Tribunal a completed form Order 1 by post or email. You can download form Order 1 from GOV.UK.</p>
 
-        <p>The Tribunal is minded to strike out (cancel) your application. This is set out in Rule 9(2) of the Tribunal Procedure (First-Tier Tribunal) (Property Chamber) Rules 2013.</p>
-
-        <p>If your application is struck out, it will not go ahead.</p>
-
-        <p>If you think your application was made in time</p>
-
-        <p>If you believe the application was made in time, you can write to the Tribunal to explain why. You must do this by [deadline] and send a copy to your landlord.</p>
-
-        <p>A legal officer will review what is sent and decide whether the application should proceed.</p>
-
+        <p>If your request is granted, you will still need to pay the application fee.</p>
 
         <p><br>Yours sincerely,<p>
         <p>{{ globals.case_officer }}
@@ -174,7 +163,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
                   text: "Change"
                 },
                 {
-                  href: "case-response-03-preview-tenant-email.html",
+                  href: "case-response-04-preview-tenant-email.html",
                   text: "Preview"
                 }
               ]
@@ -194,11 +183,13 @@ documents?" ...makes sense but naming of items may need checking. I like this as
 
       {% set previewLandlordMessage %}
         <p class="govuk-hint">Standard header</p>
-        <p>Dear {{ globals.case_landlordname }},</p>
+        <p>Dear {{ globals.case_landlordname4 }},</p>
         
-        <p>If we need anything else from you, we will contact you directly.</p>
+        <p>We previously let you know that the application fee for this case had not been paid.</p>
 
+        <p>The fee has not been received in time and the application has been withdrawn. The case is now closed.</p>
 
+        <p>If the tenant applies to have the case reinstated, we will let you know.</p>
 
         <p>Yours sincerely,<p>
         <p>{{ globals.case_officer }}
@@ -223,7 +214,11 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               items: [
                 {
                   href: "#",
-                  text: ""
+                  text: "Change"
+                },
+                {
+                  href: "case-response-04-preview-landlord-letter.html",
+                  text: "Preview"
                 }
               ]
             }
@@ -233,7 +228,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               html: "Message text"
             },
             value: {
-              html: "No message required"
+              html: previewLandlordMessage
             }
           }
         ]
@@ -249,13 +244,13 @@ documents?" ...makes sense but naming of items may need checking. I like this as
           {{ govukButton({
             text: "Return to case",
             classes: "govuk-button--secondary",
-            href: ""
+            href: "case-response-04-non-payment"
           }) }}
 
           {{ govukButton({
             text: "Send",
 
-            href: "case-sent-03"
+            href: "case-sent-04"
           }) }}
         </div>
       </form>

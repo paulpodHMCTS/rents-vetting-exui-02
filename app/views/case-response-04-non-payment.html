@@ -1,0 +1,116 @@
+{% set section = 'work' %}
+
+{% extends "layout.html" %}
+{% import '_globals.html' as globals %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div id="case-id" style="float:left;width: 890px;">
+        <h2 class="govuk-heading-m" style="margin-bottom:0.5em">Case {{ globals.case_number3 }}
+          <span class="govuk-caption-m" style="margin-top:0.2em">{{ globals.case_property3 }}</span>
+        </h2>
+
+        <h1 class="govuk-heading-xl" style="margin-bottom:0.75em">
+          Received out of time 
+          <span class="govuk-caption-xl" style="margin-top:0.2em">Application cannot proceed</span>
+        </h1>
+
+         <!--<p style="margin:-1.5em 0 1em 0">Assumptions on this are: we are concerned with fixing paper form issues, missing info isn't automatically requested</p>-->
+      </div>
+      
+
+
+      <div id="next-stepper" style="float:right;">
+       
+         
+
+          <!--<div class="govuk-form-group">
+            <label class="govuk-label" for="sort" style="float:left">
+              <span style="position:relative;top:7px;margin-right: 12px;">Available actions
+            </label>
+
+            <div style="float:left">
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="choose" selected>Select action</option>
+                <option value="updated">Confirm payment</option>
+                <option value="request">Issue request</option>
+                <option value="views">Review details</option>
+                <option value="comments">Match duplicate</option>
+              </select>
+            </div>
+            
+            <div style="float:left;margin-left:6px">
+              <a href="case-issue-request"><button class="govuk-button">Go</button></a>
+            </div>
+
+          </div>-->
+
+          <br clear="all">
+
+ 
+        
+      </div>
+
+      <br clear="all">
+
+
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+
+    <form class="form" action="" method="post" style="max-width: 880px;">
+
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+          {{ govukCheckboxes({
+            idPrefix: "send-acks",
+            name: "send-acks",
+            fieldset: {
+
+            },
+            items: [
+              {
+                value: "MR1-nonpay",
+                text: "To tenant: Application complete but fee has not been paid in time",
+                checked: true
+              },
+              {
+                value: "MR2-nonpay",
+                text: "To landlord: Fee wasn't paid in time, application withdrawn",
+                checked: true
+              }
+            ]
+          }) }}
+
+        
+        
+        <div class="govuk-button-group">
+          
+          {{ govukButton({
+            text: "Return to case",
+            classes: "govuk-button--secondary",
+            href: ""
+          }) }}
+
+          {{ govukButton({
+            text: "Preview drafts",
+            href: "case-response-04-summary.html"
+          }) }}
+        </div>
+      </form>
+
+
+
+
+         
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,186 @@
+{% set section = 'work' %}
+
+{% extends "layout.html" %}
+{% import '_globals.html' as globals %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div id="case-id" style="float:left;width: 700px;">
+        <h1 class="govuk-heading-xl" style="margin: -0.76em 0 0.5em 0;">
+          Preview letter
+          <!--<span class="govuk-caption-xl">Manual entry if scanning or digital not available</span>-->
+        </h1>
+
+       
+        
+      </div>
+      
+     
+
+      <div id="next-stepper" style="float:right;">
+       
+         
+
+          <!--<div class="govuk-form-group">
+            <label class="govuk-label" for="sort" style="float:left">
+              <span style="position:relative;top:7px;margin-right: 12px;">Available actions
+            </label>
+
+            <div style="float:left">
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="choose" selected>Select action</option>
+                <option value="updated">Confirm payment</option>
+                <option value="views">Review details</option>
+                <option value="comments">Match duplicate</option>
+              </select>
+            </div>
+            
+            <div style="float:left;margin-left:6px">
+              <button class="govuk-button">Go</button>
+            </div>
+
+          </div>-->
+
+          <br clear="all">
+
+ 
+        
+      </div>
+
+      <br clear="all">
+
+      <style>
+        #fake-letter-header {
+          background-image: url('/public/images/letter-header.png');
+          background-repeat: no-repeat;
+          background-size: 800px;
+          height: 310px;
+        }
+
+        #letter-addressed {
+          font-size: 0.5em;
+          position: relative;
+          left: 90px;
+          top: 210px;
+          font-family: sans-serif !important;
+        }
+        #letter-addressed p {
+          font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+          font-size: 13px;
+          line-height: 1;
+        }
+
+        .previewtopbar {
+          display: inline-block;
+          padding-left: 1.3em;
+          text-decoration-line: underline;
+          text-decoration-color: #1d70b8;
+          text-underline-offset: 14px;
+          text-decoration-thickness: 8px;
+        }
+
+        #email-preview {
+          border: 8px solid #ddd;
+          border-radius: 10px;
+          width: 800px;
+          margin-bottom: 1em;
+        }
+
+        #message-body {
+          padding: 10px 20px 10px 88px;
+          font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+
+        }
+        #message-body p,
+        #message-body li {
+          font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+          font-size: 14px;
+          line-height: 1.2;
+          margin-bottom: 1em;
+          font-weight: 400 !important;
+        }
+        #message-body h2,
+        #message-body h3 {
+          font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+          font-size: 19px;
+          font-weight: 600;
+          line-height: 1.2;
+        }
+      </style>
+
+      
+      <div id="email-preview" >
+        <div id="fake-letter-header" >
+          <div id="letter-addressed">
+            <p>26 Lisson Grove<br>Marylebone<br>London<br>NW1 6TZ</p>
+          </div>
+        </div>
+
+        <div id="message-body">
+
+          <!-- check there is some items selected to test/fill content for -->
+          
+          <div>
+
+            
+
+            <p>09 June 2026</p>
+
+            <p>Dear {{ globals.case_landlordname4 }}</p>
+
+            <h3>RE: Housing Act 1988 - Section 13</h3>
+
+            <p><strong>Property: {{ globals.case_property4 }}</strong></p>
+
+            <p>We previously let you know that the application fee for this case had not been paid.</p>
+
+            <p>The fee has not been received in time and the application has been withdrawn. The case is now closed.</p>
+
+            <p>If the tenant applies to have the case reinstated, we will let you know.</p>
+
+            <p>Yours sincerely,<p>
+            <p>{{ globals.case_officer }}
+            <br>Case Officer</p>
+
+            </div>
+
+
+
+
+        </div><!-- close message-body -->
+        </div>
+      </div>
+
+
+
+        <div class="govuk-button-group">
+          
+          {{ govukButton({
+            text: "Back to summary",
+            classes: "govuk-button--secondary",
+            href: "case-resonse-01-summary"
+          }) }}
+
+          <!--{{ govukButton({
+            text: "Send now",
+            href: "case-issue-confirm"
+          }) }}-->
+        </div>
+      </form>
+
+
+
+
+         
+
+    </div>
+  </div>
+
+{% endblock %}

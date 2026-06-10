@@ -14,7 +14,7 @@ router.post('/multi-request', function(req, res) {
     console.log("requested-01: " + inforequest)
 
        
-    res.redirect("/letter-preview")
+    res.redirect("/case-response-02-summary")
    
 })
 

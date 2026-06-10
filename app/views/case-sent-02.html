@@ -1,0 +1,125 @@
+{% set section = 'work' %}
+
+{% extends "layout.html" %}
+{% import '_globals.html' as globals %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div id="case-id" style="float:left;width: 700px;">
+        
+
+        <h1 class="govuk-heading-xl" style="margin-bottom:0.75em">
+          
+         
+        </h1>
+
+        
+      </div>
+      
+
+
+      <div id="next-stepper" style="float:right;">
+       
+         
+
+          <!--<div class="govuk-form-group">
+            <label class="govuk-label" for="sort" style="float:left">
+              <span style="position:relative;top:7px;margin-right: 12px;">Available actions
+            </label>
+
+            <div style="float:left">
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="choose" selected>Select action</option>
+                <option value="updated">Confirm payment</option>
+                <option value="request">Issue request</option>
+                <option value="views">Review details</option>
+                <option value="comments">Match duplicate</option>
+              </select>
+            </div>
+            
+            <div style="float:left;margin-left:6px">
+              <a href="case-issue-request"><button class="govuk-button">Go</button></a>
+            </div>
+
+          </div>-->
+
+          <br clear="all">
+
+ 
+        
+      </div>
+
+      <br clear="all">
+
+     <div style="max-width: 660px;">
+
+      <div class="govuk-panel govuk-panel--confirmation" style="margin-top:-30px;padding-bottom: 0.5em;color: white;">
+        <h1 class="govuk-panel__title">
+          Case reviewed 
+        </h1>
+        <div class="govuk-panel__body">
+          
+
+          <div style="text-align: left;">
+            
+
+            <h2 class="govuk-heading-m" style="margin-bottom:0.5em;color: white !important;">
+              Case {{ globals.case_number2 }}
+              <span class="govuk-caption-m" style="margin-top:0.2em;color: white !important;">
+                {{ globals.case_property2 }}
+              </span>
+            </h2>
+
+            <p style="margin-bottom:0;color: white !important;">Sent
+              <ul class="govuk-list govuk-list--bullet" style="color: white !important;">
+                <li>Request for information, documents, payment email to tenant</li>
+                <li>Acknowledgement letter to landlord</li>
+              </ul>
+            </p>
+
+        </div>
+
+
+      </div>
+
+    <form class="form" action="" method="post">
+
+      
+
+
+      </div>
+        
+       
+
+        
+        <div class="govuk-button-group">
+          
+          <!--{{ govukButton({
+            text: "Return to case list",
+            classes: "govuk-button--secondary",
+            href: "case-list"
+          }) }}-->
+
+          {{ govukButton({
+            text: "Save and return to work list",
+            href: "work-list-x03"
+          }) }}
+        </div>
+      </form>
+
+
+
+
+         
+
+    </div>
+  </div>
+
+{% endblock %}

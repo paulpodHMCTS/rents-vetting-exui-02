@@ -117,7 +117,7 @@
                   <span style="color:#999">To</span>
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  {{ globals.case_tenantemail }}
+                  {{ globals.case_tenantemail4 }}
                 </dd>
                 
               </div>
@@ -126,7 +126,7 @@
                   <span style="color:#999">Subject</span>
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  We received your application:  Case {{ globals.case_number }}
+                  Your application:  Case {{ globals.case_number4 }}
                 </dd>
                 
               </div>
@@ -136,24 +136,24 @@
 
             
 
-            <p>Dear {{ globals.case_tenantname }},</p>
+            <p>Dear {{ globals.case_tenantname4 }},</p>
 
             <h3 class="govuk-heading-m">RE: Housing Act 1988 - Section 13</h3>
 
-            <p><strong>Property: {{ globals.case_property }}</strong></p>
+            <p><strong>Property: {{ globals.case_property4 }}</strong></p>
 
                    
-        <p>We have received your application to request a market rent determination for the address above. </p>
-        <h2 class="govuk-heading-m">What happens next</h2>
-        <p>Your application has been sent to your landlord or their representative along with an optional MR2 reply form. </p>
-        <p>Here is what will happen next:</p>
-        <ol class="govuk-list govuk-list--number">
-          <li>Your landlord has 28 days to respond online or complete the MR2 reply form and send it to you and the Tribunal.</li><br>
-          <li>If your landlord responds, we will send their response to you. You can then respond online or through the MR3 tenant reply form. If you do, you must send it to your landlord and the Tribunal within 14 days.</li><br>
-          <li>The Tribunal will make its decision based on your application and any responses received.</li><br>
-          <li>When the Tribunal has made its decision, we will let you know by email and post.</li><br>
-          </ol> 
-        <p>If we need anything else from you, we will contact you.</p>
+        <p>We have not received the application fee for your case.
+
+        <p>As a result, your application has been withdrawn and your case is closed. This is set out in Rule 11(3) of the Tribunal Procedure (First-Tier Tribunal) (Property Chamber) Rules 2013.</p>
+
+        <h3 class="govuk-heading-m">If you want your case to be reopened</h3>
+
+        <p>You can apply to have your case reinstated within 28 days of receiving this message.</p>
+
+        <p>To do this, you must send the Tribunal a completed form Order 1 by post or email. You can download form Order 1 from GOV.UK.</p>
+
+        <p>If your request is granted, you will still need to pay the application fee.</p>
 
 
         <p><br>Yours sincerely,<p>
@@ -178,7 +178,7 @@
           {{ govukButton({
             text: "Back to summary",
             classes: "govuk-button--secondary",
-            href: "case-resonse-01-summary"
+            href: "case-response-04-summary"
           }) }}
 
           <!--{{ govukButton({

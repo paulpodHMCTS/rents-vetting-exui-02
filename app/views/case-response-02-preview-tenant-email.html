@@ -1,0 +1,337 @@
+{% set section = 'work' %}
+
+{% extends "layout.html" %}
+{% import '_globals.html' as globals %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div id="case-id" style="float:left;width: 700px;">
+        <h1 class="govuk-heading-xl" style="margin: -0.76em 0 0.5em 0;">
+          Preview email
+          <!--<span class="govuk-caption-xl">Manual entry if scanning or digital not available</span>-->
+        </h1>
+
+        
+
+         <!-- check there is some items selected -->
+        {% if data['info-request'] %}
+
+          <h2 class="govuk-heading-m" style="margin-bottom: 0.25em;">Summary:</h2>
+
+          <ul class="govuk-list govuk-list--bullet">
+            {% if 'miss13' in data['info-request'] %}
+              <li>there is a missing section 13 </li>
+            {% endif %}
+            {% if 'missfee' in data['info-request'] %}
+              <li>the application fee has not been paid</li>
+            {% endif %}
+            {% if 'misslandlord' in data['info-request'] %}
+              <li>the landlord's name and address have not been supplied</li>
+            {% endif %}
+            {% if 'missmr1detail' in data['info-request'] %}
+              <li>details from the MR1 are missing</li>
+            {% endif %}
+            {% if 'other' in data['info-request'] %}
+              <li>other details need to be supplied</li>
+            {% endif %}
+          </ul>
+        {% else %}
+
+          <p>No items selected</p>
+        {% endif %}
+
+        
+      </div>
+      
+     
+
+      <div id="next-stepper" style="float:right;">
+       
+         
+
+          <!--<div class="govuk-form-group">
+            <label class="govuk-label" for="sort" style="float:left">
+              <span style="position:relative;top:7px;margin-right: 12px;">Available actions
+            </label>
+
+            <div style="float:left">
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="choose" selected>Select action</option>
+                <option value="updated">Confirm payment</option>
+                <option value="views">Review details</option>
+                <option value="comments">Match duplicate</option>
+              </select>
+            </div>
+            
+            <div style="float:left;margin-left:6px">
+              <button class="govuk-button">Go</button>
+            </div>
+
+          </div>-->
+
+          <br clear="all">
+
+ 
+        
+      </div>
+
+      <br clear="all">
+
+      <style>
+      .previewtopbar {
+        display: inline-block;padding-left:1.3em;
+        
+        
+      }
+      #email-preview {
+        border:8px solid #ddd;
+        border-radius: 10px;
+        width: 800px;
+        margin-bottom:1em
+      }
+      #message-body {
+        padding-left: 30px;
+        padding-right: 20px;
+      }
+      #govlogo {
+        scale: 0.88;
+        position: relative;
+        left:-20px;
+      }
+      </style>
+
+      
+      <div id="email-preview" >
+        <div id="fake-email-header" style="background-color:#1d70b8">
+          <div class="govuk-heading-m" style="color:white;padding:0.35em 0">
+            <div id="govlogo">
+            <svg focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 324 60" height="30" width="162" fill="currentcolor" class="govuk-header__logotype" aria-label="GOV.UK"><title>GOV.UK</title>
+            <g>
+                <circle cx="20" cy="17.6" r="3.7"></circle>
+                <circle cx="10.2" cy="23.5" r="3.7"></circle>
+                <circle cx="3.7" cy="33.2" r="3.7"></circle>
+                <circle cx="31.7" cy="30.6" r="3.7"></circle>
+                <circle cx="43.3" cy="17.6" r="3.7"></circle>
+                <circle cx="53.2" cy="23.5" r="3.7"></circle>
+                <circle cx="59.7" cy="33.2" r="3.7"></circle>
+                <circle cx="31.7" cy="30.6" r="3.7"></circle>
+                <path d="M33.1,9.8c.2-.1.3-.3.5-.5l4.6,2.4v-6.8l-4.6,1.5c-.1-.2-.3-.3-.5-.5l1.9-5.9h-6.7l1.9,5.9c-.2.1-.3.3-.5.5l-4.6-1.5v6.8l4.6-2.4c.1.2.3.3.5.5l-2.6,8c-.9,2.8,1.2,5.7,4.1,5.7h0c3,0,5.1-2.9,4.1-5.7l-2.6-8ZM37,37.9s-3.4,3.8-4.1,6.1c2.2,0,4.2-.5,6.4-2.8l-.7,8.5c-2-2.8-4.4-4.1-5.7-3.8.1,3.1.5,6.7,5.8,7.2,3.7.3,6.7-1.5,7-3.8.4-2.6-2-4.3-3.7-1.6-1.4-4.5,2.4-6.1,4.9-3.2-1.9-4.5-1.8-7.7,2.4-10.9,3,4,2.6,7.3-1.2,11.1,2.4-1.3,6.2,0,4,4.6-1.2-2.8-3.7-2.2-4.2.2-.3,1.7.7,3.7,3,4.2,1.9.3,4.7-.9,7-5.9-1.3,0-2.4.7-3.9,1.7l2.4-8c.6,2.3,1.4,3.7,2.2,4.5.6-1.6.5-2.8,0-5.3l5,1.8c-2.6,3.6-5.2,8.7-7.3,17.5-7.4-1.1-15.7-1.7-24.5-1.7h0c-8.8,0-17.1.6-24.5,1.7-2.1-8.9-4.7-13.9-7.3-17.5l5-1.8c-.5,2.5-.6,3.7,0,5.3.8-.8,1.6-2.3,2.2-4.5l2.4,8c-1.5-1-2.6-1.7-3.9-1.7,2.3,5,5.2,6.2,7,5.9,2.3-.4,3.3-2.4,3-4.2-.5-2.4-3-3.1-4.2-.2-2.2-4.6,1.6-6,4-4.6-3.7-3.7-4.2-7.1-1.2-11.1,4.2,3.2,4.3,6.4,2.4,10.9,2.5-2.8,6.3-1.3,4.9,3.2-1.8-2.7-4.1-1-3.7,1.6.3,2.3,3.3,4.1,7,3.8,5.4-.5,5.7-4.2,5.8-7.2-1.3-.2-3.7,1-5.7,3.8l-.7-8.5c2.2,2.3,4.2,2.7,6.4,2.8-.7-2.3-4.1-6.1-4.1-6.1h10.6,0Z"></path>
+              </g>
+            
+              <circle class="govuk-logo-dot" cx="226" cy="36" r="7.3"></circle>
+              <path d="M93.94 41.25c.4 1.81 1.2 3.21 2.21 4.62 1 1.4 2.21 2.41 3.61 3.21s3.21 1.2 5.22 1.2 3.61-.4 4.82-1c1.4-.6 2.41-1.4 3.21-2.41.8-1 1.4-2.01 1.61-3.01s.4-2.01.4-3.01v.14h-10.86v-7.02h20.07v24.08h-8.03v-5.56c-.6.8-1.38 1.61-2.19 2.41-.8.8-1.81 1.2-2.81 1.81-1 .4-2.21.8-3.41 1.2s-2.41.4-3.81.4a18.56 18.56 0 0 1-14.65-6.63c-1.6-2.01-3.01-4.41-3.81-7.02s-1.4-5.62-1.4-8.83.4-6.02 1.4-8.83a20.45 20.45 0 0 1 19.46-13.65c3.21 0 4.01.2 5.82.8 1.81.4 3.61 1.2 5.02 2.01 1.61.8 2.81 2.01 4.01 3.21s2.21 2.61 2.81 4.21l-7.63 4.41c-.4-1-1-1.81-1.61-2.61-.6-.8-1.4-1.4-2.21-2.01-.8-.6-1.81-1-2.81-1.4-1-.4-2.21-.4-3.61-.4-2.01 0-3.81.4-5.22 1.2-1.4.8-2.61 1.81-3.61 3.21s-1.61 2.81-2.21 4.62c-.4 1.81-.6 3.71-.6 5.42s.8 5.22.8 5.22Zm57.8-27.9c3.21 0 6.22.6 8.63 1.81 2.41 1.2 4.82 2.81 6.62 4.82S170.2 24.39 171 27s1.4 5.62 1.4 8.83-.4 6.02-1.4 8.83-2.41 5.02-4.01 7.02-4.01 3.61-6.62 4.82-5.42 1.81-8.63 1.81-6.22-.6-8.63-1.81-4.82-2.81-6.42-4.82-3.21-4.41-4.01-7.02-1.4-5.62-1.4-8.83.4-6.02 1.4-8.83 2.41-5.02 4.01-7.02 4.01-3.61 6.42-4.82 5.42-1.81 8.63-1.81Zm0 36.73c1.81 0 3.61-.4 5.02-1s2.61-1.81 3.61-3.01 1.81-2.81 2.21-4.41c.4-1.81.8-3.61.8-5.62 0-2.21-.2-4.21-.8-6.02s-1.2-3.21-2.21-4.62c-1-1.2-2.21-2.21-3.61-3.01s-3.21-1-5.02-1-3.61.4-5.02 1c-1.4.8-2.61 1.81-3.61 3.01s-1.81 2.81-2.21 4.62c-.4 1.81-.8 3.61-.8 5.62 0 2.41.2 4.21.8 6.02.4 1.81 1.2 3.21 2.21 4.41s2.21 2.21 3.61 3.01c1.4.8 3.21 1 5.02 1Zm36.32 7.96-12.24-44.15h9.83l8.43 32.77h.4l8.23-32.77h9.83L200.3 58.04h-12.24Zm74.14-7.96c2.18 0 3.51-.6 3.51-.6 1.2-.6 2.01-1 2.81-1.81s1.4-1.81 1.81-2.81a13 13 0 0 0 .8-4.01V13.9h8.63v28.15c0 2.41-.4 4.62-1.4 6.62-.8 2.01-2.21 3.61-3.61 5.02s-3.41 2.41-5.62 3.21-4.62 1.2-7.02 1.2-5.02-.4-7.02-1.2c-2.21-.8-4.01-1.81-5.62-3.21s-2.81-3.01-3.61-5.02-1.4-4.21-1.4-6.62V13.9h8.63v26.95c0 1.61.2 3.01.8 4.01.4 1.2 1.2 2.21 2.01 2.81.8.8 1.81 1.4 2.81 1.81 0 0 1.34.6 3.51.6Zm34.22-36.18v18.92l15.65-18.92h10.82l-15.03 17.32 16.03 26.83h-10.21l-11.44-20.21-5.62 6.22v13.99h-8.83V13.9"></path>
+            
+          </svg>
+          </div>
+
+            <!--<span class="previewtopbar">HM Courts & Tribunals Service-->
+              
+            </span>
+          </div>
+        </div>
+
+        <div id="message-body">
+
+          <!-- check there is some items selected to test/fill content for -->
+          {% if data['info-request'] %}
+          <div>
+
+            <div id="preview-email-addresses">
+
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key" style="width: 120px !important;">
+                  <span style="color:#999">From</span>
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  marketrents@justice.gov.uk
+                </dd>
+               
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  <span style="color:#999">To</span>
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ globals.case_tenantemail2 }}
+                </dd>
+                
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  <span style="color:#999">Subject</span>
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Completing your market rent determination - Case {{ globals.case_number2 }}
+                </dd>
+                
+              </div>
+            </dl>
+
+            </div>
+
+
+            <p>Dear {{ globals.case_tenantname2 }}</p>
+
+            <h3 class="govuk-heading-m">RE: Housing Act 1988 - Section 13</h3>
+
+            <p><strong>Property: {{ globals.case_property2 }}</strong></p>
+
+            <p>We have received your MR1 application form to request a market rent determination for the address above. </p>
+            
+            <div>
+
+            <!-- intro line at top of email body -->
+
+            {% if 'miss13' in data['info-request'] and 'missfee' in data['info-request'] %}
+              <!--<h3 class="govuk-heading-l">BOTH</h3>-->
+              <p>
+                Before we can process your application, you must send us some missing information by <strong>{{ globals.case_tenantinfoduedate }}</strong>.</p>
+
+                <p>
+                You must also pay an application fee of £47 by <strong>{{ globals.case_tenantfeeduedate }}</strong>.
+              </p>
+            {% elif 'miss13' in data['info-request'] %}
+              <!--<h3 class="govuk-heading-l">Missing information</h3>-->
+              <p>
+                Before we can process your application, you must send us some missing information by <strong>{{ globals.case_tenantinfoduedate }}</strong>.
+              </p>
+            {% elif 'missfee' in data['info-request'] %}
+              <!--<h3 class="govuk-heading-l">Not paid</h3>-->
+              <p>
+                Before we can process your application, you must pay an application fee of £47 by <strong>{{ globals.case_tenantfeeduedate }}</strong>.
+              </p>
+           
+            {% endif %}
+
+          </div>
+        
+
+
+            <!-- Missing fee block -->
+           
+            {% if 'missfee' in data['info-request'] %}
+              <div>
+                <h2 class="govuk-heading-m">Paying the application fee</h2>
+
+                <p>For details on how to pay, see the ‘Ways to Pay’ document included with this message.</p>
+
+                <p>If the fee is not paid by <strong>{{ globals.case_tenantfeeduedate }}</strong>, your application will be withdrawn and your case will be closed. This is set out in Rule 11(3) of the Tribunal Procedure (First-tier Tribunal) (Property Chamber) Rules 2013.</p>
+              </div>
+            {% endif %}
+
+            
+
+            <!-- Missing info block -->
+            {% if 'missinfo' in data['info-request'] %}
+              <div>
+                <h2 class="govuk-heading-m">Providing the missing information</h2>
+
+                <p>You must send us the following information by <strong>{{ globals.case_tenantinfoduedate }}</strong>. You must also send a copy to your landlord. </p>
+
+                <ul class="govuk-list govuk-list--bullet">
+                  {% if 'miss13' in data['info-request'] %}
+                    <li>A copy of the notice that your landlord sent you to propose a new rent (called a Section 13 notice). Your landlord should have sent you this using Form 4 or Form 4A.</li>
+                  {% endif %}
+                 
+                  {% if 'misslandlord' in data['info-request'] %}
+                    <li>Your landlord’s name and contact details. </li>
+                  {% endif %}
+                  {% if 'missmr1detail' in data['info-request'] %}
+                    <li>A completed copy of your MR1 application form. The copy that you sent us is missing [case officer to insert missing details here]. Make sure this information is included in the copy you send.</li>
+                  {% endif %}
+                  {% if 'other' in data['info-request'] %}
+                    <li>{{ data['otherThing'] }}</li>
+                  {% endif %}
+                </ul>
+
+              
+
+                <p>Send it by email to <a href="#">marketrents@justice.gov.uk</a></p>
+
+                <p>You can also post it to:<br>
+                <strong>
+                  First-tier Tribunal (Property Chamber)<br>
+                  Residential Property – Market Rents<br>
+                  PO Box 10057<br>
+                  Leicester <br>
+                  LE19 9EP
+                </strong></p>
+
+                <p>Include your case reference number {{ globals.case_number2 }} with anything you send us. </p>
+
+                <p>If we do not receive the information by the deadline, the Tribunal may strike out (cancel) your application.  This is set out in Rule 9 of the Tribunal (Procedure) (First-Tier Tribunal) (Property Chamber) Rules 2013.</p>
+
+                <p>If this happens, your application will not go ahead. </p>
+              </div>
+            {% endif %}
+
+          {% endif %}
+
+            <!-- standard block, include for all -->
+            <div>
+              <h2 class="govuk-heading-m">What happens next</h2>
+
+              <p>Your application has already been sent to your landlord along with an optional MR2 reply form. </p>
+
+              <p>They have been told it is currently on hold while we wait for what's missing. </p>
+
+              <p>Here is what will happen next: 
+
+              <ol class="govuk-list govuk-list--number">
+                <li>Your landlord has 28 days to respond online or complete the MR2 reply form and send it to you and the Tribunal. </li>
+
+                <li>If your landlord chooses to respond, you may respond online or complete the optional MR3 tenant reply form included with this message. If you do, you must send it to your landlord and the Tribunal within 14 days. </li>
+
+                <li>The tribunal will make its decision based on your application and any replies received. </li>
+
+              </ol>
+
+              <p>Yours sincerely<br><br>
+
+              {{ globals.case_officer }}<br>
+              Case Officer
+              </p>
+
+            </div>
+
+
+
+
+        </div><!-- close message-body -->
+        </div>
+      </div>
+
+
+
+        <div class="govuk-button-group">
+          
+          {{ govukButton({
+            text: "Back to summary",
+            classes: "govuk-button--secondary",
+            href: "case-response-02-summary"
+          }) }}
+
+          <!--{{ govukButton({
+            text: "Send now",
+            href: "case-issue-confirm"
+          }) }}-->
+        </div>
+      </form>
+
+
+
+
+         
+
+    </div>
+  </div>
+
+{% endblock %}

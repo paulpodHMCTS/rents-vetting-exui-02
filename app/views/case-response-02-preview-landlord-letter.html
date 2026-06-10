@@ -1,0 +1,224 @@
+{% set section = 'work' %}
+
+{% extends "layout.html" %}
+{% import '_globals.html' as globals %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div id="case-id" style="float:left;width: 700px;">
+        <h1 class="govuk-heading-xl" style="margin: -0.76em 0 0.5em 0;">
+          Preview letter
+          <!--<span class="govuk-caption-xl">Manual entry if scanning or digital not available</span>-->
+        </h1>
+
+       
+        
+      </div>
+      
+     
+
+      <div id="next-stepper" style="float:right;">
+       
+         
+
+          <!--<div class="govuk-form-group">
+            <label class="govuk-label" for="sort" style="float:left">
+              <span style="position:relative;top:7px;margin-right: 12px;">Available actions
+            </label>
+
+            <div style="float:left">
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="choose" selected>Select action</option>
+                <option value="updated">Confirm payment</option>
+                <option value="views">Review details</option>
+                <option value="comments">Match duplicate</option>
+              </select>
+            </div>
+            
+            <div style="float:left;margin-left:6px">
+              <button class="govuk-button">Go</button>
+            </div>
+
+          </div>-->
+
+          <br clear="all">
+
+ 
+        
+      </div>
+
+      <br clear="all">
+
+      <style>
+        #fake-letter-header {
+          background-image: url('/public/images/letter-header.png');
+          background-repeat: no-repeat;
+          background-size: 800px;
+          height: 310px;
+        }
+
+        #letter-addressed {
+          font-size: 0.5em;
+          position: relative;
+          left: 90px;
+          top: 210px;
+          font-family: sans-serif !important;
+        }
+        #letter-addressed p {
+          font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+          font-size: 13px;
+          line-height: 1;
+        }
+
+        .previewtopbar {
+          display: inline-block;
+          padding-left: 1.3em;
+          text-decoration-line: underline;
+          text-decoration-color: #1d70b8;
+          text-underline-offset: 14px;
+          text-decoration-thickness: 8px;
+        }
+
+        #email-preview {
+          border: 8px solid #ddd;
+          border-radius: 10px;
+          width: 800px;
+          margin-bottom: 1em;
+        }
+
+        #message-body {
+          padding: 10px 20px 10px 88px;
+          font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+
+        }
+        #message-body p,
+        #message-body li {
+          font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+          font-size: 14px;
+          line-height: 1.2;
+          margin-bottom: 1em;
+          font-weight: 400 !important;
+        }
+        #message-body h2,
+        #message-body h3 {
+          font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+          font-size: 19px;
+          font-weight: 600;
+          line-height: 1.2;
+        }
+      </style>
+
+      
+      <div id="email-preview" >
+        <div id="fake-letter-header" >
+          <div id="letter-addressed">
+            <p>17 Wagstaff Way<br>
+              Luton<br>
+              Bedfordshire<br>
+              LL8 4RA</p>
+          </div>
+        </div>
+
+        <div id="message-body">
+
+          <!-- check there is some items selected to test/fill content for -->
+          
+          <div>
+
+            
+
+            <p>09 June 2026</p>
+
+            <p>Dear {{ globals.case_landlordname2 }}</p>
+
+            <h3>RE: Housing Act 1988 - Section 13</h3>
+
+            <p><strong>Property: {{ globals.case_property2 }}</strong></p>
+
+
+        <p class="govuk-hint">Standard header</p>
+        <p>Dear {{ globals.case_landlordname2 }},</p>
+        <p>We have received an application from your tenant requesting a market rent determination for the address above.</p>
+
+        <p>You can view and respond to their application online. A copy is also included with this message.</p>
+
+        <p>The tenant has not yet paid the application fee, so their application is currently on hold. </p>
+
+        <!-- removed ... repetition below <p>If they do not pay the fee by [fee deadline date], the application will be withdrawn and the case will be closed. This is set out in Rule 11(3) of the Tribunal Procedure (First-Tier Tribunal) (Property Chamber) Rules 2013.</p>-->
+
+        <h2 >What you need to do</h2>
+
+        <p>You have 28 days from the date of this message to respond to this application. You can <a href="#">respond online or by completing the MR2</a> reply form included with this message.</p>
+
+        <p>If you use the MR2 form, you must send your response to your tenant as well as to the Tribunal.</p>
+
+        <p>You do not have to respond, but if you do not, the Tribunal will make its decision based only on your tenant’s application.</p>
+
+        <h2 >What happens next</h2>
+
+        <p>If the tenant does not pay the application fee by <strong>{{ globals.case_tenantfeeduedate }}</strong>, the case will be closed. We will let you know if this happens.</p>
+
+        <p>
+          However, we recommend that you respond to the application now to avoid delays if the fee is paid.
+
+          <ol class="govuk-list govuk-list--number">
+            <li>If you respond online or through the the MR2 form, your tenant will have 14 days to respond online or through the MR3 tenant reply form.</li>
+
+            <li>The Tribunal will make its decision based on the tenant’s application and any replies received.</li>
+
+            <li>When the Tribunal has made its decision, we will contact you by post and email.</li>
+          </ol>
+        </p>
+
+        
+
+            <p>If we need anything else from you, we will contact you.</p>
+
+
+
+            <p>Yours sincerely,</p>
+            <p>{{ globals.case_officer }}
+            <br>Case Officer</p>
+
+            </div>
+
+
+
+
+        </div><!-- close message-body -->
+        </div>
+      </div>
+
+
+
+        <div class="govuk-button-group">
+          
+          {{ govukButton({
+            text: "Back to summary",
+            classes: "govuk-button--secondary",
+            href: "case-response-02-summary"
+          }) }}
+
+          <!--{{ govukButton({
+            text: "Send now",
+            href: "case-issue-confirm"
+          }) }}-->
+        </div>
+      </form>
+
+
+
+
+         
+
+    </div>
+  </div>
+
+{% endblock %}
