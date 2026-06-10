@@ -63,50 +63,56 @@
           background-size: 800px;
           height: 310px;
         }
+
         #letter-addressed {
           font-size: 0.5em;
           position: relative;
           left: 90px;
           top: 210px;
           font-family: sans-serif !important;
-
-          p {
-            font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
-            font-size: 13px;
-            line-height: 1;
-          }
-
+        }
+        #letter-addressed p {
+          font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+          font-size: 13px;
+          line-height: 1;
         }
 
-      .previewtopbar {
-        display: inline-block;padding-left:1.3em;
-        text-decoration-line: underline;
-        text-decoration-color: #1d70b8;
-        text-underline-offset: 14px;
-        text-decoration-thickness: 8px;
-      }
-      #email-preview {
-        border:8px solid #ddd;
-        border-radius: 10px;
-        width: 800px;
-        margin-bottom:1em
-      }
-      #message-body {
-        padding: 10px 20px 10px 88px;
-       
+        .previewtopbar {
+          display: inline-block;
+          padding-left: 1.3em;
+          text-decoration-line: underline;
+          text-decoration-color: #1d70b8;
+          text-underline-offset: 14px;
+          text-decoration-thickness: 8px;
+        }
 
-        p {
-            font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
-            font-size: 14px;
-            line-height: 1.2;
-          }
-        h3 {
-            font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
-            font-size: 19px;
-            font-weight: 600;
-            line-height: 1.2;
-          }
-      }
+        #email-preview {
+          border: 8px solid #ddd;
+          border-radius: 10px;
+          width: 800px;
+          margin-bottom: 1em;
+        }
+
+        #message-body {
+          padding: 10px 20px 10px 88px;
+          font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+
+        }
+        #message-body p,
+        #message-body li {
+          font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+          font-size: 14px;
+          line-height: 1.2;
+          margin-bottom: 1em;
+          font-weight: 400 !important;
+        }
+        #message-body h2,
+        #message-body h3 {
+          font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+          font-size: 19px;
+          font-weight: 600;
+          line-height: 1.2;
+        }
       </style>
 
       
@@ -144,15 +150,15 @@
             <p>You must send your response to your tenant as well as to the Tribunal.</p>
             <p>You do not have to respond, but if you do not, the Tribunal will make its decision based only on your tenant's application.</p>
             <h2>What happens next</h2>
-            <ol><li>If you choose to respond, your tenant will have 14 days to respond online or using the MR3 tenant reply form.</li><br>
-              <li>The Tribunal will make its decision based on the tenant's initial application and any responses received.</li><br>
-              <li>When the Tribunal has made its decision, we will let you know by email and post.</li><br>
+            <ol><li>If you choose to respond, your tenant will have 14 days to respond online or using the MR3 tenant reply form.</li>
+              <li>The Tribunal will make its decision based on the tenant's application and any responses received.</li>
+              <li>When the Tribunal has made its decision, we will let you know by email and post.</li>
             </ol>
-            <p>If we need anything else from you, we will contact you directly.</p>
+            <p>If we need anything else from you, we will contact you.</p>
 
 
 
-            <p>Yours sincerely,<p>
+            <p>Yours sincerely,</p>
             <p>{{ globals.case_officer }}
             <br>Case Officer</p>
 
