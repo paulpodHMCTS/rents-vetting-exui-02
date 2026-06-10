@@ -19,7 +19,7 @@
       {% include "includes/caselist-filter.html" %}
 
 
-      <nav _ngcontent-ng-c1727731223="" role="navigation" class="hmcts-sub-navigation ng-star-inserted" aria-label="Sub navigation">
+      <nav _ngcontent-ng-c1727731223="" role="navigation" class="hmcts-sub-navigation ng-star-inserted" aria-label="Sub navigation" style="margin-bottom:1.5em">
         <ul _ngcontent-ng-c1727731223="" class="hmcts-sub-navigation__list">
 
           <li _ngcontent-ng-c1727731223="" class="hmcts-sub-navigation__item ng-star-inserted">
@@ -45,21 +45,22 @@
 
       <table class="govuk-table">
         <caption class="govuk-table__caption govuk-table__caption--m">
-          My cases
+          My tasks
           <br>
-          <span class="govuk-table__caption--s" style="font-weight: normal;">Showing 1 to 25 of 45 cases</span>
+          <span class="govuk-table__caption--s" style="font-weight: normal;">Showing 1 to 25 of 45 tasks</span>
         </caption>
+
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header table-head-arrows">Case number</th>
             <th scope="col" class="govuk-table__header table-head-arrows">Property</th>
-            <th scope="col" class="govuk-table__header table-head-arrows">Date of receipt</th>
+            <th scope="col" class="govuk-table__header table-head-arrows">Date received</th>
 
             <th scope="col" class="govuk-table__header table-head-arrows">Status</th>
 
             <th scope="col" class="govuk-table__header table-head-arrows">Fee paid</th>
             
-            <th scope="col" class="govuk-table__header table-head-arrows">Action</th>
+            <th scope="col" class="govuk-table__header table-head-arrows">Task</th>
           </tr>
         </thead>
         <tbody class="govuk-table__body">
@@ -80,10 +81,10 @@
             <td class="govuk-table__cell">{{ globals.case_property2 }}</td>
             <td class="govuk-table__cell">28 April 2026</td>
 
-            <td class="govuk-table__cell">New to review<br>14 days remaining</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">New to review</strong><br>14 days remaining</td>
             <td class="govuk-table__cell"><a href=#>28 May 2026</a></td>
 
-            <td class="govuk-table__cell"><a href="#" style="opacity: 0.2;">Review case</a></td>
+            <td class="govuk-table__cell"><a href="#">Review case</a></td>
           </tr>
 
 
@@ -92,10 +93,10 @@
             <td class="govuk-table__cell">{{ globals.case_property3 }}</td>
             <td class="govuk-table__cell">17 April 2026</td>
 
-            <td class="govuk-table__cell">Waiting for LO<br>Late application</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Late application</strong><br><!--Refer to LO--></td>
             <td class="govuk-table__cell"><a href=#>17 April 2026</a></td>
 
-            <td class="govuk-table__cell"><a href="#" style="opacity: 0.2;">-</a></td>
+            <td class="govuk-table__cell"><a href="#">Review case</a></td>
           </tr>
 
 
@@ -104,11 +105,11 @@
             <td class="govuk-table__cell">{{ globals.case_property4 }}</td>
 
             <td class="govuk-table__cell">27 April 2026</td>
-            <td class="govuk-table__cell">Section 13 not valid<br>out of notice period</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">S13 problem</strong><br>Out of notice period</td>
             
-            <td class="govuk-table__cell">No<br><a href=#>Send reminder</a></td>
+            <td class="govuk-table__cell">No<br><!--<a href=#>Send reminder</a>--></td>
 
-            <td class="govuk-table__cell"><a href="#" style="opacity: 0.2;">Send failure notice</a></td>
+            <td class="govuk-table__cell"><a href="#">Review case</a></td>
           </tr>
         </tbody>
       </table>

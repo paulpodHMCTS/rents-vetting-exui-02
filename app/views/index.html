@@ -16,29 +16,68 @@
         
       </h1>{{releaseVersion | log }}
       <p>
-        Sketching out some screens in code that we need to support these User research scenarios:
+        User research scenarios:
+      </p>
 
-        <ul class="govuk-list govuk-list--bullet">
-          <li>
+        <ol class="govuk-list govuk-list--number">
+          <!--<li>
             0. work list allocate tasks<br>
-            Key screens: <a href="case-list-00">Case list</a> &rightarrow; <a href="work-list-01">My Work</a>
+            Key screens: <a href="case-list-00"><strike>Case list</strike></a> &rightarrow; <a href="work-list-01">My Work</a>
 
+          </li>-->
+
+          <li>
+            review happy path application, all ok, send MR2
+            <ul class="govuk-list">
+              <li><a href="work-list-01">My Work (my tasks)</a></li>
+
+              <li><a href="case-dashboard-01">Review case</a></li>
+
+              <li><a href="case-response-01-summary">Preview standard response(s)</a></li>
+
+              <li>Sent</li>
+            </ul>
           </li>
 
           <li>
-            1. review happy path application, all ok, send MR2<br>
-            Key screens: <a href="work-list-01">My Work (my cases)</a> &rightarrow;  <a href="case-dashboard-01">Review case</a> &rightarrow; <a href="case-response-01-summary">Preview standard responses</a> &rightarrow; Sent
+            deal with missing info
+            <ul class="govuk-list">
+              <li><a href="work-list-01">My Work (my tasks)</a></li>
+
+              <li><a href="case-dashboard-02">Review case</a></li>
+
+              <li><a href="case-payment-receipt-01">Review payment history</a></li>
+              <li><a href="case-response-02-multi-request">Send multiple information requests</a></li>
+
+              <li>Preview(s)</li>
+
+              <li>Sent</li>
+            </ul>
           </li>
 
-          <li>2. deal with missing info<br>
-            Key screens:  <a href="work-list-01">My Work (my cases)</a> &rightarrow; <a href="case-dashboard-02">Review case</a> &rightarrow; <a href="case-payment-receipt-01">Review payment history</a> &rightarrow; <a href="case-response-02-multi-request">Send multiple information requests</a> &rightarrow; Preview &rightarrow; Sent
+          <li>
+            <ul class="govuk-list">
+              <li><a href="work-list-01">My Work (my tasks)</a></li>
+
+              <li><a href="case-dashboard-03">Review case</a></li>
+
+              <li>deal with an out of time late app</li>
+
+              <li>Strike out (short?)</li>
+            </ul>
           </li>
 
-          <li>3. deal with an out of time late app &rightarrow; Strike out (short?)</li>
+          <li>
+            <ul class="govuk-list">
+              <li><a href="work-list-01">My Work (my tasks)</a></li>
 
-          <li>4. section 13 not valid (notice period?) &rightarrow; CO-based actions</li>
+              <li><a href="case-dashboard-04">Review case</a></li>
 
-        </ul>
+              <li>Fee not received, so your case has been closed</li>
+
+              <li>CO-based actions</li>
+            </ul>
+        </ol>
       </p>
 
       
@@ -142,22 +181,19 @@
         padding: 1px 7px;
       }
     </style>
-      <p class="govuk-inset-text"> 
-        <span class="makeit">&ddagger;</span>  = make a screen for this
-        <br>
-        <span class="madeit">&dagger;</span>  = made this screen
-      </p>
+     
 
-      <ul class="govuk-list govuk-list--bullet" style="max-width:880px">
+      <ul class="govuk-list govuk-list--bullet" style="max-width:880px;display:none">
         
         <li style="margin-bottom:1em">Paper > digital - create a case manually<br>
         Current assumption rare or not at all, or not these users: <br>
-          <span class="madeit">&dagger;</span> Keying in an MR1 - <a href="case-create-mr1-01"> in a page-by-page replica</a> of the paper form  <span class="work-tag">PT-0x.0x</span>
+          Keying in an MR1 - <a href="case-create-mr1-01"> in a page-by-page replica</a> of the paper form  <span class="work-tag">PT-0x.0x</span>
         </li>
 
 
         <li style="margin-bottom:1em">
-          <span class="madeit">&dagger;</span> <a href="case-list-00">Cases -> Work allocation</a> <span class="work-tag">PT-08.01</span>
+          
+          <a href="case-list-00">Cases -> Work allocation</a> <span class="work-tag">PT-08.01</span>
           <br>
           Where Case officer can assign to self, register new application, review submitted data + docs in the ExUI front end.
           <br>
@@ -165,7 +201,8 @@
         </li>
 
         <li style="margin-bottom:1em">
-          <span class="madeit">&dagger;</span> A CO user's <a href="work-list-01">Work list</a> <span class="work-tag">PT-08.02</span>
+          
+          A CO user's <a href="work-list-01">Work list</a> <span class="work-tag">PT-08.02</span>
           <br>
           Where Case officer can act one their new cases, and see status of existing ones. 
           <br  style="margin-bottom:1em">
@@ -173,7 +210,7 @@
         </li>
 
         <li style="margin-bottom:1em">
-          <span class="madeit">&dagger;</span> A new cases <a href="case-dashboard-01">Summary</a> tab <span class="work-tag">PT-0x.0x</span>
+          A new cases <a href="case-dashboard-01">Summary</a> tab <span class="work-tag">PT-0x.0x</span>
           <br>
           Where Case officer can act on a new case: The default tab for a case is the Summary tab where we collect the data the CO user would skim the 3 docs and spot problems.
           <br style="margin-bottom:1em">
@@ -187,13 +224,13 @@
           <ol>
             <li>
               Initial vetting fail - time limits already breached<br>
-              <span class="makeit">&ddagger;</span> <a href="case-issue-ack00">Send acknowledgement to applicant</a> Basic failure respoinse. Just press a button
+              <a href="case-issue-ack00">Send acknowledgement to applicant</a> Basic failure respoinse. Just press a button
             </li>
 
             <li>
               Is it a duplicate? <a href="#"></a> <span class="work-tag">PT-010.01</span><br>
               This only matches on postcode? So any identical postcodes would go to a Legal Officer to disambiguate and act on? Does the LO do case admin = eg. case gets merged?<br>
-              <span class="makeit">&ddagger;</span> <a href="#">Refer to a legal officer</a> - simple one-page form, checkboxes and add comment?</a>
+             <a href="#">Refer to a legal officer</a> - simple one-page form, checkboxes and add comment?</a>
             </li>
 
             <li>Missing information request  <span class="work-tag">PT-010.02</span>
