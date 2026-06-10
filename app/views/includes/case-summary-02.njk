@@ -1,5 +1,5 @@
 
-<div style="width: 66%">
+<div style="width: 66%;float:left">
   <!--<h2 class="govuk-heading-l">Summary</h2>-->
 
 
@@ -138,12 +138,12 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               text: "Payment"
             },
             value: {
-              html: "Yes<BR>"
+              html: "Not paid"
             },
             actions: {
               items: [
                 {
-                  href: "case-payment-01.html",
+                  href: "case-payment-02.html",
                   text: "View payment"
                 }
               ]
@@ -217,6 +217,38 @@ documents?" ...makes sense but naming of items may need checking. I like this as
                 {
                   href: "#",
                   text: ""
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              html: "Landlord's name"
+            },
+            value: {
+              text: globals.case_landlordname2
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: ""
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              html: "Landlord's email"
+            },
+            value: {
+              text: globals.case_landlordemail2
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Check for duplicates"
                 }
               ]
             }
@@ -357,4 +389,3 @@ documents?" ...makes sense but naming of items may need checking. I like this as
 
 </div>
 
-<br clear="all">

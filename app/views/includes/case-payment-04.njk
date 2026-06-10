@@ -1,0 +1,173 @@
+
+<div style="width: 66%">
+ 
+      <br clear="all">
+
+
+      {% set feesBody %}
+        <p>
+          <strong>MR1 application</strong><br>
+          <span style="width:10em;display: inline-block;">Standard fee</span> £47.44
+        </p>
+
+        <p>
+          <strong>Help with fees</strong><br>
+          <span style="width:10em;display: inline-block;">HwF reference XYZ123</span>-£47.44
+        </p>
+
+        <p>
+          <strong>Total</strong><br>
+          <span style="width:10em;display: inline-block;">Total paid</span> £0.00
+        </p>
+
+      {% endset -%}
+
+      {% set recipients %}
+
+        <p>
+          <strong>HMCTS central payments</strong><br>
+          Some sort of name
+        </p>
+
+        <p>
+          <strong>Card</strong><br>
+          Debit ending xxxx-1211
+        </p>
+
+        <p>
+          <strong>Card name</strong><br>
+          Herbie Hall
+        </p>
+
+        <p>
+          <strong>Postcode</strong><br> 
+          LU1 1AB 
+        </p>
+       
+      {% endset -%}
+
+      {% set paymentDates %}
+
+        <p>
+          Payment attempted 11:02 18 May 2026 card ending 2832 - <strong>Fail</strong>
+        </p>
+
+        <p>
+          Payment attempted 11:05 18 May 2026 card ending 1211 - <strong>Success</strong>
+        </p>
+
+
+        <p>
+          Email and SMS notifications were sent 11:06 18 May 2026
+        </p>
+       
+
+      {% endset -%}
+        
+
+
+      <form class="form" action="" method="post" >
+
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Received"
+            },
+            value: {
+              html: "Yes - receipts sent to tenant<br><br>Email to hhall@gmail.com<br>and SMS to 07718765432"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "",
+                  visuallyHiddenText: "request-items"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Fees"
+            },
+            value: {
+              html: feesBody
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  html: "",
+                  visuallyHiddenText: "request-items"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Payment made"
+            },
+            value: {
+              html: paymentDates
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  html: "",
+                  visuallyHiddenText: "request-items"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Recipient and method"
+            },
+            value: {
+              html: recipients
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "",
+                  visuallyHiddenText: "contact details"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+
+
+
+    
+        
+        
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Receipt as PDF",
+            classes: "govuk-button--secondary",
+            href: ""
+          }) }}
+
+         
+          
+        </div>
+      </form>
+
+
+
+
+         
+
+
+
+</div>
+
+<br clear="all">

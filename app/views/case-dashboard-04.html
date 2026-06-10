@@ -14,8 +14,8 @@
 
       <div id="case-id" style="float:left;">
         <h1 class="govuk-heading-xl">
-          Case {{ globals.case_number2 }}
-          <span class="govuk-caption-xl">{{ globals.case_property2 }}</span>
+          Case {{ globals.case_number3 }}
+          <span class="govuk-caption-xl">{{ globals.case_property3 }}</span>
         </h1>
       </div>
       
@@ -92,8 +92,8 @@
                 Case flags - omitted as I have no idea what this is
               </a>
             </li>-->
-             <li class="govuk-tabs__list-item ">
-              <a class="govuk-tabs__tab" href="case-dashboard-02">
+             <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+              <a class="govuk-tabs__tab" href="#">
                 Summary
               </a>
             </li>
@@ -130,8 +130,8 @@
                 Service request - omitted as no idea what it would do here
               </a>
             </li>-->
-            <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-              <a class="govuk-tabs__tab" href="case-payment-02">
+            <li class="govuk-tabs__list-item">
+              <a class="govuk-tabs__tab" href="case-payment-03">
                 Payments
               </a>
             </li>
@@ -148,9 +148,9 @@
 
           <div class="govuk-tabs__panel exui-tabpanel" id="Summary">
             <section>
-              <h2 class="govuk-heading-l">Payments</h2>
+              <h2 class="govuk-heading-l">Summary</h2>
 
-               {% include "includes/case-payment-02.njk" %}
+               {% include "includes/case-summary-03.njk" %}
 
             </section>
           </div><!-- end tab-panel for content -->
