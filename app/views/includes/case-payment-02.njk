@@ -1,0 +1,148 @@
+
+<div style="width: 66%">
+ 
+      <br clear="all">
+
+
+      {% set feesBody %}
+        <p>
+          <strong>MR1 application</strong><br>
+          <span style="width:10em;display: inline-block;">Standard fee</span> £47.44
+        </p>
+
+        <p>
+          <strong>Help with fees</strong><br>
+          <span style="width:10em;display: inline-block;">HwF reference not supplied</span>
+        </p>
+
+        <p>
+          <strong>Total</strong><br>
+          <span style="width:10em;display: inline-block;">Total paid</span> £47.44 outstanding
+        </p>
+
+      {% endset -%}
+
+      {% set recipients %}
+
+        <p>
+          Help with fees requested, no reference supplied
+        </p>
+       
+      {% endset -%}
+
+      {% set paymentDates %}
+
+        <p>
+          No attempt made
+        </p>
+       
+
+      {% endset -%}
+        
+
+
+      <form class="form" action="" method="post" >
+
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Received"
+            },
+            value: {
+              html: "No"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "",
+                  visuallyHiddenText: "request-items"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Fees"
+            },
+            value: {
+              html: feesBody
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  html: "",
+                  visuallyHiddenText: "request-items"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Payment made"
+            },
+            value: {
+              html: paymentDates
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  html: "",
+                  visuallyHiddenText: "request-items"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Recipient and method"
+            },
+            value: {
+              html: recipients
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "",
+                  visuallyHiddenText: "contact details"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+
+
+
+    
+        
+        
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Receipt as PDF",
+            classes: "govuk-button--secondary",
+            href: ""
+          }) }}
+
+         
+          
+        </div>
+      </form>
+
+
+
+
+         
+
+
+
+</div>
+
+<br clear="all">

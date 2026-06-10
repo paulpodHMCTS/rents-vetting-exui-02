@@ -92,8 +92,8 @@
                 Case flags - omitted as I have no idea what this is
               </a>
             </li>-->
-             <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-              <a class="govuk-tabs__tab" href="#">
+             <li class="govuk-tabs__list-item ">
+              <a class="govuk-tabs__tab" href="case-dashboard-01">
                 Summary
               </a>
             </li>
@@ -130,7 +130,7 @@
                 Service request - omitted as no idea what it would do here
               </a>
             </li>-->
-            <li class="govuk-tabs__list-item">
+            <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
               <a class="govuk-tabs__tab" href="case-payment-receipt-01">
                 Payments
               </a>
@@ -148,9 +148,9 @@
 
           <div class="govuk-tabs__panel exui-tabpanel" id="Summary">
             <section>
-              <h2 class="govuk-heading-l">Summary</h2>
+              <h2 class="govuk-heading-l">Payments</h2>
 
-               {% include "includes/case-summary-01-dupe-02.njk" %}
+               {% include "includes/case-payment-01.njk" %}
 
             </section>
           </div><!-- end tab-panel for content -->
