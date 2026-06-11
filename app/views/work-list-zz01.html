@@ -1,0 +1,184 @@
+{% set section = 'work' %}
+
+{% extends "layout.html" %}
+{% import '_globals.html' as globals %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">
+        Work list
+        <span class="govuk-caption-l">{{ globals.case_officer }}</span>
+      </h1>{{releaseVersion | log }}
+      
+      {% include "includes/caselist-filter.html" %}
+
+
+      <nav _ngcontent-ng-c1727731223="" role="navigation" class="hmcts-sub-navigation ng-star-inserted" aria-label="Sub navigation" style="margin-bottom:1.5em">
+        <ul _ngcontent-ng-c1727731223="" class="hmcts-sub-navigation__list">
+
+          <li _ngcontent-ng-c1727731223="" class="hmcts-sub-navigation__item ng-star-inserted">
+            <a _ngcontent-ng-c1727731223="" data-selector="sub-nav-link" class="hmcts-sub-navigation__link" aria-current="page" href="/work/my-work/list"> My tasks <!----></a>
+          </li>
+
+          <li _ngcontent-ng-c1727731223="" class="hmcts-sub-navigation__item ng-star-inserted">
+            <a _ngcontent-ng-c1727731223="" data-selector="sub-nav-link" class="hmcts-sub-navigation__link" href="/work/my-work/available"> Available tasks <!----></a>
+          </li>
+
+          <li _ngcontent-ng-c1727731223="" class="hmcts-sub-navigation__item ng-star-inserted">
+            <a _ngcontent-ng-c1727731223="" data-selector="sub-nav-link" class="hmcts-sub-navigation__link" href="/work/my-work/my-cases"> My cases <!----></a>
+          </li>
+
+          <!-- removed this for now as not relevant, not sure what it is, for these users
+          <li _ngcontent-ng-c1727731223="" class="hmcts-sub-navigation__item ng-star-inserted">
+            <a _ngcontent-ng-c1727731223="" data-selector="sub-nav-link" class="hmcts-sub-navigation__link" href="/work/my-work/my-access"> My access </a>
+          </li> -->
+
+        </ul>
+      </nav>
+
+
+      <table class="govuk-table">
+        <div style="float:left;">
+          <caption class="govuk-table__caption govuk-table__caption--m" style="width: 400px;margin-top: -36px;">
+            My tasks
+            <br>
+            <span class="govuk-table__caption--s" style="font-weight: normal;">Showing 1 to 25 of 45 tasks</span>
+          </caption>
+        </div>
+
+        <div style="width: 550px;float:right;position: relative;left:30px">
+          <!--<span class="govuk-heading-s" style="margin-bottom:0">Manage cases</span>-->
+
+          <ul class="govuk-list" style="margin-bottom:0">
+                <li class="hmcts-sub-navigation__item">Manage cases:</li>
+                <li class="hmcts-sub-navigation__item"><a href="#">Cancel task</a></li>
+                <li class="hmcts-sub-navigation__item"><a href="#">Mark as done</a></li>
+                <!--<li class="hmcts-sub-navigation__item"><a href="#">Go to task</a></li>-->
+                <li class="hmcts-sub-navigation__item"><a href="#">Unassign task</a></li>
+              </ul>
+
+        </div>
+
+        <br clear="all">
+
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header table-head-arrows">Case number</th>
+            <th scope="col" class="govuk-table__header table-head-arrows">Property</th>
+            <th scope="col" class="govuk-table__header table-head-arrows">Date received</th>
+
+            <th scope="col" class="govuk-table__header table-head-arrows">Status</th>
+
+            <!--<th scope="col" class="govuk-table__header table-head-arrows">Fee paid</th>-->
+            
+            <th scope="col" class="govuk-table__header table-head-arrows">Task</th>
+            <th scope="col" class="govuk-table__header table-head-arrows" style="">Manage</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="case-dashboard-01.html" style="white-space: nowrap;">{{ globals.case_number }}</a></td>
+            <td class="govuk-table__cell">{{ globals.case_property }}</td>
+            <td class="govuk-table__cell">28 May 2026</td>
+
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">New to review</strong><br>14 days remaining</td>
+            <!--<td class="govuk-table__cell"><a href="receipt-1241">29 May 2026</a></td>-->
+
+            <td class="govuk-table__cell"><a href="case-response-01-summary">Review case</a></td>
+
+            <td class="govuk-table__cell">
+              <div class="govuk-form-group" style="position:relative;left:30px">
+                <fieldset class="govuk-fieldset" aria-describedby="manage-hint">
+                  <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="row1" name="row1" type="checkbox" value="row1">
+                      <label class="govuk-label govuk-checkboxes__label" for="manage"></label>
+                    </div></div>
+                </fieldset></div>
+          </td>
+          </tr>
+
+
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="case-dashboard-02.html" style="white-space: nowrap;">{{ globals.case_number2 }}</a></td>
+            <td class="govuk-table__cell">{{ globals.case_property2 }}</td>
+            <td class="govuk-table__cell">28 April 2026</td>
+
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">New to review</strong><br>14 days remaining</td>
+            <!--<td class="govuk-table__cell"><a href=#>28 May 2026</a></td>-->
+
+            <td class="govuk-table__cell"><a href="#">Review case</a></td>
+
+            <td class="govuk-table__cell">
+              <div class="govuk-form-group" style="position:relative;left:30px">
+                <fieldset class="govuk-fieldset" aria-describedby="manage-hint">
+                  <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="row2" name="row2" type="checkbox" value="row2">
+                      <label class="govuk-label govuk-checkboxes__label" for="manage"></label>
+                    </div></div>
+                </fieldset></div>
+          </td>
+          </tr>
+
+
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="case-dashboard-03.html" style="white-space: nowrap;">{{ globals.case_number3 }}</a></td>
+            <td class="govuk-table__cell">{{ globals.case_property3 }}</td>
+            <td class="govuk-table__cell">17 April 2026</td>
+
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Late application</strong><br><!--Refer to LO--></td>
+            <!--<td class="govuk-table__cell"><a href=#>17 April 2026</a></td>-->
+
+            <td class="govuk-table__cell"><a href="#">Review case</a></td>
+
+            <td class="govuk-table__cell">
+              <div class="govuk-form-group" style="position:relative;left:30px">
+                <fieldset class="govuk-fieldset" aria-describedby="manage-hint">
+                  <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="row3" name="row3" type="checkbox" value="row3">
+                      <label class="govuk-label govuk-checkboxes__label" for="manage"></label>
+                    </div></div>
+                </fieldset></div>
+          </td>
+          </tr>
+
+
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="case-dashboard-04.html" style="white-space: nowrap;">{{ globals.case_number4 }}</a></td>
+            <td class="govuk-table__cell">{{ globals.case_property4 }}</td>
+
+            <td class="govuk-table__cell">27 April 2026</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">No fee paid</strong><br>Out of time</td>
+            
+            <!--<td class="govuk-table__cell">No<br><a href=#>Send reminder</a></td>-->
+
+            <td class="govuk-table__cell"><a href="#">Withdraw case</a></td>
+
+            <td class="govuk-table__cell">
+              
+              <div class="govuk-form-group" style="position:relative;left:30px">
+                <fieldset class="govuk-fieldset" aria-describedby="manage-hint">
+                  <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="row4" name="row4" type="checkbox" value="row4">
+                      <label class="govuk-label govuk-checkboxes__label" for="manage"></label>
+                    </div></div>
+                </fieldset></div>
+            </td>
+            </tr>
+          </tbody>
+        </table>
+         
+
+    </div>
+  </div>
+
+{% endblock %}
