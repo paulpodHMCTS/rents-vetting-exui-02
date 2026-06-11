@@ -66,30 +66,30 @@
   <!--<p style="font-size: 0.9em;"><i>Note: cribbed from p11 UR report "What are COs looking for when skimming
 documents?" ...makes sense but naming of items may need checking. I like this as it gets to the point of collecting the docs in the first place, and can pick out missing info directly.</i></p>-->
 
-<p>Message summary:</p>
+<p>Summary of messages:</p>
 
   <ul class="govuk-list govuk-list--bullet">
-    <li><strong>Application status:</strong> incomplete, multiple issues</li>
+    <li><strong>Application status:</strong> Incomplete</li>
     <ul>
         {% if 'miss13' in data['info-request'] %}
-          <li>there is a missing section 13 </li>
+          <li>Section 13 notice has not been provided</li>
         {% endif %}
         {% if 'missfee' in data['info-request'] %}
-          <li>the application fee has not been paid</li>
+          <li>Application fee has not been paid</li>
         {% endif %}
         {% if 'misslandlord' in data['info-request'] %}
-          <li>the landlord's name and address have not been supplied</li>
+          <li>Landlord's name and address have not been provided</li>
         {% endif %}
         {% if 'missmr1detail' in data['info-request'] %}
           <li>details from the MR1 are missing</li>
         {% endif %}
         {% if 'other' in data['info-request'] %}
-          <li>other details need to be supplied</li>
+          <li>Other information is missing</li>
         {% endif %}
     </ul>
 
     
-    <li><strong>Letters:</strong> Tenant information request, Landlord acknowledgment</li>
+    <li><strong>Letters:</strong> Request information from tenant. Inform landlord about the application.</li>
     <li><strong>Tenant:</strong> Sending by email</li>
     <li><strong>Landlord:</strong> Sending by post</li>
 
