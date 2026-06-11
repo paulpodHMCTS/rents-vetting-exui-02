@@ -337,10 +337,24 @@ documents?" ...makes sense but naming of items may need checking. I like this as
       }) }}
 
  
-       {% set landlordPostSum %}
+       {% set landlordPostName %}
 
          {% if 'misslandlord' in data['info-request'] %}
-          <p><strong>The landlord's name and address have not been supplied</strong></p>
+          <p><strong>The landlord's name has not been supplied</strong></p>
+          {% else %}
+
+          <p>
+            {{ globals.case_landlordname2 }}
+          </p>
+
+         {% endif %}
+      {% endset -%}
+
+
+      {% set landlordPostSum %}
+
+         {% if 'misslandlord' in data['info-request'] %}
+          <p><strong>The landlord's address has not been supplied</strong></p>
           {% else %}
 
           <p><strong>Post:</strong><br>17 Wagstaff Way<br>
@@ -414,7 +428,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               html: "Landlord name"
             },
             value: {
-              text: globals.case_landlordname
+              html: landlordPostName
             },
             actions: {
               items: [
