@@ -126,7 +126,7 @@
                   <span style="color:#999">Subject</span>
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  We received your application:  Case {{ globals.case_number3 }}
+                  Your application is late:  Case {{ globals.case_number3 }}
                 </dd>
                 
               </div>
@@ -143,17 +143,27 @@
             <p><strong>Property: {{ globals.case_property3 }}</strong></p>
 
                    
-        <p>We have not received the application fee for your case.</p>
+          <p>We received your MR1 application form to request a market rent determination for the address above on <strong>{{ globals.case_MR1receiveddate3 }}</strong>.</p>
+        <p>Your application appears to have been made after the deadline. We are writing to let you know that we may not be able to consider it.</p>
+        <h3 class="govuk-heading-m">Why your application may be late</h3>
 
-        <p>As a result, your application has been withdrawn and your case is closed. This is set out in Rule 11(3) of the Tribunal Procedure (First-Tier Tribunal) (Property Chamber) Rules 2013.</p>
+        <p>You must apply to the Tribunal before the start date of the proposed new rent. This is set out in the Form 4A (Landlord’s notice proposing a new rent) that you received from your landlord.
 
-        <h3 class="govuk-heading-m"> If you want your case to be reopened</h3>
+        <p><strong>The Tribunal cannot extend this deadline.</strong><p>
 
-          <p>You can apply to have your case reinstated within 28 days of receiving this message.</p>
+        <p>Based on the date <strong>{{ globals.case_newrentstartdate3 }}</strong> in the Form 4A included with your application, it appears that your application was received after this deadline.
 
-          <p>To do this, you must send the Tribunal a completed form Order 1 by post or email. You can download form Order 1 from GOV.UK.</p>
+        <h3 class="govuk-heading-m">What this means</h3>
 
-          <p>If your request is granted, you will still need to pay the application fee.</p>
+        <p>The Tribunal is minded to strike out (cancel) your application. This is set out in Rule 9(2) of the Tribunal Procedure (First-Tier Tribunal) (Property Chamber) Rules 2013.</p>
+
+        <p>If your application is struck out, it will not go ahead.</p>
+
+        <p>If you think your application was made in time</p>
+
+        <p>If you believe the application was made in time, you can write to the Tribunal to explain why. You must do this by <strong>{{ globals.case_deadlinetochallenge3 }}</strong> and send a copy to your landlord.</p>
+
+        <p>A legal officer will review what is sent and decide whether the application should proceed.</p>
 
 
         <p><br>Yours sincerely,<p>

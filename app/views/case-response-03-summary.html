@@ -66,14 +66,14 @@
   <!--<p style="font-size: 0.9em;"><i>Note: cribbed from p11 UR report "What are COs looking for when skimming
 documents?" ...makes sense but naming of items may need checking. I like this as it gets to the point of collecting the docs in the first place, and can pick out missing info directly.</i></p>-->
 
-<p>Message summary:</p>
+<p>Summary of messages:</p>
 
   <ul class="govuk-list govuk-list--bullet">
 
-      <li><strong>Application status:</strong> Complete, late, rejected</li>
-      <li><strong>Letters:</strong> Late application, missed deadline </li>
+      <li><strong>Application status:</strong> Received out of time, so case closed</li>
+      <li><strong>Letters:</strong> Late application</li>
       <li><strong>Tenant:</strong> Sending by email</li>
-      <li><strong>Landlord:</strong> No response required</li>
+      <li><strong>Landlord:</strong> No message required</li>
 
 
   </ul>
@@ -90,15 +90,15 @@ documents?" ...makes sense but naming of items may need checking. I like this as
       {% set previewTenantMessage %}
         <p class="govuk-hint">Standard header</p>
         <p>Dear {{ globals.case_tenantname3 }},</p>
-        <p>We received your MR1 application form to request a market rent determination for the address above on [Date MR1 received].</p>
+        <p>We received your MR1 application form to request a market rent determination for the address above on <strong>{{ globals.case_MR1receiveddate3 }}</strong>.</p>
         <p>Your application appears to have been made after the deadline. We are writing to let you know that we may not be able to consider it.</p>
         <h3>Why your application may be late</h3>
 
         <p>You must apply to the Tribunal before the start date of the proposed new rent. This is set out in the Form 4A (Landlord’s notice proposing a new rent) that you received from your landlord.
 
-        <h3>The Tribunal cannot extend this deadline.</h3>
+        <p><strong>The Tribunal cannot extend this deadline.</strong><p>
 
-        <p>Based on the date [new rent start date] in the Form 4A included with your application, it appears that your application was received after this deadline.
+        <p>Based on the date <strong>{{ globals.case_newrentstartdate3 }}</strong> in the Form 4A included with your application, it appears that your application was received after this deadline.
 
         <h3>What this means</h3>
 
@@ -108,7 +108,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
 
         <p>If you think your application was made in time</p>
 
-        <p>If you believe the application was made in time, you can write to the Tribunal to explain why. You must do this by [deadline] and send a copy to your landlord.</p>
+        <p>If you believe the application was made in time, you can write to the Tribunal to explain why. You must do this by <strong>{{ globals.case_deadlinetochallenge3 }}</strong> and send a copy to your landlord.</p>
 
         <p>A legal officer will review what is sent and decide whether the application should proceed.</p>
 
