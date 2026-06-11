@@ -338,14 +338,26 @@ documents?" ...makes sense but naming of items may need checking. I like this as
 
  
        {% set landlordPostSum %}
-        <p><strong>Post:</strong><br>17 Wagstaff Way<br>
-        Luton<br>
-        Bedfordshire<br>
-        LL8 4RA</p>
-        <p><strong>Email:</strong> <br>Address not confirmed</p>
+
+         {% if 'misslandlord' in data['info-request'] %}
+          <p><strong>The landlord's name and address have not been supplied</strong></p>
+          {% else %}
+
+          <p><strong>Post:</strong><br>17 Wagstaff Way<br>
+          Luton<br>
+          Bedfordshire<br>
+          LL8 4RA</p>
+          <p><strong>Email:</strong> <br>Address not confirmed</p>
+
+         {% endif %}
       {% endset -%}
 
       {% set previewLandlordMessage %}
+
+      {% if 'misslandlord' in data['info-request'] %}
+          <p>Cannot send landlord acknowledgment and MR2</p>
+          {% else %}
+
         <p class="govuk-hint">Standard header</p>
         <p>Dear {{ globals.case_landlordname2 }},</p>
         <p>We have received an application from your tenant requesting a market rent determination for the address above.</p>
@@ -386,6 +398,9 @@ documents?" ...makes sense but naming of items may need checking. I like this as
         <p>{{ globals.case_officer }}
         <br>Case Officer</p>
         <p class="govuk-hint">Standard footer</p>
+
+        {% endif %}
+
 
       {% endset -%}
 
