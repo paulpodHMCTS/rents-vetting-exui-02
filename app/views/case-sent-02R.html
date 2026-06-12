@@ -12,17 +12,15 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
-      <div id="case-id" style="float:left;width: 890px;">
-        <h2 class="govuk-heading-m" style="margin-bottom:0.5em">Case {{ globals.case_number3 }}
-          <span class="govuk-caption-m" style="margin-top:0.2em">{{ globals.case_property3 }}</span>
-        </h2>
+      <div id="case-id" style="float:left;width: 700px;">
+        
 
         <h1 class="govuk-heading-xl" style="margin-bottom:0.75em">
-          Received out of time 
-          <span class="govuk-caption-xl" style="margin-top:0.2em">Application cannot proceed</span>
+          
+         
         </h1>
 
-         <!--<p style="margin:-1.5em 0 1em 0">Assumptions on this are: we are concerned with fixing paper form issues, missing info isn't automatically requested</p>-->
+        
       </div>
       
 
@@ -60,42 +58,57 @@
 
       <br clear="all">
 
+     <div style="max-width: 660px;">
 
-    {% from "govuk/components/input/macro.njk" import govukInput %}
+      <div class="govuk-panel govuk-panel--confirmation" style="margin-top:-30px;padding-bottom: 0.5em;color: white;">
+        <h1 class="govuk-panel__title">
+          Case referred to legal officer 
+        </h1>
+        <div class="govuk-panel__body">
+          
 
-    <form class="form" action="" method="post" style="max-width: 880px;">
+          <div style="text-align: left;">
+            
+
+            <h2 class="govuk-heading-m" style="margin-bottom:0.5em;color: white !important;">
+              Case {{ globals.case_number }}
+              <span class="govuk-caption-m" style="margin-top:0.2em;color: white !important;">
+                {{ globals.case_property }}
+              </span>
+            </h2>
+
+            <p style="margin-bottom:0;color: white !important;">Sent
+              <ul class="govuk-list govuk-list--bullet" style="color: white !important;">
+                <li>Something was wrong with the application</li>
+              </ul>
+            </p>
+
+        </div>
 
 
-        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+      </div>
 
-          {{ govukCheckboxes({
-            idPrefix: "send-acks",
-            name: "send-acks",
-            fieldset: {
+    <form class="form" action="" method="post">
 
-            },
-            items: [
-              {
-                value: "MR1-oot",
-                text: "To tenant: Application received after the Section 13 deadline, so it cannot proceed",
-                checked: true
-              }
-            ]
-          }) }}
+      
 
+
+      </div>
         
+       
+
         
         <div class="govuk-button-group">
           
-          {{ govukButton({
-            text: "Return to case",
+          <!--{{ govukButton({
+            text: "Return to case list",
             classes: "govuk-button--secondary",
-            href: ""
-          }) }}
+            href: "case-list"
+          }) }}-->
 
           {{ govukButton({
-            text: "Preview drafts",
-            href: "case-response-03-summary.html"
+            text: "Save and return to work list",
+            href: "work-list-x02"
           }) }}
         </div>
       </form>

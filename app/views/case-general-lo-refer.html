@@ -13,13 +13,13 @@
     <div class="govuk-grid-column-full">
 
       <div id="case-id" style="float:left;width: 890px;">
-        <h2 class="govuk-heading-m" style="margin-bottom:0.5em">Case {{ globals.case_number3 }}
-          <span class="govuk-caption-m" style="margin-top:0.2em">{{ globals.case_property3 }}</span>
+        <h2 class="govuk-heading-m" style="margin-bottom:0.5em">Case {{ globals.case_number }}
+          <span class="govuk-caption-m" style="margin-top:0.2em">{{ globals.case_property }}</span>
         </h2>
 
         <h1 class="govuk-heading-xl" style="margin-bottom:0.75em">
-          Received out of time 
-          <span class="govuk-caption-xl" style="margin-top:0.2em">Application cannot proceed</span>
+          Refer case to Legal Officer
+          <!--<span class="govuk-caption-xl" style="margin-top:0.2em">New case is a suspected duplicate</span>-->
         </h1>
 
          <!--<p style="margin:-1.5em 0 1em 0">Assumptions on this are: we are concerned with fixing paper form issues, missing info isn't automatically requested</p>-->
@@ -65,22 +65,61 @@
 
     <form class="form" action="" method="post" style="max-width: 880px;">
 
+      {% set otherThing %}
+        {{ govukInput({
+          id: "other-request",
+          name: "otherThing",
+          type: "text",
+          classes: "",
+          label: {
+            text: "What other information are you requesting?"
+          }
+        }) }}
+      {% endset -%}
+
 
         {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
           {{ govukCheckboxes({
-            idPrefix: "send-acks",
-            name: "send-acks",
+            idPrefix: "info-request",
+            name: "info-request",
             fieldset: {
-
+              legend: {
+                text: "Why are you referring this case?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
             },
             items: [
               {
-                value: "MR1-oot",
-                text: "To tenant: Application received after the Section 13 deadline, so it cannot proceed",
+                value: "late-app",
+                text: "The application is late",
                 checked: true
+              },
+              {
+                value: "app-issue",
+                text: "Something in the application is missing or unclear",
+                checked: false
+              },
+              
+              {
+                value: "other",
+                text: "Something else"
               }
             ]
+          }) }}
+
+
+          {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+          {{ govukTextarea({
+            name: "moreDetail",
+            id: "more-detail",
+            label: {
+              text: "Additional details (optional)",
+              classes: "govuk-label--m",
+              isPageHeading: false
+            }
           }) }}
 
         
@@ -93,9 +132,10 @@
             href: ""
           }) }}
 
-          {{ govukButton({
-            text: "Preview drafts",
-            href: "case-response-03-summary.html"
+           {{ govukButton({
+            text: "Send",
+
+            href: "case-sent-02R"
           }) }}
         </div>
       </form>
