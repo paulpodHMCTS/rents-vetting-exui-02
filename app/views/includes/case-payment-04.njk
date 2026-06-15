@@ -6,18 +6,18 @@
 
       {% set feesBody %}
         <p>
-          <strong>MR1 application</strong><br>
-          <span style="width:10em;display: inline-block;">Standard fee</span> £47.44
+          <strong>MR1 application fee</strong><br>
+          <span style="width:10em;display: inline-block;"></span> £47.44
         </p>
 
         <p>
-          <strong>Help with fees</strong><br>
-          <span style="width:10em;display: inline-block;">HwF reference XYZ123</span>-£47.44
+          <strong>Help with fees (ref. XYZ123) </strong><br>
+          <span style="width:10em;display: inline-block;"></span>-£47.44
         </p>
 
         <p>
-          <strong>Total</strong><br>
-          <span style="width:10em;display: inline-block;">Total paid</span> £0.00
+          <strong>Total due</strong><br>
+          <span style="width:10em;display: inline-block;"></span> £0.00
         </p>
 
       {% endset -%}
@@ -25,22 +25,21 @@
       {% set recipients %}
 
         <p>
-          <strong>HMCTS central payments</strong><br>
-          Some sort of name
+          <strong>Recipient:</strong> <br>HMCTS Central Payments
         </p>
 
         <p>
-          <strong>Card</strong><br>
-          Debit ending xxxx-1211
+          <strong>Payment method:</strong><br>
+          Visa Debit ending 1211
         </p>
 
         <p>
-          <strong>Card name</strong><br>
+          <strong>Payee name:</strong><br>
           Herbie Hall
         </p>
 
         <p>
-          <strong>Postcode</strong><br> 
+          <strong>Payee postcode:</strong><br> 
           LU1 1AB 
         </p>
        
@@ -49,17 +48,13 @@
       {% set paymentDates %}
 
         <p>
-          Payment attempted 11:02 18 May 2026 card ending 2832 - <strong>Fail</strong>
+          18 May 2026, 11:02am<br>Card ending 2832: <strong>Failure</strong>
         </p>
 
         <p>
-          Payment attempted 11:05 18 May 2026 card ending 1211 - <strong>Success</strong>
+          18 May 2026, 11:05am<br>Card ending 1211: <strong>Success</strong>
         </p>
 
-
-        <p>
-          Email and SMS notifications were sent 11:06 18 May 2026
-        </p>
        
 
       {% endset -%}
@@ -108,7 +103,7 @@
           },
           {
             key: {
-              text: "Payment made"
+              text: "Payment attempts"
             },
             value: {
               html: paymentDates
