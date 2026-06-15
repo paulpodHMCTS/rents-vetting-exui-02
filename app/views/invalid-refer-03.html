@@ -1,0 +1,143 @@
+{% set section = 'work' %}
+
+{% extends "layout.html" %}
+{% import '_globals.html' as globals %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div id="case-id" style="float:left;width: 890px;">
+        <h2 class="govuk-heading-m" style="margin-bottom:0.5em">Case {{ globals.case_number }}
+          <span class="govuk-caption-m" style="margin-top:0.2em">{{ globals.case_property }}</span>
+        </h2>
+
+        <h1 class="govuk-heading-xl" style="margin-bottom:0.75em">
+          Refer case to Legal Officer
+          <span class="govuk-caption-xl" style="margin-top:0.2em">New case is a suspected duplicate</span>
+        </h1>
+
+         <!--<p style="margin:-1.5em 0 1em 0">Assumptions on this are: we are concerned with fixing paper form issues, missing info isn't automatically requested</p>-->
+      </div>
+      
+
+
+      <div id="next-stepper" style="float:right;">
+       
+         
+
+          <!--<div class="govuk-form-group">
+            <label class="govuk-label" for="sort" style="float:left">
+              <span style="position:relative;top:7px;margin-right: 12px;">Available actions
+            </label>
+
+            <div style="float:left">
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="choose" selected>Select action</option>
+                <option value="updated">Confirm payment</option>
+                <option value="request">Issue request</option>
+                <option value="views">Review details</option>
+                <option value="comments">Match duplicate</option>
+              </select>
+            </div>
+            
+            <div style="float:left;margin-left:6px">
+              <a href="case-issue-request"><button class="govuk-button">Go</button></a>
+            </div>
+
+          </div>-->
+
+          <br clear="all">
+
+ 
+        
+      </div>
+
+      <br clear="all">
+
+
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+
+    <form class="form" action="" method="post" style="max-width: 880px;">
+
+      {% set otherThing %}
+        {{ govukInput({
+          id: "other-request",
+          name: "otherThing",
+          type: "text",
+          classes: ""
+        }) }}
+      {% endset -%}
+
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+          {{ govukCheckboxes({
+            idPrefix: "info-request",
+            name: "info-request",
+            fieldset: {
+              legend: {
+                text: "What is the problem with the section 13?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "section-13",
+                text: "This section 13 is invalid",
+                checked: true
+              },
+              {
+                value: "other-matches",
+                text: "Other problems with the section 13",
+                checked: false
+              }
+            ]
+          }) }}
+
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+          {{ govukTextarea({
+            name: "moreDetail",
+            id: "more-detail",
+            label: {
+              text: "Additional details (optional)",
+              classes: "govuk-label--m",
+              isPageHeading: false
+            }
+          }) }}
+
+
+        
+        
+        <div class="govuk-button-group">
+          
+          {{ govukButton({
+            text: "Return to case",
+            classes: "govuk-button--secondary",
+            href: ""
+          }) }}
+
+           {{ govukButton({
+            text: "Send",
+
+            href: "case-sent-01R"
+          }) }}
+        </div>
+      </form>
+
+
+
+
+         
+
+    </div>
+  </div>
+
+{% endblock %}
