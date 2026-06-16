@@ -1,8 +1,43 @@
 
 <style>
 	.casefilebox {
+		font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+        font-size: 19px;
+        line-height: 1.5;
 		background-color: #faf6f7; //slightlypink
-		border: solid 3px #c8c8c8;
+		border: solid 4px #c8c8c8;
+	}
+	.casefiletopbar {
+		border-top: solid 4px #c8c8c8;
+		border-bottom: solid 4px #c8c8c8;
+		background-image: url('public/images/open-folder.png');
+		background-size: 30px 30px;
+		background-repeat: no-repeat;
+		background-position: 200px 16px;
+	}
+	.casefileindex {
+		width:280px;
+	}
+	ul.casefile-folders {
+	padding-left: 10px;
+		li {
+		list-style: none;
+		height: 38px;
+		background-image: url('public/images/folder.png');
+		background-size: 26px 26px;
+		background-repeat: no-repeat;
+		background-position: 0px 1px;
+		}
+	}
+	.casefilenum {
+		display: inline-block;
+		color: white;
+		width:28px;
+		font-size: 15px;
+		font-weight: 600;
+		margin-right: 8px;
+		
+		text-align: center;
 	}
 </style>
 
@@ -13,21 +48,25 @@
 			[ searchbox ]
 		</p>
 
-		<div class="casefiletopbar">Documents (n) - - - - - <span style="font-size: 2em">&UpArrowDownArrow;</span></div>
+		<div class="casefiletopbar">
+			<div style="display:inline-block;width:216px;padding-left:10px">Documents (20)</div>
+			<div style="font-size: 2em;display:inline-block;width:30px">
+			&UpArrowDownArrow;</div>
+		</div>
 		
 
-		<ul>
-			<li>Application</li>
+		<ul class="casefile-folders">
+			<li><span class="casefilenum">3</span>Application</li>
 
-			<li>Acknowledgement</li>
+			<li><span class="casefilenum">2</span>Acknowledgement</li>
 
-			<li>Information requests</li>
+			<li><span class="casefilenum">1</span>Information requests</li>
 
-			<li>Messages</li>
+			<li><span class="casefilenum">3</span>Messages</li>
 
-			<li>Photos</li>
+			<li><span class="casefilenum">9</span>Photos</li>
 
-			<li>Other</li>
+			<li><span class="casefilenum">1</span>Other</li>
 
 		</ul>
 
