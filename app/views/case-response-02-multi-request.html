@@ -106,13 +106,29 @@
           </label>
       </div>
 
-      <!--<div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="info-request" name="info-request" type="checkbox" value="missmr1detail">
+      <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="info-request" name="info-request" type="checkbox" value="other">
 
           <label class="govuk-label govuk-checkboxes__label" for="info-request">
-            Something from the MR1 form
+            Something else
           </label>
-      </div>-->
+
+          <div class="govuk-form-group" style="margin-left: 14px;">
+            <label class="govuk-label" for="other-request">
+              Only enter the thing that is missing from the application. If you are requesting more than one thing, list them all here.
+            </label>
+
+            
+            
+            <div id="other-request-hint" class="govuk-hint">
+              For example, 'A floorplan' or 'A floorplan and descriptions of each room'
+            </div>
+
+          <input class="govuk-input" id="other-request" name="otherThing" type="text" aria-describedby="other-request-hint">
+
+          </div>
+      </div>
+
        
       {% endset -%}
         
@@ -141,15 +157,9 @@
                 conditional: {
                   html: missinginfos
                 }
-              },
-              
-              {
-                value: "other",
-                text: "Something else",
-                conditional: {
-                  html: otherThing
-                }
               }
+              
+              
             ]
           }) }}
 

@@ -100,13 +100,20 @@
                 value: "other-matches",
                 text: "Other details in case 2341 2315 3423 6950 match this one",
                 checked: false
-              },
-              
-              {
-                value: "other",
-                text: "Something else"
               }
             ]
+          }) }}
+
+          {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+          {{ govukTextarea({
+            name: "moreDetail",
+            id: "more-detail",
+            label: {
+              text: "Additional details (optional)",
+              classes: "govuk-label--m",
+              isPageHeading: false
+            }
           }) }}
 
         
@@ -116,7 +123,7 @@
           {{ govukButton({
             text: "Return to case",
             classes: "govuk-button--secondary",
-            href: ""
+            href: "case-dashboard-01-03"
           }) }}
 
            {{ govukButton({
