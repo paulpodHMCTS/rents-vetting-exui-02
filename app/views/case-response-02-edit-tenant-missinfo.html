@@ -1,0 +1,152 @@
+{% set section = 'work' %}
+
+{% extends "layout.html" %}
+{% import '_globals.html' as globals %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div id="case-id" style="float:left;width: 700px;">
+        <h1 class="govuk-heading-xl" style="margin: -0.76em 0 0.5em 0;">
+          Edit tenant message
+          <!--<span class="govuk-caption-xl">Manual entry if scanning or digital not available</span>-->
+        </h1>
+
+
+          <!--<h2 class="govuk-heading-m" style="margin-bottom: 0.25em;">Summary:</h2>
+
+          <p>No issues</p>-->
+      
+      </div>
+      
+     
+
+      <div id="next-stepper" style="float:right;">
+       
+         
+
+         
+
+      <br clear="all">
+
+ 
+        
+      </div>
+
+      <br clear="all">
+
+      <style>
+      .previewtopbar {
+        display: inline-block;padding-left:1.3em;
+        
+        
+      }
+      #email-preview {
+        border:8px solid #ddd;
+        border-radius: 10px;
+        width: 800px;
+        margin-bottom:1em
+      }
+      #message-body {
+        padding-left: 30px;
+        padding-right: 20px;
+      }
+      #govlogo {
+        scale: 0.88;
+        position: relative;
+        left:-20px;
+      }
+      </style>
+
+      
+      <div id="email-edit" style="max-width:660px">
+
+{% set defaultMessage %}
+You must send us the following information by {{ globals.case_tenantinfoduedate }}. You must also send a copy to your landlord. 
+
+{% if 'miss13' in data['info-request'] %}
+• A copy of the notice that your landlord sent you to propose a new rent (called a Section 13 notice). Your landlord should have sent you this using Form 4 or Form 4A.
+{% endif %}
+{% if 'misslandlord' in data['info-request'] %}
+Your landlord’s name and contact details.
+{% endif %}
+{% if 'missmr1detail' in data['info-request'] %}
+• A completed copy of your MR1 application form. The copy that you sent us is missing [case officer to insert missing details here]. Make sure this information is included in the copy you send.
+{% endif %}
+{% if 'other' in data['info-request'] %}
+• {{ data['otherThing'] }}
+{% endif %}
+
+Send it by email to marketrents@justice.gov.uk
+
+You can also post it to:
+
+First-tier Tribunal (Property Chamber)
+Residential Property – Market Rents
+PO Box 10057
+Leicester
+LE19 9EP
+
+Include your case reference number {{ globals.case_number2 }} with anything you send us.
+
+If we do not receive the information by the deadline, the Tribunal may strike out (cancel) your application.  This is set out in Rule 9 of the Tribunal (Procedure) (First-Tier Tribunal) (Property Chamber) Rules 2013.
+
+If this happens, your application will not go ahead.
+{% endset -%}
+
+         
+
+<div class="govuk-form-group">
+  <!--<h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="more-detail">
+      Edit this message
+    </label>
+  </h1>-->
+  <div id="more-detail-hint" class="govuk-hint">
+    Make changes to this standard tenant application acknowledgment only if neccessary. No formatting is possible.
+  </div>
+  <!--<p id="more-detail-error" class="govuk-error-message">
+    <span class="govuk-visually-hidden">Error:</span> Enter more detail
+  </p>-->
+  <textarea class="govuk-textarea " id="more-detail" name="moreDetail" rows="12" aria-describedby="more-detail-hint ">
+    {{ defaultMessage }}
+  </textarea>
+</div>
+          
+            
+        
+
+      </div>
+
+
+
+        <div class="govuk-button-group">
+          
+          {{ govukButton({
+            text: "Cancel",
+            classes: "govuk-button--secondary",
+            href: "case-response-01-summary"
+          }) }}
+
+          {{ govukButton({
+            text: "Save changes",
+            href: "case-response-01-summary"
+          }) }}
+        </div>
+      </form>
+
+
+
+
+         
+
+    </div>
+  </div>
+
+{% endblock %}
