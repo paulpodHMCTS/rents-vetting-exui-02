@@ -1,4 +1,12 @@
 http://localhost:3000/work-list-x01
+
+http://localhost:3000/case-files-01
+http://localhost:3000/case-history-01
+http://localhost:3000/case-notes-01
+http://localhost:3000/case-payment-01
+
+http://localhost:3000/case-general-lo-refer
+
 http://localhost:3000/case-dashboard-01
 
 http://localhost:3000/case-dashboard-01-01
@@ -7,10 +15,10 @@ http://localhost:3000/case-dashboard-01-03
 
 http://localhost:3000/dupe-refer-01
 
-http://localhost:3000/case-payment-01
-
 http://localhost:3000/case-response-01-ack-request
 http://localhost:3000/case-response-01-summary
+http://localhost:3000/case-response-01-edit-tenant
+http://localhost:3000/case-response-01-edit-landlord
 http://localhost:3000/case-response-01-preview-tenant-email
 http://localhost:3000/case-response-01-preview-landlord-letter
 http://localhost:3000/case-sent-01
