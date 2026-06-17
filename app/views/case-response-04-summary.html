@@ -178,7 +178,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
         Luton<br>
         Bedfordshire<br>
         LL8 4RA</p>
-        <p><strong>Email:</strong> <br>Address not confirmed</p>
+        <p><strong>Email:</strong> <br>j.jones@gmail.test</p>
       {% endset -%}
 
       {% set previewLandlordMessage %}
@@ -223,6 +223,31 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               ]
             }
           },
+
+
+          {
+            key: {
+              html: "Send to"
+            },
+            value: {
+              html: landlordPostSum
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change"
+                },
+                {
+                  href: "case-response-02-preview-landlord-letter.html",
+                  text: "Preview"
+                }
+              ]
+            }
+          },
+
+
+
           {
             key: {
               html: "Message text"
