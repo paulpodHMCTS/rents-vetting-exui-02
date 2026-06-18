@@ -1,0 +1,168 @@
+
+<div style="width: 66%;float:left">
+  <!--<h2 class="govuk-heading-l">Summary</h2>-->
+
+
+  <!--<p>Key items from the application:</p>-->
+
+  <!--<p style="font-size: 0.9em;"><i>Note: cribbed from p11 UR report "What are COs looking for when skimming
+documents?" ...makes sense but naming of items may need checking. I like this as it gets to the point of collecting the docs in the first place, and can pick out missing info directly.</i></p>-->
+
+  
+
+  <form class="form" action="" method="post" >
+      <style>
+        .sumnumlist {
+          display:inline-block;
+          width:2em;
+          font-weight: 600;
+        }
+        
+      </style>
+
+      {% set tenantType %}
+      <div style="width:460px">
+      <ul class="govuk-list" style="margin-bottom: 0;">
+        <li><span class="sumnumlist">1.1</span> Challenging a rent increase in a section 13 notice</li>
+        <li><span class="sumnumlist">1.2</span> Assured tenancy</li>
+        <li><span class="sumnumlist">1.3</span> On or after 1 May 2026</li>
+        <li><span class="sumnumlist">1.4</span> Not social housing, fee payable</li>
+      </ul>
+      </div>
+      {% endset -%}
+
+
+      {% set management %}
+        
+        <ul class="task-list-row">
+          <li>Cancel task</li>
+          <li>Mark as done</li>
+          <li>Reassign task</li>
+          <li>Unassign task</li>
+        </ul>
+
+      {% endset -%}
+
+
+
+
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+      
+
+
+      <h3 class="govuk-heading-m">Active tasks</h3>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              html: "Review case"
+            },
+            value: {
+              html: ""
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: ""
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Status"
+            },
+            value: {
+              html: "<strong class=govuk-tag govuk-tag--yellow>New to review</strong>"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  html: ""
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Due date"
+            },
+            value: {
+              html: globals.case_tenantinfoduedate
+            },
+            actions: {
+              items: [
+                {
+                  href: "",
+                  text: ""
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Manage"
+            },
+            value: {
+              html: management
+
+            },
+            actions: {
+              items: [
+                {
+                  href: "case-dashboard-01.html",
+                  text: "Review case"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Next task"
+            },
+            value: {
+              html: "<a href=case-dashboard-01.html>Review case</a>"
+            }
+          }
+        ]
+      }) }}
+
+          
+
+      
+
+
+
+
+
+
+    
+        
+        
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Return to work list",
+            classes: "govuk-button--secondary",
+            href: ""
+          }) }}
+
+       
+
+          {{ govukButton({
+            text: "Continue",
+            href: "case-response-01-ack-request.html"
+          }) }}
+        </div>
+      </form>
+
+
+
+
+
+
+</div>
+

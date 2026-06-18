@@ -62,7 +62,7 @@
             Contents -- is this just for screen readers?
           </h2>-->
           <ul class="govuk-tabs__list">
-            <li class="govuk-tabs__list-item ">
+            <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
               <a class="govuk-tabs__tab" href="#">
                 Tasks
               </a>
@@ -116,7 +116,7 @@
               </a>
             </li>
             <li class="govuk-tabs__list-item">
-              <a class="govuk-tabs__tab" href="#">
+              <a class="govuk-tabs__tab" href="case-notes-01">
                 Notes
               </a>
             </li>
@@ -132,8 +132,8 @@
                 Service request - omitted as no idea what it would do here
               </a>
             </li>-->
-            <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-              <a class="govuk-tabs__tab" href="case-payment-receipt-01">
+            <li class="govuk-tabs__list-item">
+              <a class="govuk-tabs__tab" href="case-payment-01">
                 Payments
               </a>
             </li>
@@ -148,11 +148,10 @@
 
 
 
-          <div class="govuk-tabs__panel exui-tabpanel" id="Summary">
+          <div class="govuk-tabs__panel exui-tabpanel" id="History">
             <section>
-              <h2 class="govuk-heading-l">Payments</h2>
 
-               {% include "includes/case-payment-01.njk" %}
+               {% include "includes/case-tasks-01.njk" %}
 
             </section>
           </div><!-- end tab-panel for content -->
