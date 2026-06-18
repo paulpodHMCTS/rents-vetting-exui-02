@@ -1,5 +1,5 @@
 
-<div style="width: 66%;float:left">
+<div style="width: 90%;float:left">
   <!--<h2 class="govuk-heading-l">Summary</h2>-->
 
 
@@ -21,7 +21,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
       </style>
 
       {% set tenantType %}
-      <div style="width:460px">
+      <div style="width:490px">
       <ul class="govuk-list" style="margin-bottom: 0;">
         <li><span class="sumnumlist">1.1</span> Challenging a rent increase in a section 13 notice</li>
         <li><span class="sumnumlist">1.2</span> Assured tenancy</li>
@@ -31,14 +31,17 @@ documents?" ...makes sense but naming of items may need checking. I like this as
       </div>
       {% endset -%}
 
+      {% set yellownew %}<strong class="govuk-tag govuk-tag--yellow">New to review</strong>
+      {% endset -%}
+
 
       {% set management %}
         
         <ul class="task-list-row">
-          <li>Cancel task</li>
-          <li>Mark as done</li>
-          <li>Reassign task</li>
-          <li>Unassign task</li>
+          <li><A href="#">Cancel task</A></li>
+          <li><A href="#">Mark as done</A></li>
+          <li><A href="#">Reassign task</A></li>
+          <li style="margin-right:0"><A href="#">Unassign task</A></li>
         </ul>
 
       {% endset -%}
@@ -76,7 +79,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               text: "Status"
             },
             value: {
-              html: "<strong class=govuk-tag govuk-tag--yellow>New to review</strong>"
+              html: yellownew
             },
             actions: {
               items: [
@@ -114,8 +117,8 @@ documents?" ...makes sense but naming of items may need checking. I like this as
             actions: {
               items: [
                 {
-                  href: "case-dashboard-01.html",
-                  text: "Review case"
+                  href: "",
+                  text: ""
                 }
               ]
             }
@@ -125,7 +128,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               text: "Next task"
             },
             value: {
-              html: "<a href=case-dashboard-01.html>Review case</a>"
+              html: "<a href=case-review-01.html>Review case</a>"
             }
           }
         ]
@@ -143,7 +146,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
     
         
         
-        <div class="govuk-button-group">
+        <!--<div class="govuk-button-group">
           {{ govukButton({
             text: "Return to work list",
             classes: "govuk-button--secondary",
@@ -156,7 +159,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
             text: "Continue",
             href: "case-response-01-ack-request.html"
           }) }}
-        </div>
+        </div>-->
       </form>
 
 

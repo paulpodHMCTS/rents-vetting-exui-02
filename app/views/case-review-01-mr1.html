@@ -1,0 +1,80 @@
+{% set section = 'work' %}
+
+{% extends "layout.html" %}
+{% import '_globals.html' as globals %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div id="case-id" style="float:left;width: 890px;">
+        <h2 class="govuk-heading-m" style="margin-bottom:0.5em">Case 1234 5678 9256 1345
+          <span class="govuk-caption-m" style="margin-top:0.2em">15 Garden Drive, Luton, Bedfordshire LU1 1AB</span>
+        </h2>
+
+        
+
+         <!--<p style="margin:-1.5em 0 1em 0">Assumptions on this are: we are concerned with fixing paper form issues, missing info isn't automatically requested</p>-->
+      </div>
+      
+
+
+      <div id="next-stepper" style="float:right;">
+       
+         
+
+          <!--<div class="govuk-form-group">
+            <label class="govuk-label" for="sort" style="float:left">
+              <span style="position:relative;top:7px;margin-right: 12px;">Available actions
+            </label>
+
+            <div style="float:left">
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="choose" selected>Select action</option>
+                <option value="updated">Confirm payment</option>
+                <option value="request">Issue request</option>
+                <option value="views">Review details</option>
+                <option value="comments">Match duplicate</option>
+              </select>
+            </div>
+            
+            <div style="float:left;margin-left:6px">
+              <a href="case-issue-request"><button class="govuk-button">Go</button></a>
+            </div>
+
+          </div>-->
+
+          <br clear="all">
+
+ 
+        
+      </div>
+
+      <br clear="all">
+
+
+    
+      <!-- this is reused from the case-dashboard way of presenting it  -->
+      <!-- as hopefully a simple pivot to make this an Event/Task thing -->
+      <section>
+        <h2 class="govuk-heading-xl">Review MR1</h2>
+        <!-- give it the same TASK NAME as on the TASK LIST + WORK LIST -->
+
+         {% include "includes/case-review-01-mr1.njk" %}
+
+      </section>
+   
+
+
+
+         
+
+    </div>
+  </div>
+
+{% endblock %}
