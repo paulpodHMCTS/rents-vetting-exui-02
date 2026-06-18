@@ -35,7 +35,7 @@
 
         <p>
           <strong>Payee name:</strong><br>
-          Herbie Hall
+          {{ globals.case_tenantname3 }}
         </p>
 
         <p>
@@ -71,7 +71,7 @@
               text: "Received"
             },
             value: {
-              html: "Yes - receipts sent 18 May 2026, 11:06am<br><br><strong>By email:</strong> h.hall@milestones.bop<br><strong>By SMS:</strong> 07718 765 432"
+              html: "Yes - receipts sent 18 May 2026, 11:06am<br><br><strong>By email:</strong> " + globals.case_tenantemail3 + "<br><strong>By SMS:</strong> " + globals.case_tenantphone3 + ""
             },
             actions: {
               items: [
