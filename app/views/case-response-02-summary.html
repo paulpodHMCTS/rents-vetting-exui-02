@@ -196,31 +196,63 @@ documents?" ...makes sense but naming of items may need checking. I like this as
 
       {% set previewTenantMessage %}
         <!-- standard block, include for all -->
-            <div>
-              <h2 class="govuk-heading-m">What happens next</h2>
+          {% if 'misslandlord' in data['info-request'] %}
+          <p><strong>The landlord's address has not been supplied</strong></p>
 
-              <p>Your application has already been sent to your landlord along with an optional MR2 reply form. </p>
+          <div>
+            <h2 class="govuk-heading-m">What happens next</h2>
 
-              <p>They have been told it is currently on hold while we wait for what's missing. </p>
+            <p>When we receive your landlord’s contact details, we will send your application to your landlord along with an optional MR2 reply form.</p>
 
-              <p>Here is what will happen next: 
+            <p>Here is what will happen next: 
 
-              <ol class="govuk-list govuk-list--number">
-                <li>Your landlord has 28 days to respond online or complete the MR2 reply form and send it to you and the Tribunal. </li>
+            <ol class="govuk-list govuk-list--number">
 
-                <li>If your landlord chooses to respond, you may respond online or complete the optional MR3 tenant reply form included with this message. If you do, you must send it to your landlord and the Tribunal within 14 days. </li>
+              <li>Your landlord will have 28 days to respond online or complete the MR2 reply form and send it to you and the Tribunal. </li>
 
-                <li>The tribunal will make its decision based on your application and any replies received. </li>
+              <li>If your landlord chooses to respond, you may respond online or complete the optional MR3 tenant reply form included with this message. If you do, you must send it to your landlord and the Tribunal within 14 days.</li>
 
-              </ol>
+              <li>The tribunal will make its decision based on your application and any replies received.</li>
 
-              <p>Yours sincerely<br><br>
+            </ol>
 
-              {{ globals.case_officer }}<br>
-              Case Officer
-              </p>
+            <p>Yours sincerely<br><br>
 
-            </div>
+            {{ globals.case_officer }}<br>
+            Case Officer
+            </p>
+
+          </div>
+          {% else %}
+
+          <div>
+            <h2 class="govuk-heading-m">What happens next</h2>
+
+            <p>Your application has already been sent to your landlord along with an optional MR2 reply form. </p>
+
+            <p>They have been told it is currently on hold while we wait for what's missing. </p>
+
+            <p>Here is what will happen next: 
+
+            <ol class="govuk-list govuk-list--number">
+              <li>Your landlord has 28 days to respond online or complete the MR2 reply form and send it to you and the Tribunal. </li>
+
+              <li>If your landlord chooses to respond, you may respond online or complete the optional MR3 tenant reply form included with this message. If you do, you must send it to your landlord and the Tribunal within 14 days. </li>
+
+              <li>The tribunal will make its decision based on your application and any replies received. </li>
+
+            </ol>
+
+            <p>Yours sincerely<br><br>
+
+            {{ globals.case_officer }}<br>
+            Case Officer
+            </p>
+
+          </div>
+
+         {% endif %}
+            
         <p class="govuk-hint">Standard footer</p>
 
       {% endset -%}
