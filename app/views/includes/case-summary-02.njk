@@ -91,6 +91,23 @@ documents?" ...makes sense but naming of items may need checking. I like this as
 
       {{ govukSummaryList({
         rows: [
+
+          {
+            key: {
+              text: "Date received"
+            },
+            value: {
+              html: "28 May 2026"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: ""
+                }
+              ]
+            }
+          },
           {
             key: {
               html: "Type of application"
@@ -198,22 +215,6 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               items: [
                 {
                   href: "case-payment-02.html",
-                  text: ""
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Date received"
-            },
-            value: {
-              html: "28 May 2026"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
                   text: ""
                 }
               ]
@@ -462,4 +463,3 @@ documents?" ...makes sense but naming of items may need checking. I like this as
 
 
 </div>
-

@@ -37,6 +37,23 @@ documents?" ...makes sense but naming of items may need checking. I like this as
 
       {{ govukSummaryList({
         rows: [
+ 
+          {
+            key: {
+              text: "Date received"
+            },
+            value: {
+              html: "17 April 2026"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: ""
+                }
+              ]
+            }
+          },
           {
             key: {
               html: "Type of application"
@@ -164,7 +181,15 @@ documents?" ...makes sense but naming of items may need checking. I like this as
                 }
               ]
             }
-          },
+          }
+        ]
+      }) }}
+
+
+      <h3 class="govuk-heading-m">Section 13 notice</h3>
+
+      {{ govukSummaryList({
+        rows: [
           {
             key: {
               text: "Date received"
@@ -180,15 +205,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
                 }
               ]
             }
-          }
-        ]
-      }) }}
-
-
-      <h3 class="govuk-heading-m">Section 13 notice</h3>
-
-      {{ govukSummaryList({
-        rows: [
+          },
           {
             key: {
               html: "Tenant name"
@@ -300,7 +317,14 @@ documents?" ...makes sense but naming of items may need checking. I like this as
                 }
               ]
             }
-          },
+          }
+        ]
+      }) }}
+
+      <h3 class="govuk-heading-m">Tenancy agreement</h3>
+
+      {{ govukSummaryList({
+        rows: [
           {
             key: {
               text: "Date received"
@@ -316,14 +340,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
                 }
               ]
             }
-          }
-        ]
-      }) }}
-
-      <h3 class="govuk-heading-m">Tenancy agreement</h3>
-
-      {{ govukSummaryList({
-        rows: [
+          },
           {
             key: {
               html: "Tenant name"
@@ -387,22 +404,6 @@ documents?" ...makes sense but naming of items may need checking. I like this as
                 }
               ]
             }
-          },
-          {
-            key: {
-              text: "Date received"
-            },
-            value: {
-              html: "17 April 2026"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: ""
-                }
-              ]
-            }
           }
         ]
       }) }}
@@ -436,4 +437,3 @@ documents?" ...makes sense but naming of items may need checking. I like this as
 
 
 </div>
-
