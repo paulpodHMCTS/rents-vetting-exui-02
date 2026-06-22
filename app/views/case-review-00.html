@@ -67,6 +67,22 @@
 
          {% include "includes/case-summary-00.njk" %}
 
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Return to case",
+            classes: "govuk-button--secondary",
+            href: ""
+          }) }}
+
+       
+
+          {{ govukButton({
+            text: "Continue",
+            href: "check-dupes-01.html"
+          }) }}
+        </div>
+
       </section>
    
 
