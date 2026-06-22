@@ -13,14 +13,11 @@
     <div class="govuk-grid-column-full">
 
       <div id="case-id" style="float:left;width: 890px;">
-        <h2 class="govuk-heading-m" style="margin-bottom:0.5em">Case 1234 5678 9256 1345
-          <span class="govuk-caption-m" style="margin-top:0.2em">15 Garden Drive, Luton, Bedfordshire LU1 1AB</span>
+        <h2 class="govuk-heading-m" style="margin-bottom:0.5em">Case {{ globals.case_number }}
+          <span class="govuk-caption-m" style="margin-top:0.2em">Case {{ globals.case_property }}</span>
         </h2>
 
-        <h1 class="govuk-heading-xl" style="margin-bottom:0.75em">
-          Check for duplicates
-          <span class="govuk-caption-xl" style="margin-top:0.2em">Use postcode and contact details to disambiguate matches</span>
-        </h1>
+        
 
          <!--<p style="margin:-1.5em 0 1em 0">Assumptions on this are: we are concerned with fixing paper form issues, missing info isn't automatically requested</p>-->
       </div>
@@ -61,48 +58,46 @@
       <br clear="all">
 
 
-    {% from "govuk/components/input/macro.njk" import govukInput %}
+    
+      <!-- this is reused from the case-dashboard way of presenting it  -->
+      <!-- as hopefully a simple pivot to make this an Event/Task thing -->
+      <section>
+        <form class="form" action="" method="post" >
 
-    <form class="form" action="" method="post" style="max-width: 880px;">
+        <h2 class="govuk-heading-xl">Review case</h2>
 
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-
-          {{ govukCheckboxes({
-            idPrefix: "dupe-types",
-            name: "dupe-types",
-            fieldset: {
-              legend: {
-                text: "",
-                isPageHeading: false,
-                classes: ""
-              }
+        {{ govukRadios({
+          name: "reviewaction",
+          fieldset: {
+            legend: {
+              text: "What do you need to do?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "missing",
+              text: "Request missing information or documents"
             },
-            items: [
-              {
-                value: "postcode",
-                text: "Check for duplicates based on postcode",
-                checked: true
-              },
-              {
-                value: "phone",
-                text: "Check for duplicates based on phone numbers",
-                checked: true
-              },
-              {
-                value: "email",
-                text: "Check for duplicates based on email addresses",
-                checked: true,
-                hint: {
-                  text: "Tenent email address and landlord's, if supplied"
-                }
-              }
-            ]
-          }) }}
-
+            {
+              value: "acks",
+              text: "Send standard acknowledgement letters"
+            },
+            {
+              value: "time",
+              text: "Send an out of time letter"
+            },
+            {
+              value: "refer",
+              text: "Refer to a Legal Officer"
+            }
+          ]
+        }) }}
         
-        
-        <div class="govuk-button-group">
+       <div class="govuk-button-group">
           
           {{ govukButton({
             text: "Return to case",
@@ -112,11 +107,13 @@
 
           {{ govukButton({
             text: "Continue",
-            href: "check-dupes-01-results"
+            href: "case-review-01-ack-request"
           }) }}
         </div>
       </form>
 
+      </section>
+   
 
 
 

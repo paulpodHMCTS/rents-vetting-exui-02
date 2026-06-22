@@ -18,8 +18,8 @@
         </h2>
 
         <h1 class="govuk-heading-xl" style="margin-bottom:0.75em">
-          Check for duplicates
-          <span class="govuk-caption-xl" style="margin-top:0.2em">Use postcode and contact details to disambiguate matches</span>
+          Send acknowledgements to parties
+          <span class="govuk-caption-xl" style="margin-top:0.2em">Application can proceed</span>
         </h1>
 
          <!--<p style="margin:-1.5em 0 1em 0">Assumptions on this are: we are concerned with fixing paper form issues, missing info isn't automatically requested</p>-->
@@ -69,33 +69,21 @@
         {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
           {{ govukCheckboxes({
-            idPrefix: "dupe-types",
-            name: "dupe-types",
+            idPrefix: "send-acks",
+            name: "send-acks",
             fieldset: {
-              legend: {
-                text: "",
-                isPageHeading: false,
-                classes: ""
-              }
+
             },
             items: [
               {
-                value: "postcode",
-                text: "Check for duplicates based on postcode",
+                value: "MR1-ok",
+                text: "To tenant: Application complete, fee paid or not required",
                 checked: true
               },
               {
-                value: "phone",
-                text: "Check for duplicates based on phone numbers",
+                value: "MR2-send",
+                text: "To landlord: Application received from tenant, response required",
                 checked: true
-              },
-              {
-                value: "email",
-                text: "Check for duplicates based on email addresses",
-                checked: true,
-                hint: {
-                  text: "Tenent email address and landlord's, if supplied"
-                }
               }
             ]
           }) }}
@@ -111,8 +99,8 @@
           }) }}
 
           {{ govukButton({
-            text: "Continue",
-            href: "check-dupes-01-results"
+            text: "Preview drafts",
+            href: "case-response-01-summary.html"
           }) }}
         </div>
       </form>

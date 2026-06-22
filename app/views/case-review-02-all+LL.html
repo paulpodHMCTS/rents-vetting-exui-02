@@ -1,0 +1,168 @@
+{% set section = 'work' %}
+
+{% extends "layout.html" %}
+{% import '_globals.html' as globals %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div id="case-id" style="float:left;width: 890px;">
+        <h2 class="govuk-heading-m" style="margin-bottom:0.5em">Case {{ globals.case_number2 }}
+          <span class="govuk-caption-m" style="margin-top:0.2em">{{ globals.case_property2 }}</span>
+        </h2>
+
+        <h1 class="govuk-heading-xl" style="margin-bottom:0.75em">
+          Request something from the applicant
+          <!--<span class="govuk-caption-xl" style="margin-top:0.2em"></span>-->
+        </h1>
+
+         <!--<p style="margin:-1.5em 0 1em 0">Assumptions on this are: we are concerned with fixing paper form issues, missing info isn't automatically requested</p>-->
+      </div>
+      
+
+
+      <div id="next-stepper" style="float:right;">
+       
+         
+
+          <!--<div class="govuk-form-group">
+            <label class="govuk-label" for="sort" style="float:left">
+              <span style="position:relative;top:7px;margin-right: 12px;">Available actions
+            </label>
+
+            <div style="float:left">
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="choose" selected>Select action</option>
+                <option value="updated">Confirm payment</option>
+                <option value="request">Issue request</option>
+                <option value="views">Review details</option>
+                <option value="comments">Match duplicate</option>
+              </select>
+            </div>
+            
+            <div style="float:left;margin-left:6px">
+              <a href="case-issue-request"><button class="govuk-button">Go</button></a>
+            </div>
+
+          </div>-->
+
+          <br clear="all">
+
+ 
+        
+      </div>
+
+      <br clear="all">
+
+
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+
+    <form class="form" action="/rev4-multi-request" method="post" style="max-width: 880px;">
+
+      {% set otherThing %}
+        {{ govukInput({
+          id: "other-request",
+          name: "otherThing",
+          type: "text",
+          hint: {
+            text: "For example, 'A floorplan' or 'A floorplan and descriptions of each room'"
+          },
+          classes: "",
+          label: {
+            text: "Only enter the thing that is missing from the application. If you are requesting more than one thing, list them all here."
+          }
+        }) }}
+      {% endset -%}
+
+      <!-- While ideally there would be one request including chasing a payment it seems like that is a separate EVENT/TASK and maybe easier to persue separately -->
+
+     
+
+      <!--<div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="info-request" name="info-request" type="checkbox" value="missfee">
+
+          <label class="govuk-label govuk-checkboxes__label" for="info-request">
+            Application fee
+          </label>
+      </div>-->
+
+
+      <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="info-request" name="info-request" type="checkbox" value="miss13">
+
+          <label class="govuk-label govuk-checkboxes__label" for="info-request">
+            Section 13 notice 
+          </label>
+      </div>
+
+      <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="info-request" name="info-request" type="checkbox" value="misstenancy">
+
+          <label class="govuk-label govuk-checkboxes__label" for="info-request">
+            Tenancy agreement 
+          </label>
+      </div>
+
+      <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="info-request" name="info-request" type="checkbox" value="misslandlord">
+
+          <label class="govuk-label govuk-checkboxes__label" for="info-request">
+            Landlord's name and address
+          </label>
+      </div>
+
+      <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="info-request" name="info-request" type="checkbox" value="other">
+
+          <label class="govuk-label govuk-checkboxes__label" for="info-request">
+            Something else
+          </label>
+
+          <div class="govuk-form-group" style="margin-left: 14px;">
+            <label class="govuk-label" for="other-request">
+              Only enter the thing that is missing from the application. If you are requesting more than one thing, list them all here.
+            </label>
+
+            
+            
+            <div id="other-request-hint" class="govuk-hint">
+              For example, 'A floorplan' or 'A floorplan and descriptions of each room'
+            </div>
+
+          <input class="govuk-input" id="other-request" name="otherThing" type="text" aria-describedby="other-request-hint">
+
+          </div>
+      </div>
+
+       
+        
+        
+        <div class="govuk-button-group">
+          
+          {{ govukButton({
+            text: "Return to case",
+            classes: "govuk-button--secondary",
+            href: ""
+          }) }}
+
+          {{ govukButton({
+            text: "Preview message"
+          }) }}
+        </div>
+      </form>
+
+
+
+
+         
+
+    </div>
+  </div>
+
+{% endblock %}

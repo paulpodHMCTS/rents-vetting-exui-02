@@ -21,7 +21,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
       </style>
 
       {% set tenantType %}
-      <div style="width:500px">
+      <div style="width:460px">
       <ul class="govuk-list" style="margin-bottom: 0;">
         <li><span class="sumnumlist">1.1</span> Challenging a rent increase in a section 13 notice</li>
         <li><span class="sumnumlist">1.2</span> Assured tenancy</li>
@@ -32,6 +32,60 @@ documents?" ...makes sense but naming of items may need checking. I like this as
       {% endset -%}
 
       {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+      {% set documents %}
+      <div style="width:400px">
+        <p><a href=/public/images/mr1.pdf target=_blank>
+        MR1 </a>(opens in a new tab)</p>
+        <p>
+        No Section 13 </p>
+        <p>No Tenancy agreement</p>
+      </div>
+      {% endset -%}
+
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+
+      <h3 class="govuk-heading-m">Application documents</h3>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Document"
+            },
+            value: {
+              html: documents
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: ""
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "View all case documents"
+            },
+            value: {
+              html: "<a href=case-files-01>Case file view</a>"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: ""
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+
 
       <h3 class="govuk-heading-m">MR1 application</h3>
 
@@ -80,7 +134,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               items: [
                 {
                   href: "#",
-                  text: "Check for duplicates"
+                  text: ""
                 }
               ]
             }
@@ -96,7 +150,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               items: [
                 {
                   href: "#",
-                  text: "Check for duplicates"
+                  text: ""
                 }
               ]
             }
@@ -144,22 +198,6 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               items: [
                 {
                   href: "case-payment-02.html",
-                  text: "View payment"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Document"
-            },
-            value: {
-              html: "<a href=/public/images/mr1.pdf target=_blank>View document (opens in a new tab)</a>"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
                   text: ""
                 }
               ]
@@ -264,7 +302,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               items: [
                 {
                   href: "#",
-                  text: "Check for duplicates"
+                  text: ""
                 }
               ]
             }
@@ -319,6 +357,8 @@ documents?" ...makes sense but naming of items may need checking. I like this as
           }
         ]
       }) }}
+
+
 
       <h3 class="govuk-heading-m">Tenancy agreement</h3>
 
@@ -416,7 +456,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
         
         <div class="govuk-button-group">
           {{ govukButton({
-            text: "Return to work list",
+            text: "Return to case",
             classes: "govuk-button--secondary",
             href: ""
           }) }}
@@ -425,7 +465,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
 
           {{ govukButton({
             text: "Continue",
-            href: "case-response-02-multi-request.html"
+            href: "review-case-02.html"
           }) }}
         </div>
       </form>

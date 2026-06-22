@@ -17,10 +17,7 @@
           <span class="govuk-caption-m" style="margin-top:0.2em">15 Garden Drive, Luton, Bedfordshire LU1 1AB</span>
         </h2>
 
-        <h1 class="govuk-heading-xl" style="margin-bottom:0.75em">
-          Check for duplicates
-          <span class="govuk-caption-xl" style="margin-top:0.2em">Use postcode and contact details to disambiguate matches</span>
-        </h1>
+        
 
          <!--<p style="margin:-1.5em 0 1em 0">Assumptions on this are: we are concerned with fixing paper form issues, missing info isn't automatically requested</p>-->
       </div>
@@ -61,62 +58,17 @@
       <br clear="all">
 
 
-    {% from "govuk/components/input/macro.njk" import govukInput %}
+    
+      <!-- this is reused from the case-dashboard way of presenting it  -->
+      <!-- as hopefully a simple pivot to make this an Event/Task thing -->
+      <section>
+        <h2 class="govuk-heading-xl">Review section 13</h2>
+        <!-- give it the same TASK NAME as on the TASK LIST + WORK LIST -->
 
-    <form class="form" action="" method="post" style="max-width: 880px;">
+         {% include "includes/review-01-s13.njk" %}
 
-
-        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-
-          {{ govukCheckboxes({
-            idPrefix: "dupe-types",
-            name: "dupe-types",
-            fieldset: {
-              legend: {
-                text: "",
-                isPageHeading: false,
-                classes: ""
-              }
-            },
-            items: [
-              {
-                value: "postcode",
-                text: "Check for duplicates based on postcode",
-                checked: true
-              },
-              {
-                value: "phone",
-                text: "Check for duplicates based on phone numbers",
-                checked: true
-              },
-              {
-                value: "email",
-                text: "Check for duplicates based on email addresses",
-                checked: true,
-                hint: {
-                  text: "Tenent email address and landlord's, if supplied"
-                }
-              }
-            ]
-          }) }}
-
-        
-        
-        <div class="govuk-button-group">
-          
-          {{ govukButton({
-            text: "Return to case",
-            classes: "govuk-button--secondary",
-            href: ""
-          }) }}
-
-          {{ govukButton({
-            text: "Continue",
-            href: "check-dupes-01-results"
-          }) }}
-        </div>
-      </form>
-
+      </section>
+   
 
 
 

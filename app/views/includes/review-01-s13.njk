@@ -1,5 +1,5 @@
 
-<div style="width: 90%;float:left">
+<div style="width: 66%;float:left">
   <!--<h2 class="govuk-heading-l">Summary</h2>-->
 
 
@@ -21,7 +21,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
       </style>
 
       {% set tenantType %}
-      <div style="width:490px">
+      <div style="width:460px">
       <ul class="govuk-list" style="margin-bottom: 0;">
         <li><span class="sumnumlist">1.1</span> Challenging a rent increase in a section 13 notice</li>
         <li><span class="sumnumlist">1.2</span> Assured tenancy</li>
@@ -31,39 +31,21 @@ documents?" ...makes sense but naming of items may need checking. I like this as
       </div>
       {% endset -%}
 
-      {% set yellownew %}<strong class="govuk-tag govuk-tag--yellow">New to review</strong>
-      {% endset -%}
-
-
-      {% set management %}
-        
-        <ul class="task-list-row">
-          <li><A href="#">Cancel task</A></li>
-          <li><A href="#">Mark as done</A></li>
-          <li><A href="#">Reassign task</A></li>
-          <li style="margin-right:0"><A href="#">Unassign task</A></li>
-        </ul>
-
-      {% endset -%}
-
-
-
-
       {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
       
 
 
-      <h3 class="govuk-heading-m">Active tasks</h3>
+      <h3 class="govuk-heading-m">Section 13 notice</h3>
 
       {{ govukSummaryList({
         rows: [
           {
             key: {
-              html: "Review case"
+              html: "Tenant name"
             },
             value: {
-              html: ""
+              text: globals.case_tenantname
             },
             actions: {
               items: [
@@ -76,16 +58,96 @@ documents?" ...makes sense but naming of items may need checking. I like this as
           },
           {
             key: {
-              text: "Status"
+              html: "New rent amount"
             },
             value: {
-              html: yellownew
+              text: "£1100 per month"
             },
             actions: {
               items: [
                 {
                   href: "#",
-                  html: ""
+                  text: ""
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              html: "Date of rent increase"
+            },
+            value: {
+              text: "1 July 2026"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: ""
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              html: "Landlord's name"
+            },
+            value: {
+              text: globals.case_landlordname
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: ""
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              html: "Landlord's email"
+            },
+            value: {
+              text: globals.case_landlordemail
+            },
+            actions: {
+              items: [
+                {
+                  href: "case-dashboard-01-03.html",
+                  text: ""
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              html: "Date signed by landlord"
+            },
+            value: {
+              text: "1 June 2026"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: ""
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Document"
+            },
+            value: {
+              html: "<a href=/public/images/section13.pdf target=_blank>View document (opens in a new tab)</a>"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: ""
                 }
               ]
             }
@@ -100,71 +162,23 @@ documents?" ...makes sense but naming of items may need checking. I like this as
             actions: {
               items: [
                 {
-                  href: "",
+                  href: "#",
                   text: ""
                 }
               ]
-            }
-          },
-          {
-            key: {
-              text: "Due date"
-            },
-            value: {
-              html: globals.case_tenantinfoduedate
-            },
-            actions: {
-              items: [
-                {
-                  href: "",
-                  text: ""
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Manage"
-            },
-            value: {
-              html: management
-
-            },
-            actions: {
-              items: [
-                {
-                  href: "",
-                  text: ""
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Next task"
-            },
-            value: {
-              html: "<a href=case-review-01.html>Review case</a>"
             }
           }
         ]
       }) }}
 
-          
-
       
-
-
-
-
-
 
     
         
         
-        <!--<div class="govuk-button-group">
+        <div class="govuk-button-group">
           {{ govukButton({
-            text: "Return to work list",
+            text: "Return to case",
             classes: "govuk-button--secondary",
             href: ""
           }) }}
@@ -173,9 +187,9 @@ documents?" ...makes sense but naming of items may need checking. I like this as
 
           {{ govukButton({
             text: "Continue",
-            href: "case-response-01-ack-request.html"
+            href: "case-review-01-ten.html"
           }) }}
-        </div>-->
+        </div>
       </form>
 
 

@@ -1,5 +1,5 @@
 
-<div style="width: 90%;float:left">
+<div style="width: 66%;float:left">
   <!--<h2 class="govuk-heading-l">Summary</h2>-->
 
 
@@ -21,7 +21,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
       </style>
 
       {% set tenantType %}
-      <div style="width:490px">
+      <div style="width:500px">
       <ul class="govuk-list" style="margin-bottom: 0;">
         <li><span class="sumnumlist">1.1</span> Challenging a rent increase in a section 13 notice</li>
         <li><span class="sumnumlist">1.2</span> Assured tenancy</li>
@@ -31,39 +31,18 @@ documents?" ...makes sense but naming of items may need checking. I like this as
       </div>
       {% endset -%}
 
-      {% set yellownew %}<strong class="govuk-tag govuk-tag--yellow">New to review</strong>
-      {% endset -%}
-
-
-      {% set management %}
-        
-        <ul class="task-list-row">
-          <li><A href="#">Cancel task</A></li>
-          <li><A href="#">Mark as done</A></li>
-          <li><A href="#">Reassign task</A></li>
-          <li style="margin-right:0"><A href="#">Unassign task</A></li>
-        </ul>
-
-      {% endset -%}
-
-
-
-
       {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
-      
-
-
-      <h3 class="govuk-heading-m">Active tasks</h3>
+      <!--<h3 class="govuk-heading-m">MR1 application</h3>-->
 
       {{ govukSummaryList({
         rows: [
           {
             key: {
-              html: "Review case"
+              html: "Type of application"
             },
             value: {
-              html: ""
+              html: "<div style=width:500px>Challenging a rent increase in a section 13 notice</div>"
             },
             actions: {
               items: [
@@ -76,10 +55,10 @@ documents?" ...makes sense but naming of items may need checking. I like this as
           },
           {
             key: {
-              text: "Status"
+              text: "Tenant name"
             },
             value: {
-              html: yellownew
+              text: globals.case_tenantname2
             },
             actions: {
               items: [
@@ -92,68 +71,118 @@ documents?" ...makes sense but naming of items may need checking. I like this as
           },
           {
             key: {
+              text: "Property address"
+            },
+            value: {
+              html: globals.case_property2
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: ""
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Tenant email"
+            },
+            value: {
+              html: globals.case_tenantemail2
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: ""
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Inspection requested"
+            },
+            value: {
+              html: "Yes<BR>Refer to LO after MR2 returned"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: ""
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Hearing requested"
+            },
+            value: {
+              html: "Yes<BR>Refer to LO after MR2 returned"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: ""
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Payment"
+            },
+            value: {
+              html: "Not paid"
+            },
+            actions: {
+              items: [
+                {
+                  href: "case-payment-02.html",
+                  text: ""
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Document"
+            },
+            value: {
+              html: "<a href=/public/images/mr1.pdf target=_blank>View document (opens in a new tab)</a>"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: ""
+                }
+              ]
+            }
+          },
+          {
+            key: {
               text: "Date received"
             },
             value: {
-              html: "29 May 2026"
+              html: "28 May 2026"
             },
             actions: {
               items: [
                 {
-                  href: "",
+                  href: "#",
                   text: ""
                 }
               ]
-            }
-          },
-          {
-            key: {
-              text: "Due date"
-            },
-            value: {
-              html: globals.case_tenantinfoduedate
-            },
-            actions: {
-              items: [
-                {
-                  href: "",
-                  text: ""
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Manage"
-            },
-            value: {
-              html: management
-
-            },
-            actions: {
-              items: [
-                {
-                  href: "",
-                  text: ""
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Next task"
-            },
-            value: {
-              html: "<a href=case-review-01.html>Review case</a>"
             }
           }
         ]
       }) }}
-
-          
-
-      
-
 
 
 
@@ -162,9 +191,9 @@ documents?" ...makes sense but naming of items may need checking. I like this as
     
         
         
-        <!--<div class="govuk-button-group">
+        <div class="govuk-button-group">
           {{ govukButton({
-            text: "Return to work list",
+            text: "Return to case",
             classes: "govuk-button--secondary",
             href: ""
           }) }}
@@ -173,9 +202,9 @@ documents?" ...makes sense but naming of items may need checking. I like this as
 
           {{ govukButton({
             text: "Continue",
-            href: "case-response-01-ack-request.html"
+            href: "case-review-02-s13"
           }) }}
-        </div>-->
+        </div>
       </form>
 
 

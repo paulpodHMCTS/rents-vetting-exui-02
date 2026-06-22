@@ -1,0 +1,395 @@
+{% set section = 'work' %}
+
+
+{% extends "layout.html" %}
+{% import '_globals.html' as globals %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div id="case-id" style="float:left;width: 890px;">
+        <h2 class="govuk-heading-m" style="margin-bottom:0.5em">Case {{ globals.case_number2 }}
+          <span class="govuk-caption-m" style="margin-top:0.2em">{{ globals.case_property2 }}</span>
+        </h2>
+
+        <h1 class="govuk-heading-xl" style="margin-bottom:0.75em">
+          Preview drafts
+          <!--<span class="govuk-caption-l" style="margin-top:0.2em">Standard acknowledgments, 2 items</span>-->
+        </h1>
+
+         <!--<p style="margin:-1.5em 0 1em 0">Assumptions on this are: we are concerned with fixing paper form issues, missing info isn't automatically requested</p>-->
+      </div>
+      
+
+
+      <div id="next-stepper" style="float:right;">
+       
+         
+
+          <!--<div class="govuk-form-group">
+            <label class="govuk-label" for="sort" style="float:left">
+              <span style="position:relative;top:7px;margin-right: 12px;">Available actions
+            </label>
+
+            <div style="float:left">
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="choose" selected>Select action</option>
+                <option value="updated">Confirm payment</option>
+                <option value="request">Issue request</option>
+                <option value="views">Review details</option>
+                <option value="comments">Match duplicate</option>
+              </select>
+            </div>
+            
+            <div style="float:left;margin-left:6px">
+              <a href="case-issue-request"><button class="govuk-button">Go</button></a>
+            </div>
+
+          </div>-->
+
+          <br clear="all">
+
+ 
+        
+      </div>
+
+      <br clear="all">
+
+<div style="width: 88%">
+  
+
+  <!--<p style="font-size: 0.9em;"><i>Note: cribbed from p11 UR report "What are COs looking for when skimming
+documents?" ...makes sense but naming of items may need checking. I like this as it gets to the point of collecting the docs in the first place, and can pick out missing info directly.</i></p>-->
+
+<!-- removed, seems like it causes consternation
+<p>Summary of messages:</p>
+
+  <ul class="govuk-list govuk-list--bullet">
+    <li><strong>Application status:</strong> Incomplete</li>
+    <ul>
+        {% if 'miss13' in data['info-request'] %}
+          <li>Section 13 notice has not been provided</li>
+        {% endif %}
+        {% if 'missfee' in data['info-request'] %}
+          <li>Application fee has not been paid</li>
+        {% endif %}
+        {% if 'misslandlord' in data['info-request'] %}
+          <li>Landlord's name and address have not been provided</li>
+        {% endif %}
+        {% if 'missmr1detail' in data['info-request'] %}
+          <li>details from the MR1 are missing</li>
+        {% endif %}
+        {% if 'other' in data['info-request'] %}
+          <li>Other information is missing</li>
+        {% endif %}
+    </ul>
+
+    
+    <li><strong>Letters:</strong> Request information from tenant. Inform landlord about the application.</li>
+    <li><strong>Tenant:</strong> Sending by email</li>
+    <li><strong>Landlord:</strong> Sending by post</li>
+
+
+  </ul>-->
+
+  <br>
+
+  <form class="form" action="" method="post" >
+      {% set tenantEmailSum %}
+        <p><strong>Post:</strong><br> Not requested</p>
+        <p><strong>Email:</strong><br> {{ globals.case_tenantemail2 }}</p>
+    
+      {% endset -%}
+
+      {% set previewTenantIntro %}
+      <!-- intro line at top of email body -->
+
+      {% if 'miss13' in data['info-request'] and 'missfee' in data['info-request'] %}
+        <!--<h3 class="govuk-heading-l">BOTH</h3>-->
+        <p>
+          Before we can process your application, you must send us some missing information by <strong>{{ globals.case_tenantinfoduedate2 }}</strong>.</p>
+
+          <p>
+          You must also pay an application fee of £47 by <strong>{{ globals.case_tenantfeeduedate2 }}</strong>.
+        </p>
+      {% elif 'miss13' in data['info-request'] %}
+        <!--<h3 class="govuk-heading-l">Missing information</h3>-->
+        <p>
+          Before we can process your application, you must send us some missing information by <strong>{{ globals.case_tenantinfoduedate2 }}</strong>.
+        </p>
+      {% elif 'missfee' in data['info-request'] %}
+        <!--<h3 class="govuk-heading-l">Not paid</h3>-->
+        <p>
+          Before we can process your application, you must pay an application fee of £47 by <strong>{{ globals.case_tenantfeeduedate2 }}</strong>.
+        </p>
+     
+      {% endif %}
+
+      {% endset -%}
+
+
+      {% set previewTenantMissfee %}
+      <!-- Missing fee block -->
+           
+        {% if 'missfee' in data['info-request'] %}
+          <div>
+            <h2 class="govuk-heading-m">Paying the application fee</h2>
+
+            <p>For details on how to pay, see the ‘Ways to Pay’ document included with this message.</p>
+
+            <p>If the fee is not paid by <strong>{{ globals.case_tenantfeeduedate }}</strong>, your application will be withdrawn and your case will be closed. This is set out in Rule 11(3) of the Tribunal Procedure (First-tier Tribunal) (Property Chamber) Rules 2013.</p>
+          </div>
+        {% endif %}
+      {% endset -%}
+
+
+
+      {% set previewTenantMissinfo %}
+        <!-- Missing info block -->
+        
+          <div>
+            <h2 class="govuk-heading-m">Providing the missing information</h2>
+
+            <p>You must send us the following information by <strong>{{ globals.case_tenantinfoduedate }}</strong>. You must also send a copy to your landlord. </p>
+
+            <ul class="govuk-list govuk-list--bullet">
+              {% if 'miss13' in data['info-request'] %}
+                <li>A copy of the notice that your landlord sent you to propose a new rent (called a Section 13 notice). Your landlord should have sent you this using Form 4 or Form 4A.</li>
+              {% endif %}
+             
+              {% if 'misslandlord' in data['info-request'] %}
+                <li>Your landlord’s name and contact details. </li>
+              {% endif %}
+              {% if 'missmr1detail' in data['info-request'] %}
+                <li>A completed copy of your MR1 application form. The copy that you sent us is missing [case officer to insert missing details here]. Make sure this information is included in the copy you send.</li>
+              {% endif %}
+              {% if 'other' in data['info-request'] %}
+                <li>{{ data['otherThing'] }}</li>
+              {% endif %}
+            </ul>
+
+            <p>Send it by email to <a href="#">marketrents@justice.gov.uk</a></p>
+
+            <p>You can also post it to:<br>
+            <strong>
+              First-tier Tribunal (Property Chamber)<br>
+              Residential Property – Market Rents<br>
+              PO Box 10057<br>
+              Leicester <br>
+              LE19 9EP
+            </strong></p>
+
+            <p>Include your case reference number {{ globals.case_number2 }} with anything you send us. </p>
+
+            <p>If we do not receive the information by the deadline, the Tribunal may strike out (cancel) your application.  This is set out in Rule 9 of the Tribunal (Procedure) (First-Tier Tribunal) (Property Chamber) Rules 2013.</p>
+
+            <p>If this happens, your application will not go ahead. </p>
+          </div>
+        
+      {% endset -%}
+
+
+
+      {% set previewTenantMessage %}
+        <!-- standard block, include for all -->
+          {% if 'misslandlord' in data['info-request'] %}
+          <!--<p><strong>The landlord's address has not been supplied</strong></p>-->
+
+          <div>
+            <h2 class="govuk-heading-m">What happens next</h2>
+
+            <p>When we receive your landlord’s contact details, we will send your application to your landlord along with an optional MR2 reply form.</p>
+
+            <p>Here is what will happen next: 
+
+            <ol class="govuk-list govuk-list--number">
+
+              <li>Your landlord will have 28 days to respond online or complete the MR2 reply form and send it to you and the Tribunal. </li>
+
+              <li>If your landlord chooses to respond, you may respond online or complete the optional MR3 tenant reply form included with this message. If you do, you must send it to your landlord and the Tribunal within 14 days.</li>
+
+              <li>The tribunal will make its decision based on your application and any replies received.</li>
+
+            </ol>
+
+            <p>Yours sincerely<br><br>
+
+            {{ globals.case_officer }}<br>
+            Case Officer
+            </p>
+
+          </div>
+          {% else %}
+
+          <div>
+            <h2 class="govuk-heading-m">What happens next</h2>
+
+            <p>Your application has already been sent to your landlord along with an optional MR2 reply form. </p>
+
+            <p>They have been told it is currently on hold while we wait for what's missing. </p>
+
+            <p>Here is what will happen next: 
+
+            <ol class="govuk-list govuk-list--number">
+              <li>Your landlord has 28 days to respond online or complete the MR2 reply form and send it to you and the Tribunal. </li>
+
+              <li>If your landlord chooses to respond, you may respond online or complete the optional MR3 tenant reply form included with this message. If you do, you must send it to your landlord and the Tribunal within 14 days. </li>
+
+              <li>The tribunal will make its decision based on your application and any replies received. </li>
+
+            </ol>
+
+            <p>Yours sincerely<br><br>
+
+            {{ globals.case_officer }}<br>
+            Case Officer
+            </p>
+
+          </div>
+
+         {% endif %}
+            
+        <p class="govuk-hint">Standard footer</p>
+
+      {% endset -%}
+
+
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+      <h3 class="govuk-heading-m">To Tenant</h3>
+
+      {{ govukSummaryList({
+        rows: [
+          
+          {
+            key: {
+              text: "Tenant name"
+            },
+            value: {
+              text: globals.case_tenantname2
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  html: ""
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Send to"
+            },
+            value: {
+              html: tenantEmailSum
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Message text"
+            },
+            value: {
+              html: previewTenantIntro
+            },
+            actions: {
+              items: [
+                {
+                  href: "case-response-02-edit-tenant-intro",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Missing fee"
+            },
+            value: {
+              html: previewTenantMissfee
+            },
+            actions: {
+              items: [
+                {
+                  href: "case-response-02-edit-tenant-fee",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Missing information"
+            },
+            value: {
+              html: previewTenantMissinfo
+            },
+            actions: {
+              items: [
+                {
+                  href: "case-response-02-edit-tenant-missinfo",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Standard close"
+            },
+            value: {
+              html: previewTenantMessage
+            },
+            actions: {
+              items: [
+                {
+                  href: "case-response-02-edit-tenant-close",
+                  text: "Change"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+ 
+        
+        <div class="govuk-button-group">
+          
+          {{ govukButton({
+            text: "Return to case",
+            classes: "govuk-button--secondary",
+            href: ""
+          }) }}
+
+          {{ govukButton({
+            text: "Send",
+
+            href: "case-sent-02"
+          }) }}
+        </div>
+      </form>
+
+
+
+
+         
+
+    </div>
+  </div>
+
+{% endblock %}

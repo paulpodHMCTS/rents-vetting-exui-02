@@ -21,7 +21,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
       </style>
 
       {% set tenantType %}
-      <div style="width:460px">
+      <div style="width:500px">
       <ul class="govuk-list" style="margin-bottom: 0;">
         <li><span class="sumnumlist">1.1</span> Challenging a rent increase in a section 13 notice</li>
         <li><span class="sumnumlist">1.2</span> Assured tenancy</li>
@@ -58,7 +58,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               text: "Tenant name"
             },
             value: {
-              text: globals.case_tenantname
+              text: globals.case_tenantname2
             },
             actions: {
               items: [
@@ -74,12 +74,12 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               text: "Property address"
             },
             value: {
-              html: globals.case_property
+              html: globals.case_property2
             },
             actions: {
               items: [
                 {
-                  href: "case-review-01-01.html",
+                  href: "#",
                   text: ""
                 }
               ]
@@ -90,12 +90,12 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               text: "Tenant email"
             },
             value: {
-              html: globals.case_tenantemail
+              html: globals.case_tenantemail2
             },
             actions: {
               items: [
                 {
-                  href: "case-review-01-02.html",
+                  href: "#",
                   text: ""
                 }
               ]
@@ -106,7 +106,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               text: "Inspection requested"
             },
             value: {
-              html: "No"
+              html: "Yes<BR>Refer to LO after MR2 returned"
             },
             actions: {
               items: [
@@ -138,12 +138,12 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               text: "Payment"
             },
             value: {
-              html: "Yes<BR>"
+              html: "Not paid"
             },
             actions: {
               items: [
                 {
-                  href: "case-payment-01.html",
+                  href: "case-payment-02.html",
                   text: ""
                 }
               ]
@@ -170,7 +170,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               text: "Date received"
             },
             value: {
-              html: "29 May 2026"
+              html: "28 May 2026"
             },
             actions: {
               items: [
@@ -194,7 +194,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               html: "Tenant name"
             },
             value: {
-              text: globals.case_tenantname
+              text: globals.case_tenantname2
             },
             actions: {
               items: [
@@ -210,7 +210,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               html: "New rent amount"
             },
             value: {
-              text: "£1100 per month"
+              text: "£1100 monthly"
             },
             actions: {
               items: [
@@ -226,7 +226,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               html: "Date of rent increase"
             },
             value: {
-              text: "1 July 2026"
+              text: "Not provided - no Section 13"
             },
             actions: {
               items: [
@@ -242,7 +242,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               html: "Landlord's name"
             },
             value: {
-              text: globals.case_landlordname
+              text: globals.case_landlordname2
             },
             actions: {
               items: [
@@ -258,12 +258,12 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               html: "Landlord's email"
             },
             value: {
-              text: globals.case_landlordemail
+              text: globals.case_landlordemail2
             },
             actions: {
               items: [
                 {
-                  href: "case-review-01-03.html",
+                  href: "#",
                   text: ""
                 }
               ]
@@ -274,7 +274,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               html: "Date signed by landlord"
             },
             value: {
-              text: "1 June 2026"
+              text: "Not provided - no Section 13"
             },
             actions: {
               items: [
@@ -290,7 +290,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               text: "Document"
             },
             value: {
-              html: "<a href=/public/images/section13.pdf target=_blank>View document (opens in a new tab)</a>"
+              html: "Not provided - no Section 13"
             },
             actions: {
               items: [
@@ -303,10 +303,10 @@ documents?" ...makes sense but naming of items may need checking. I like this as
           },
           {
             key: {
-              text: "Date received"
+              text: "Reason for Section 13 not being provided"
             },
             value: {
-              html: "29 May 2026"
+              html: "Was not given it"
             },
             actions: {
               items: [
@@ -329,7 +329,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               html: "Tenant name"
             },
             value: {
-              text: globals.case_tenantname
+              text: globals.case_tenantname2
             },
             actions: {
               items: [
@@ -345,7 +345,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               html: "Rent amount"
             },
             value: {
-              text: "£950 per month"
+              text: "£950 monthly"
             },
             actions: {
               items: [
@@ -361,7 +361,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               html: "Date tenancy started"
             },
             value: {
-              text: "1 January 2025"
+              text: "1 January 2024"
             },
             actions: {
               items: [
@@ -377,7 +377,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               text: "Document"
             },
             value: {
-              html: "<a href=/public/images/tenancy.pdf target=_blank>View document (opens in a new tab)</a>"
+              html: "Tenancy agreement not provided"
             },
             actions: {
               items: [
@@ -390,10 +390,10 @@ documents?" ...makes sense but naming of items may need checking. I like this as
           },
           {
             key: {
-              text: "Date received"
+              text: "Reason for tenancy agreement not being provided"
             },
             value: {
-              html: "29 May 2026"
+              html: "Can't find it"
             },
             actions: {
               items: [
@@ -424,8 +424,8 @@ documents?" ...makes sense but naming of items may need checking. I like this as
        
 
           {{ govukButton({
-            text: "Continue and check duplicates",
-            href: "case-response-01-ack-request.html"
+            text: "Continue",
+            href: "case-review-02.html"
           }) }}
         </div>
       </form>

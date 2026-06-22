@@ -1,0 +1,294 @@
+{% set section = 'work' %}
+
+{% extends "layout.html" %}
+{% import '_globals.html' as globals %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div id="case-id" style="float:left;width: 890px;">
+        <h2 class="govuk-heading-m" style="margin-bottom:0.5em">Case {{ globals.case_number }}
+          <span class="govuk-caption-m" style="margin-top:0.2em">{{ globals.case_property}}</span>
+        </h2>
+
+        <h1 class="govuk-heading-xl" style="margin-bottom:0.75em">
+          Preview drafts
+          <!--<span class="govuk-caption-l" style="margin-top:0.2em">Standard acknowledgments, 2 items</span>-->
+        </h1>
+
+         <!--<p style="margin:-1.5em 0 1em 0">Assumptions on this are: we are concerned with fixing paper form issues, missing info isn't automatically requested</p>-->
+      </div>
+      
+
+
+      <div id="next-stepper" style="float:right;">
+       
+         
+
+          <!--<div class="govuk-form-group">
+            <label class="govuk-label" for="sort" style="float:left">
+              <span style="position:relative;top:7px;margin-right: 12px;">Available actions
+            </label>
+
+            <div style="float:left">
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="choose" selected>Select action</option>
+                <option value="updated">Confirm payment</option>
+                <option value="request">Issue request</option>
+                <option value="views">Review details</option>
+                <option value="comments">Match duplicate</option>
+              </select>
+            </div>
+            
+            <div style="float:left;margin-left:6px">
+              <a href="case-issue-request"><button class="govuk-button">Go</button></a>
+            </div>
+
+          </div>-->
+
+          <br clear="all">
+
+ 
+        
+      </div>
+
+      <br clear="all">
+
+<div style="width: 88%">
+  
+
+  <!--<p style="font-size: 0.9em;"><i>Note: cribbed from p11 UR report "What are COs looking for when skimming
+documents?" ...makes sense but naming of items may need checking. I like this as it gets to the point of collecting the docs in the first place, and can pick out missing info directly.</i></p>-->
+
+<!-- Removed this summary of the contents because 
+<p>Summary of messages:</p>
+
+  <ul class="govuk-list govuk-list--bullet">
+
+      <li><strong>Application status:</strong> Complete, no issues</li>
+      <li><strong>Letters:</strong> Standard acknowledgments</li>
+      <li><strong>Tenant:</strong> Sending by email</li>
+      <li><strong>Landlord:</strong> Sending by post</li>
+
+
+  </ul>-->
+
+  <br>
+
+  <form class="form" action="" method="post" >
+      {% set tenantEmailSum %}
+        <p><strong>Post:</strong><br> Not requested</p>
+        <p><strong>Email:</strong><br> {{ globals.case_tenantemail }}</p>
+    
+      {% endset -%}
+
+      {% set previewTenantMessage %}
+        <p class="govuk-hint">Standard header</p>
+        <p>Dear {{ globals.case_tenantname }},</p>
+        <p>We have received your application to request a market rent determination for the address above. </p>
+        <h2>What happens next</h2>
+        <p>Your application has been sent to your landlord or their representative along with an optional MR2 reply form. </p>
+        <p>Here is what will happen next:</p>
+        <ol class="govuk-list govuk-list--number">
+          <li>Your landlord has 28 days to respond online or complete the MR2 reply form and send it to you and the Tribunal.</li><br>
+          <li>If your landlord responds, we will send their response to you. You can then respond online or through the MR3 tenant reply form. If you do, you must send it to your landlord and the Tribunal within 14 days.</li><br>
+          <li>The Tribunal will make its decision based on your application and any responses received.</li><br>
+          <li>When the Tribunal has made its decision, we will let you know by email and post.</li><br>
+          </ol> 
+        <p>If we need anything else from you, we will contact you.</p>
+
+
+        <p><br>Yours sincerely,<p>
+        <p>{{ globals.case_officer }}
+        <br>Case Officer</p>
+        <p class="govuk-hint">Standard footer</p>
+
+      {% endset -%}
+
+
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+      <h3 class="govuk-heading-m">To Tenant</h3>
+
+      {{ govukSummaryList({
+        rows: [
+          
+          {
+            key: {
+              text: "Tenant name"
+            },
+            value: {
+              text: globals.case_tenantname
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  html: ""
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Send to"
+            },
+            value: {
+              html: tenantEmailSum
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Message text"
+            },
+            value: {
+              html: previewTenantMessage
+            },
+            actions: {
+              items: [
+                {
+                  href: "case-response-01-edit-tenant",
+                  text: "Change"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+ 
+       {% set landlordPostSum %}
+        <p><strong>Post:</strong><br>17 Wagstaff Way<br>
+        Luton<br>
+        Bedfordshire<br>
+        LL8 4RA</p>
+        <p><strong>Email:</strong> <br>Address not confirmed</p>
+      {% endset -%}
+
+      {% set previewLandlordMessage %}
+        <p class="govuk-hint">Standard header</p>
+        <p>Dear {{ globals.case_landlordname }},</p>
+        <p>We have received an application from your tenant requesting a market rent determination for the address above.</p> 
+        <p>A copy of their application is included with this message.</p>
+        <h2>What you need to do</h2>
+
+        <p>You have 28 days from the date of this message to respond to this application. You can <a href="#">respond online</a> or by completing the MR2 reply form included with this message.</p>
+        <p>You must send your response to your tenant as well as to the Tribunal.</p>
+        <p>You do not have to respond, but if you do not, the Tribunal will make its decision based only on your tenant's application.</p>
+        <h2>What happens next</h2>
+        <ol class="govuk-list govuk-list--number">
+          <li>If you choose to respond, your tenant will have 14 days to respond online or using the MR3 tenant reply form.</li><br>
+          <li>The Tribunal will make its decision based on the tenant's application and any responses received.</li><br>
+          <li>When the Tribunal has made its decision, we will let you know by email and post.</li><br>
+        </ol>
+        <p>If we need anything else from you, we will contact you.</p>
+
+
+
+        <p>Yours sincerely,<p>
+        <p>{{ globals.case_officer }}
+        <br>Case Officer</p>
+        <p class="govuk-hint">Standard footer</p>
+
+      {% endset -%}
+
+
+      <h3 class="govuk-heading-m">To Landlord</h3>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              html: "Landlord name"
+            },
+            value: {
+              text: globals.case_landlordname
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: ""
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              html: "Send to"
+            },
+            value: {
+              html: landlordPostSum
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              html: "Message text"
+            },
+            value: {
+              html: previewLandlordMessage
+            },
+            actions: {
+              items: [
+                {
+                  href: "case-response-01-edit-landlord",
+                  text: "Change"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      
+
+    
+        
+        
+        <div class="govuk-button-group">
+          
+          {{ govukButton({
+            text: "Return to case",
+            classes: "govuk-button--secondary",
+            href: ""
+          }) }}
+
+          {{ govukButton({
+            text: "Send",
+
+            href: "case-sent-01"
+          }) }}
+        </div>
+      </form>
+
+
+
+
+         
+
+    </div>
+  </div>
+
+{% endblock %}

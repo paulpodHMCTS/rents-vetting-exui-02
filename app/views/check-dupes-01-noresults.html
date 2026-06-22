@@ -18,8 +18,8 @@
         </h2>
 
         <h1 class="govuk-heading-xl" style="margin-bottom:0.75em">
-          Check for duplicates
-          <span class="govuk-caption-xl" style="margin-top:0.2em">Use postcode and contact details to disambiguate matches</span>
+          Duplicates
+          <!--<span class="govuk-caption-xl" style="margin-top:0.2em">Use postcode, and disambiguate matches</span>-->
         </h1>
 
          <!--<p style="margin:-1.5em 0 1em 0">Assumptions on this are: we are concerned with fixing paper form issues, missing info isn't automatically requested</p>-->
@@ -60,45 +60,38 @@
 
       <br clear="all">
 
+      {% set match01 %}
+        Property: 19 Garden Drive,<br>Luton,<br>Bedfordshire<br>LU1 1AB
+        Case number:   <a href=#>2341 2315 3423 6950</a>
+        Date received:   2 March 2026, 1:13pm
+        Tenant name:     Hugh Davis
+        Tenant email:    huge.davis@hotmail.com
+        Current status:  Waiting for MR3<br>Due by 9 June 2026
+         
+
+      {% endset -%}
+
+  
+
+
 
     {% from "govuk/components/input/macro.njk" import govukInput %}
 
-    <form class="form" action="" method="post" style="max-width: 880px;">
+    <form class="form" action="" method="post" style="">
 
 
-        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+        {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
-          {{ govukCheckboxes({
-            idPrefix: "dupe-types",
-            name: "dupe-types",
-            fieldset: {
-              legend: {
-                text: "",
-                isPageHeading: false,
-                classes: ""
-              }
-            },
-            items: [
-              {
-                value: "postcode",
-                text: "Check for duplicates based on postcode",
-                checked: true
-              },
-              {
-                value: "phone",
-                text: "Check for duplicates based on phone numbers",
-                checked: true
-              },
-              {
-                value: "email",
-                text: "Check for duplicates based on email addresses",
-                checked: true,
-                hint: {
-                  text: "Tenent email address and landlord's, if supplied"
-                }
-              }
-            ]
-          }) }}
+      <!--<h3 class="govuk-heading-m">MR1 application</h3>-->
+
+      <p>
+        <span class="govuk-table__caption--s" style="font-weight: normal;"><strong>No matches</strong>  for landlord email <strong>{{ globals.case_landlordemail }}</strong></span>
+      </p>
+      <p>
+        <span class="govuk-table__caption--s" style="font-weight: normal;"><strong>No matches</strong>  for postcode <strong>LU1 1AB</strong></span>
+      </p>
+
+      <br>
 
         
         
@@ -107,12 +100,11 @@
           {{ govukButton({
             text: "Return to case",
             classes: "govuk-button--secondary",
-            href: ""
+            href: "check-dupes-01-results"
           }) }}
 
           {{ govukButton({
-            text: "Continue",
-            href: "check-dupes-01-results"
+            text: "Continue to acknowledgements"
           }) }}
         </div>
       </form>
