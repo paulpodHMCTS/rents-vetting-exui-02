@@ -16,330 +16,87 @@
         
       </h1>{{releaseVersion | log }}
       <p>
-        <a href=work-list-00>User research scenarios</a>
+        <a href=work-list-00>Work list</a>
       </p>
 
 
-      <details class="govuk-details" style="margin-top:100px">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  Direct links to things
-                </span>
-              </summary>
+     
+
+      <br>
+      <h3 class="govuk-heading-m"> Direct links to things</h3>
+              
              
 
             
 
         <ol class="govuk-list govuk-list--number">
-          <!--<li>
-            0. work list allocate tasks<br>
-            Key screens: <a href="case-list-00"><strike>Case list</strike></a> &rightarrow; <a href="work-list-01">My Work</a>
-
-          </li>-->
+         
 
           <li>
-            Review happy path application, all ok, send MR2
+            Check for duplicates TASK from Worklist or Tasks Tab
             <ul class="govuk-list">
-              <li><a href="work-list-01">My Work (my tasks)</a></li>
+              <li><a href="work-list-00">My Work (my tasks)</a></li>
 
-              <li><a href="case-dashboard-01">Review case</a></li>
+              <li><a href="case-tasks-00">Tasks</a></li>
 
-              <li><a href="case-response-01-summary">Preview standard response(s)</a></li>
+              <li><a href="case-review-00">Check for duplicates - summary</a></li>
 
-              <li>Sent</li>
+              <li><a href="check-dupes-01">Check for duplicate - search types</a></li>
+
+              <li><a href="check-dupes-01-results">Results</a></li>
+
+              <li><a href="check-dupes-refer-01">Refer duplicates to LO</a></li>
+
+              <li><a href="case-sent-01R">Done</a></li>
+            </ul>
+          </li>
+
+          <li>
+            Happy path, no missig items
+            <ul class="govuk-list">
+              <li><a href="work-list-00">My Work (my tasks)</a></li>
+
+              <li><a href="case-tasks-01">Tasks</a></li>
+
+              <li><a href="case-review-01">Review case</a></li>
+
+              <li><a href="review-case-01">Action picker</a></li>
+
+              <li><a href="case-review-01-ack-request">Send acknowledgements to both Tenant and Landlord</a></li>
+
+              <li><a href="case-review-01-summary">Preview content</a></li>
+
+              <li><a href="case-sent-01">Sent</li>
             </ul>
           </li>
 
           <li>
             Deal with missing info, missing payment
             <ul class="govuk-list">
-              <li><a href="work-list-x01">My Work (my tasks)</a></li>
+              <li><a href="work-list-00">My Work (my tasks)</a></li>
 
-              <li><a href="case-dashboard-02">Review case</a></li>
+              <li><a href="case-tasks-02">Tasks</a></li>
 
-              <li><a href="case-payment-02">Review payment history</a></li>
+              <li><a href="case-review-02">Review case</a></li>
 
-              <li><a href="case-response-02-multi-request">Send multiple information requests</a></li>
+              <li><a href="review-case-02">Action picker</a></li>
 
-              <li>Preview(s)</li>
+              <li><a href="case-review-02-all">Request things</a></li>
 
-              <li>Sent</li>
+              <li><a href="case-review-02-summary">Preview request letters/emails</a></li>
+
+              <li><a href="case-sent-02">Sent</li>
             </ul>
           </li>
 
-          <li>
-            Application not received in time to be considered
-            <ul class="govuk-list">
+          
 
-              <li><a href="work-list-x01">My Work (my tasks)</a></li>
-
-              <li><a href="case-dashboard-03">Review case</a></li>
-
-              <li><a href="case-response-03-oot-request">Deal with an out of time late app</li>
-
-              <li><a href="case-response-03-summary">Email tenant, cannot continue</a></li>
-            </ul>
-          </li>
-
-          <li>
-            Fee not received, so your case has been closed
-            <ul class="govuk-list">
-              <li><a href="work-list-x01">My Work (my tasks)</a></li>
-
-              <li><a href="case-dashboard-04">Review case</a></li>
-
-              <li><a href="case-response-04-non-payment">Fee not received, so your case has been closed</a></li>
-
-              <li><a href="case-response-04-summary">Case withdrawn to tenant, landlord</a></li>
-            </ul>
         </ol>
       </p>
 
-      <p>
-        Alternative: <br>
-        1. <a href="work-list-z01">My Work (my tasks) / standard gov expander, per line</a>
-        <br>
-        2. <a href="work-list-zz01">My Work (my tasks) / multiple checkbox based tools</a>
-
-      </p>
-
-      </details>
+    
 
       
-
-      <!--<h2 class="govuk-heading-m">Cases</h2>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li>Find which case: 
-          <a href="case-list">Case list</a>
-        </li>
-        <li>
-          Work on <a href="case-dashboard">a case</a>, navigate using tabbed UI - default as:
-          <ol>
-          <li><a href="case-dashboard">History</a></li>
-          <span>...then tab links to:
-          <li>Summary</a></li>
-          <li>State</a></li>
-          <li>etc</a></li>
-          <li>Case parties</a></li>
-          <li>Orders and decisions</a></li>
-          <li>Case documents</a></li>
-          <li>Bundles</a></li>
-          <li>Hearings and inspections</a></li>
-          </ol>
-
-          <span>Might make sense to break these out as static-html page pseudo-tabs at some point</span>
-        </li>
-      </ul>-->
-
-<!--
-<div style="overflow: visible;">
-      <p>Note: "standard" tabs for exui are:<br>
-
-      <ul class="govuk-tabs__list" >
-        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">Tasks</li>
-
-        <li class="govuk-tabs__list-item ">Roles & access</li>
-
-        <li class="govuk-tabs__list-item ">Parties</li>
-
-        <li class="govuk-tabs__list-item ">Case details</li>
-
-        <li class="govuk-tabs__list-item ">Case file view</li>
-
-        <li class="govuk-tabs__list-item ">History/Summary</li>
-
-        <li class="govuk-tabs__list-item ">Hearings</li>
-
-        <li class="govuk-tabs__list-item ">Linked cases</li>
-
-        <li class="govuk-tabs__list-item ">Notes</li>
-
-        <li class="govuk-tabs__list-item ">Notifications</li>
-
-        <li class="govuk-tabs__list-item ">Service request</li>
-
-        <li class="govuk-tabs__list-item ">Payment history</li>
-
-        <li class="govuk-tabs__list-item ">Queries</li>
-
-      </ul>
-      </p>
-
-      <p>To follow up: Ros says they can be shown/hidden based on context and usage, as well as ExUI becoming decentalised - need to uncover what this means precisely for improvements at an individual service level. Naming might persist as a common, but usage of components might be allowed to be localised
-    </div>-->
-
-    <style>
-      .makeit {
-        padding: 2px 6px;
-        margin: 6px 3px ;
-        background-color: #ffee66;
-      }
-      .madeit {
-        padding: 2px 6px;
-        margin: 6px 3px ;
-        background-color: #88ffaa;
-      }
-      li {margin-bottom:0.6em}
-      ul.sublist-done li::marker {
-        color: #88ffaa;
-      }
-      ul.sublist-todo li::marker {
-        color: #eee000;
-      }
-      .work-tag {
-        background-color: #eeffee;
-        color: #227700;
-        border: solid 1px #339900;
-        border-radius: 3px;
-        font-size: 14px;
-        font-weight: 600;
-        padding: 1px 7px;
-      }
-      .work-tag-sys {
-        background-color: #eeeeee;
-        color: #666;
-        border: solid 1px #999;
-        border-radius: 3px;
-        font-size: 14px;
-        font-weight: 600;
-        padding: 1px 7px;
-      }
-    </style>
-     
-
-      <ul class="govuk-list govuk-list--bullet" style="max-width:880px;display:none">
-        
-        <li style="margin-bottom:1em">Paper > digital - create a case manually<br>
-        Current assumption rare or not at all, or not these users: <br>
-          Keying in an MR1 - <a href="case-create-mr1-01"> in a page-by-page replica</a> of the paper form  <span class="work-tag">PT-0x.0x</span>
-        </li>
-
-
-        <li style="margin-bottom:1em">
-          
-          <a href="case-list-00">Cases -> Work allocation</a> <span class="work-tag">PT-08.01</span>
-          <br>
-          Where Case officer can assign to self, register new application, review submitted data + docs in the ExUI front end.
-          <br>
-          I have made this possible from the <a href="case-list-00">Case List</a> view, as this seems to more closely align to what the CO user currently does from the <strong>shared inbox in outlook</strong> 
-        </li>
-
-        <li style="margin-bottom:1em">
-          
-          A CO user's <a href="work-list-01">Work list</a> <span class="work-tag">PT-08.02</span>
-          <br>
-          Where Case officer can act one their new cases, and see status of existing ones. 
-          <br  style="margin-bottom:1em">
-          Tasks tab, I presume would provide a wider range of casework actions, but for a new case to get from 'vetting' to active case it just needs this...
-        </li>
-
-        <li style="margin-bottom:1em">
-          A new cases <a href="case-dashboard-01">Summary</a> tab <span class="work-tag">PT-0x.0x</span>
-          <br>
-          Where Case officer can act on a new case: The default tab for a case is the Summary tab where we collect the data the CO user would skim the 3 docs and spot problems.
-          <br style="margin-bottom:1em">
-          I have put 'semi-automated' duplicate checks - search Postcode, search Email address - as the two user needs to check this (email being a request new way). Click to check. <i>This of course could just be fully automated.</i>
-        </li>
-
-        <p>this stuff below needs updating with the single <a href="letter-request">multi-request form</a></p>
-
-          <li>
-          Checks
-          <ol>
-            <li>
-              Initial vetting fail - time limits already breached<br>
-              <a href="case-issue-ack00">Send acknowledgement to applicant</a> Basic failure respoinse. Just press a button
-            </li>
-
-            <li>
-              Is it a duplicate? <a href="#"></a> <span class="work-tag">PT-010.01</span><br>
-              This only matches on postcode? So any identical postcodes would go to a Legal Officer to disambiguate and act on? Does the LO do case admin = eg. case gets merged?<br>
-             <a href="#">Refer to a legal officer</a> - simple one-page form, checkboxes and add comment?</a>
-            </li>
-
-            <li>Missing information request  <span class="work-tag">PT-010.02</span>
-              Present missing items to CO user, assumption creation of this is automatic:<br>
-              Only the essential items need be flagged for user request/notifications<br>
-              <span class="madeit">&ddagger;</span> <a href="case-issue-request">Send a request to the applicant</a> for missing docs, info
-                <ul class="sublist-done" style="padding:0.3em;margin-left: 2em;">
-
-                  <li>Which docs to <a href="case-issue-request">request</a> (checkboxes, list)</li>
-                  <li>Default <a href="case-issue-content-03">content of request</a> notification message</li>
-                  <li>Optional <a href="case-issue-content-02">edit the message</a></li>
-                  <li>Confirm: <a href="case-issue-draft">draft request</a> saved</li>
-                  <li>Set <a href="case-issue-date">due date</a>, reminder</li>
-                  <li>Pick recipient from <a href="case-issue-parties">parties</a></li>
-                  <li>Choose <a href="case-issue-parties">recipient channel</a></li>
-                  <li>Check <a href="case-issue-check">summary</a></li>
-                  <li>View preview as <a href="case-issue-notify-preview">email</a> or <a href="case-issue-pdf-preview">pdf</a></li>
-                  <li><a href="case-issue-confirm">Confirm</a>: notification or request sent</li>
-                </ul>
-
-            </li></ol>
-
-            <li>
-              Separate request form for mismatch info? More detailed, request clarification of possible errors<br>
-              <span class="makeit">&ddagger;</span> <a href="case-issue-correct">Send a request to the applicant</a> for small pieces of data/confirm/correct
-            </li>
-
-            <li>
-              No vetting issses <span class="work-tag">PT-011.01</span><br>
-              <span class="makeit">&ddagger;</span> <a href="case-issue-ack01">Send acknowledgement to applicant</a> no customisation? Just press a button
-            </li>
-
-            <li>
-              Juristictional issue <span class="work-tag">PT-012.02</span> <br>
-              <span class="makeit">&ddagger;</span> Allow case officers to refer for <strong>vetting issues</strong> to a LO
-
-              <ul class="sublist-todo" style="padding:0.3em;margin-left: 2em;">
-
-                  <li>Case officer <a href="case-issue-ref02">refers to Legal officer</a> can review, refer to Judge - probably all on one page, review add (optional) note, sends to Judge (email, work tasklist)</li>
-                  <li>Legal officer can review, <a href="case-issue-ref03">escalate to Judge</a>, refer to Judge - same, one pager</li>
-                  <li>Legal officer can provide directions back to <a href="case-issue-ref04">Case officer</a>, to action</li>
-                  <br>
-
-                  <span style="display:inline-block;padding-bottom:1em">
-                    Also - additional tasks on a work list view for:
-                  </span>
-
-                  <li>LO <a href="case-receive-referral-01">receiving a referral</a></li>
-                  <li>Judge <a href="case-receive-referral-02">receiving a referral</a> (not sure about this)</li>
-                  <li>Case officer <a href="case-receive-direction-01">receiving direction</a> back</li>
-                </ul>
-            </li>
-
-            <li>Inspection or hearing at this step? To confirm with Amy/Sharon - seems premature in <i>vetting</i> flow?</li>
-
-            <li>
-              Custom acknowledgment letter  <span class="work-tag">PT-011.02</span><br>
-              <span class="makeit">&ddagger;</span> <a href="case-issue-ack02">Send acknowledgement to applicant</a> Process a response with bespoke directions from LO user or Judge (possible strike out warning)
-            </li>
-
-
-
-          </ol>
-
-
-        </li>
-      </ul>
-
-      <!--<h2 class="govuk-heading-m">Vetting: Notifications</h2>
-
-      <p>We will need to capture the precise flow, but one of the main activities is:</p>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li>sending out notifications to parties</li>
-        <li>collecting missing documents and details</li>
-        <li>at the vetting stage, probably a limited scope</li>
-        <li>time limits on these</li>
-        <li>editing</li>
-        <li>preview sent content</li>
-      </ul>-->
-
-      <!-- OLD
-      <a href="case-issue-request" style="font-size: 1.6em;"><strong>Demo</strong></a> -->
-
 
     </div>
   </div>
