@@ -14,8 +14,8 @@
 
       <div id="case-id" style="float:left;">
         <h1 class="govuk-heading-xl">
-          Case {{ globals.case_number4 }}
-          <span class="govuk-caption-xl">{{ globals.case_property4 }}</span>
+          Case {{ globals.case_number }}
+          <span class="govuk-caption-xl">{{ globals.case_property }}</span>
         </h1>
       </div>
       
@@ -26,11 +26,24 @@
          
 
           <div class="govuk-form-group">
+            <label class="govuk-label" for="sort" style="float:left">
+              <span style="position:relative;top:7px;margin-right: 12px;">Next steps
+            </label>
 
-            {% include "includes/dropdown-01.njk" %}
+             <div style="float:left">
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="choose" selected>Select action</option>
+                <option value="dupe-postcode">Duplicates - search postcode</option>
+                <option value="dupe-postcode">Duplicates - search postcode</option>
+                <option value="dupe-refer">Duplicates - refer to LO</option>
+                <option value="acks">Send acknowledgements</option>
+                <option value="payment">Payment - send reminder</option>
+                <option value="payment">General - refer to LO</option>
+              </select>
+            </div>
             
             <div style="float:left;margin-left:6px">
-              <a href="check-dupes-01"><button class="govuk-button">Go</button></a>
+              <a href="case-general-lo-refer"><button class="govuk-button">Go</button></a>
             </div>
 
           </div>
@@ -81,8 +94,8 @@
                 Case flags - omitted as I have no idea what this is
               </a>
             </li>-->
-             <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-              <a class="govuk-tabs__tab" href="#">
+             <li class="govuk-tabs__list-item ">
+              <a class="govuk-tabs__tab" href="case-dashboard-00">
                 Summary
               </a>
             </li>
@@ -102,8 +115,8 @@
                 History
               </a>
             </li>
-            <li class="govuk-tabs__list-item">
-              <a class="govuk-tabs__tab" href="case-notes-00">
+            <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+              <a class="govuk-tabs__tab" href="#">
                 Notes
               </a>
             </li>
@@ -135,11 +148,11 @@
 
 
 
-          <div class="govuk-tabs__panel exui-tabpanel" id="Summary">
+          <div class="govuk-tabs__panel exui-tabpanel" id="Notes">
             <section>
-              <h2 class="govuk-heading-l">Summary</h2>
+              
 
-               {% include "includes/case-summary-00.njk" %}
+               {% include "includes/case-notes-01.njk" %}
 
             </section>
           </div><!-- end tab-panel for content -->
