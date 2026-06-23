@@ -9,6 +9,15 @@
 
 {% block content %}
 
+<style>
+  .managelist ul {
+    margin-bottom:0;
+    li {
+      display: inline-block;
+    }
+  }
+</style>
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <h1 class="govuk-heading-xl">
@@ -16,7 +25,7 @@
         <span class="govuk-caption-l">{{ globals.case_officer }}</span>
       </h1>{{releaseVersion | log }}
       
-      {% include "includes/caselist-filter.html" %}
+      <!--{% include "includes/caselist-filter.html" %}-->
 
 
       <nav _ngcontent-ng-c1727731223="" role="navigation" class="hmcts-sub-navigation ng-star-inserted" aria-label="Sub navigation" style="margin-bottom:1.5em">
@@ -42,6 +51,7 @@
         </ul>
       </nav>
 
+<!-- NOTE the links to TASKs 5th col MUST go to the TASKS TAB on a case and not directly to the first step in the TASK flow -->
 
       <table class="govuk-table">
         <caption class="govuk-table__caption govuk-table__caption--m">
@@ -64,7 +74,25 @@
             <th scope="col" class="govuk-table__header table-head-arrows" style="width: 120px;text-align: right;">+</th>
           </tr>
         </thead>
+
+
         <tbody class="govuk-table__body">
+
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="case-dashboard-00.html" style="white-space: nowrap;">{{ globals.case_number4 }}</a></td>
+            <td class="govuk-table__cell">{{ globals.case_property4 }}</td>
+            <td class="govuk-table__cell">28 May 2026</td>
+
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">Pending</strong><br>14 days remaining</td>
+            <!--<td class="govuk-table__cell"><a href="receipt-1241">29 May 2026</a></td>-->
+
+            <td class="govuk-table__cell"><a href="case-tasks-00">Check for duplicates</a></td>
+
+            <td class="govuk-table__cell">
+              <a onclick="showhideA()">Manage</a> <span style="font-weight:900;">+</span>
+          </td>
+          </tr>
+
           <tr class="govuk-table__row">
             <td scope="row" class="govuk-table__cell"><a href="case-dashboard-01.html" style="white-space: nowrap;">{{ globals.case_number }}</a></td>
             <td class="govuk-table__cell">{{ globals.case_property }}</td>
@@ -73,22 +101,10 @@
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">New to review</strong><br>14 days remaining</td>
             <!--<td class="govuk-table__cell"><a href="receipt-1241">29 May 2026</a></td>-->
 
-            <td class="govuk-table__cell"><a href="case-response-01-summary">Review case</a></td>
+            <td class="govuk-table__cell"><a href="case-tasks-01">Review case</a></td>
 
             <td class="govuk-table__cell">
-              <details class="govuk-details" style="margin-bottom:0">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  Manage
-                </span>
-              </summary>
-              <ul class="govuk-list" style="margin-bottom:0">
-                <li><a href="#">Cancel task</a></li>
-                <li><a href="#">Mark as done</a></li>
-                <li><a href="#">Go to task</a></li>
-                <li><a href="#">Unassign task</a></li>
-              </ul>
-            </details>
+              <a onclick="showhideA()">Manage</a> <span style="font-weight:900;">+</span>
           </td>
           </tr>
 
@@ -101,25 +117,28 @@
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">New to review</strong><br>14 days remaining</td>
             <!--<td class="govuk-table__cell"><a href=#>28 May 2026</a></td>-->
 
-            <td class="govuk-table__cell"><a href="#">Review case</a></td>
+            <td class="govuk-table__cell"><a href="case-tasks-02">Review case</a></td>
 
             <td class="govuk-table__cell">
-              <details class="govuk-details" style="margin-bottom:0">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  Manage
-                </span>
-              </summary>
-              <ul class="govuk-list" style="margin-bottom:0">
-                <li><a href="#">Cancel task</a></li>
-                <li><a href="#">Mark as done</a></li>
-                <li><a href="#">Go to task</a></li>
-                <li><a href="#">Unassign task</a></li>
-              </ul>
-            </details>
+              <a onclick="showhideA()">Manage</a> <span style="font-weight:900;">+</span>
           </td>
           </tr>
 
+
+          <!--<tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="case-dashboard-02.html" style="white-space: nowrap;">{{ globals.case_number2 }}</a></td>
+            <td class="govuk-table__cell">{{ globals.case_property2 }}</td>
+            <td class="govuk-table__cell">17 April 2026</td>
+
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">Help with fees</strong><br>No remission from HWF</td>
+           
+
+            <td class="govuk-table__cell"><a href="review-fees-00">Review fees</a></td>
+
+            <td class="govuk-table__cell">
+              <a onclick="showhideA()">Manage</a> <span style="font-weight:900;">+</span>
+            </td>
+          </tr>-->
 
           <tr class="govuk-table__row">
             <td scope="row" class="govuk-table__cell"><a href="case-dashboard-03.html" style="white-space: nowrap;">{{ globals.case_number3 }}</a></td>
@@ -129,28 +148,16 @@
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Late application</strong><br><!--Refer to LO--></td>
             <!--<td class="govuk-table__cell"><a href=#>17 April 2026</a></td>-->
 
-            <td class="govuk-table__cell"><a href="#">Review case</a></td>
+            <td class="govuk-table__cell"><a href="case-tasks-03">Review case</a></td>
 
             <td class="govuk-table__cell">
-              <details class="govuk-details" style="margin-bottom:0">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  Manage
-                </span>
-              </summary>
-              <ul class="govuk-list" style="margin-bottom:0">
-                <li><a href="#">Cancel task</a></li>
-                <li><a href="#">Mark as done</a></li>
-                <li><a href="#">Go to task</a></li>
-                <li><a href="#">Unassign task</a></li>
-              </ul>
-            </details>
+              <a onclick="showhideA()">Manage</a> <span style="font-weight:900;">+</span>
           </td>
           </tr>
 
 
           <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell"><a href="case-dashboard-04.html" style="white-space: nowrap;">{{ globals.case_number4 }}</a></td>
+            <td scope="row" class="govuk-table__cell"><a href="#" style="white-space: nowrap;">{{ globals.case_number4 }}</a></td>
             <td class="govuk-table__cell">{{ globals.case_property4 }}</td>
 
             <td class="govuk-table__cell">27 April 2026</td>
@@ -161,23 +168,47 @@
             <td class="govuk-table__cell"><a href="#">Withdraw case</a></td>
 
             <td class="govuk-table__cell">
-              <details class="govuk-details" style="margin-bottom:0">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  Manage
-                </span>
-              </summary>
-              <ul class="govuk-list" style="margin-bottom:0">
-                <li><a href="#">Cancel task</a></li>
-                <li><a href="#">Mark as done</a></li>
-                <li><a href="#">Go to task</a></li>
-                <li><a href="#">Unassign task</a></li>
-              </ul>
-            </details>
+              
+              
+              <a onclick="showhideA()">Manage</a> <span style="font-weight:900;">+</span>
+              
+              
+              
+            
           </td>
+          <tr>
+            <td colspan="6" style="text-align:right">
+              <ul class="govuk-list managelist" style="display: none;" id="manageA">
+                <li  class="hmcts-sub-navigation__item"><a href="#">Cancel task</a></li>
+                <li class="hmcts-sub-navigation__item"><a href="#">Mark as done</a></li>
+                <li class="hmcts-sub-navigation__item"><a href="#">Go to task</a></li>
+                <li class="hmcts-sub-navigation__item"><a href="#">Unassign task</a></li>
+              </ul>
+            </td>
           </tr>
         </tbody>
       </table>
+
+      <script>
+        function showhideA() {
+          var x = document.getElementById("manageA");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+          } else {
+            x.style.display = "none";
+          }
+        }
+
+        function showhideB() {
+          var x = document.getElementById("filemr1");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+          } else {
+            x.style.display = "none";
+          }
+        }
+        </script>
+
          
 
     </div>
