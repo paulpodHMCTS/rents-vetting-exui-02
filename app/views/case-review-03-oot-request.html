@@ -13,11 +13,14 @@
     <div class="govuk-grid-column-full">
 
       <div id="case-id" style="float:left;width: 890px;">
-        <h2 class="govuk-heading-m" style="margin-bottom:0.5em">Case {{ globals.case_number }}
-          <span class="govuk-caption-m" style="margin-top:0.2em">Case {{ globals.case_property }}</span>
+        <h2 class="govuk-heading-m" style="margin-bottom:0.5em">Case {{ globals.case_number3 }}
+          <span class="govuk-caption-m" style="margin-top:0.2em">{{ globals.case_property3 }}</span>
         </h2>
 
-        
+        <h1 class="govuk-heading-xl" style="margin-bottom:0.75em">
+          Received out of time 
+          <span class="govuk-caption-xl" style="margin-top:0.2em">Application cannot proceed</span>
+        </h1>
 
          <!--<p style="margin:-1.5em 0 1em 0">Assumptions on this are: we are concerned with fixing paper form issues, missing info isn't automatically requested</p>-->
       </div>
@@ -58,50 +61,31 @@
       <br clear="all">
 
 
-    
-      <!-- this is reused from the case-dashboard way of presenting it  -->
-      <!-- as hopefully a simple pivot to make this an Event/Task thing -->
-      <section>
-        <form class="form" action="" method="post" >
+    {% from "govuk/components/input/macro.njk" import govukInput %}
 
-        <h2 class="govuk-heading-xl">Review case</h2>
+    <form class="form" action="" method="post" style="max-width: 880px;">
 
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-        {{ govukRadios({
-          name: "reviewaction",
-          fieldset: {
-            legend: {
-              text: "What do you need to do?",
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          items: [
-            {
-              value: "dupes",
-              text: "Check for duplicates"
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+          {{ govukCheckboxes({
+            idPrefix: "send-acks",
+            name: "send-acks",
+            fieldset: {
+
             },
-            {
-              value: "missing",
-              text: "Request missing information or documents"
-            },
-            {
-              value: "acks",
-              text: "Send standard acknowledgement letters"
-            },
-            {
-              value: "time",
-              text: "Send an out of time letter"
-            },
-            {
-              value: "refer",
-              text: "Refer to a Legal Officer"
-            }
-          ]
-        }) }}
+            items: [
+              {
+                value: "MR1-oot",
+                text: "To tenant: Application received after the Section 13 deadline, so it cannot proceed",
+                checked: true
+              }
+            ]
+          }) }}
+
         
-       <div class="govuk-button-group">
+        
+        <div class="govuk-button-group">
           
           {{ govukButton({
             text: "Return to case",
@@ -110,14 +94,12 @@
           }) }}
 
           {{ govukButton({
-            text: "Continue",
-            href: "case-review-01-ack-request"
+            text: "Preview message",
+            href: "case-review-03-summary.html"
           }) }}
         </div>
       </form>
 
-      </section>
-   
 
 
 

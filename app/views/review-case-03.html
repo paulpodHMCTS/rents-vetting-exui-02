@@ -13,8 +13,8 @@
     <div class="govuk-grid-column-full">
 
       <div id="case-id" style="float:left;width: 890px;">
-        <h2 class="govuk-heading-m" style="margin-bottom:0.5em">Case {{ globals.case_number }}
-          <span class="govuk-caption-m" style="margin-top:0.2em">Case {{ globals.case_property }}</span>
+        <h2 class="govuk-heading-m" style="margin-bottom:0.5em">Case {{ globals.case_number2 }}
+          <span class="govuk-caption-m" style="margin-top:0.2em">Case {{ globals.case_property2 }}</span>
         </h2>
 
         
@@ -79,10 +79,6 @@
           },
           items: [
             {
-              value: "dupes",
-              text: "Check for duplicates"
-            },
-            {
               value: "missing",
               text: "Request missing information or documents"
             },
@@ -106,12 +102,12 @@
           {{ govukButton({
             text: "Return to case",
             classes: "govuk-button--secondary",
-            href: ""
+            href: "case-dashboard-03"
           }) }}
 
           {{ govukButton({
             text: "Continue",
-            href: "case-review-01-ack-request"
+            href: "case-review-03-oot-request"
           }) }}
         </div>
       </form>
