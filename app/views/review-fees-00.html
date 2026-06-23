@@ -1,0 +1,144 @@
+{% set section = 'work' %}
+
+{% extends "layout.html" %}
+{% import '_globals.html' as globals %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div id="case-id" style="float:left;width: 890px;">
+        <h2 class="govuk-heading-m" style="margin-bottom:0.5em">Case {{ globals.case_number }}
+          <span class="govuk-caption-m" style="margin-top:0.2em">Case {{ globals.case_property }}</span>
+        </h2>
+
+        
+
+         <!--<p style="margin:-1.5em 0 1em 0">Assumptions on this are: we are concerned with fixing paper form issues, missing info isn't automatically requested</p>-->
+      </div>
+      
+
+
+      <div id="next-stepper" style="float:right;">
+       
+         
+
+          <!--<div class="govuk-form-group">
+            <label class="govuk-label" for="sort" style="float:left">
+              <span style="position:relative;top:7px;margin-right: 12px;">Next steps
+            </label>
+
+            <div style="float:left">
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="choose" selected>Select action</option>
+                <option value="updated">Confirm payment</option>
+                <option value="request">Issue request</option>
+                <option value="views">Review details</option>
+                <option value="comments">Match duplicate</option>
+              </select>
+            </div>
+            
+            <div style="float:left;margin-left:6px">
+              <a href="case-issue-request"><button class="govuk-button">Go</button></a>
+            </div>
+
+          </div>-->
+
+          <br clear="all">
+
+ 
+        
+      </div>
+
+      <br clear="all">
+
+
+    
+      <!-- this is reused from the case-dashboard way of presenting it  -->
+      <!-- as hopefully a simple pivot to make this an Event/Task thing -->
+      <section>
+        <form class="form" action="" method="post" >
+
+        <h2 class="govuk-heading-xl">Review fees and payments</h2>
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "reviewaction",
+          fieldset: {
+            legend: {
+              text: "What do you need to do?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "unsuccessful",
+              text: "Fee payment - unsuccessful"
+            },
+            {
+              value: "invalid",
+              text: "Invalid Help With Fees reference"
+            },
+            {
+              value: "moreinfo",
+              text: "More information required"
+            },
+            {
+              value: "noremission",
+              text: "No remission from Help With Fees"
+            },
+            {
+              value: "acks",
+              text: "Invalid reference"
+            },
+            {
+              value: "partgranted",
+              text: "Part remission - granted"
+            },
+            {
+              value: "topup",
+              text: "Request top-up fee"
+            },
+            {
+              value: "updatenum",
+              text: "Updated Help With Fees number"
+            }
+          ]
+        }) }}
+
+
+
+        
+       <div class="govuk-button-group">
+          
+          {{ govukButton({
+            text: "Return to case",
+            classes: "govuk-button--secondary",
+            href: ""
+          }) }}
+
+          {{ govukButton({
+            text: "Continue",
+            href: "review-fees-00-moreinfo-01"
+          }) }}
+        </div>
+      </form>
+
+      </section>
+   
+
+
+
+         
+
+    </div>
+  </div>
+
+{% endblock %}
