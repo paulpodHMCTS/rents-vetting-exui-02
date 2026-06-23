@@ -26,21 +26,7 @@
          
 
           <div class="govuk-form-group">
-            <label class="govuk-label" for="sort" style="float:left">
-              <span style="position:relative;top:7px;margin-right: 12px;">Next steps
-            </label>
-
-             <div style="float:left">
-              <select class="govuk-select" id="sort" name="sort">
-                <option value="choose" >Select action</option>
-                <option value="dupe-postcode" selected>Duplicates - search postcode</option>
-                <option value="dupe-postcode">Duplicates - search postcode</option>
-                <option value="dupe-refer">Duplicates - refer to LO</option>
-                <option value="acks">Send acknowledgements</option>
-                <option value="payment">Payment - send reminder</option>
-                <option value="payment">General - refer to LO</option>
-              </select>
-            </div>
+            {% include "includes/dropdown-01.njk" %}
             
             <div style="float:left;margin-left:6px">
               <a href="case-review-00"><button class="govuk-button">Go</button></a>
