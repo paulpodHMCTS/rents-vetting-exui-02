@@ -33,17 +33,70 @@ documents?" ...makes sense but naming of items may need checking. I like this as
 
       {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
+      {% set documents %}
+      <div style="width:400px">
+        <p><a href=/public/images/mr1.pdf target=_blank>
+        MR1 </a>(opens in a new tab)</p>
+        <p><a href=/public/images/s13.pdf target=_blank>
+        Section 13 </a>(opens in a new tab)</p>
+        <p><a href=/public/images/tenancy.pdf target=_blank>
+        Tenancy agreement</a>(opens in a new tab)</p>
+      </div>
+      {% endset -%}
+
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+
+      <h3 class="govuk-heading-m">Application documents</h3>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Document"
+            },
+            value: {
+              html: documents
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: ""
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "View all case documents"
+            },
+            value: {
+              html: "<a href=case-files-01>Case file view</a>"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: ""
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
       <h3 class="govuk-heading-m">MR1 application</h3>
 
       {{ govukSummaryList({
         rows: [
- 
+        
           {
             key: {
               text: "Date received"
             },
             value: {
-              html: "17 April 2026"
+              html: "29 May 2026"
             },
             actions: {
               items: [
@@ -96,8 +149,8 @@ documents?" ...makes sense but naming of items may need checking. I like this as
             actions: {
               items: [
                 {
-                  href: "#",
-                  text: "Check for duplicates"
+                  href: "case-dashboard-01-01.html",
+                  text: ""
                 }
               ]
             }
@@ -112,8 +165,8 @@ documents?" ...makes sense but naming of items may need checking. I like this as
             actions: {
               items: [
                 {
-                  href: "#",
-                  text: "Check for duplicates"
+                  href: "case-dashboard-01-02.html",
+                  text: ""
                 }
               ]
             }
@@ -139,7 +192,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               text: "Hearing requested"
             },
             value: {
-              html: "Yes<BR>Refer to LO after MR2 returned"
+              html: "No"
             },
             actions: {
               items: [
@@ -161,22 +214,6 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               items: [
                 {
                   href: "case-payment-03.html",
-                  text: "View payment"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Document"
-            },
-            value: {
-              html: "<a href=/public/images/mr1.pdf target=_blank>View document (opens in a new tab)</a>"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
                   text: ""
                 }
               ]
@@ -190,12 +227,13 @@ documents?" ...makes sense but naming of items may need checking. I like this as
 
       {{ govukSummaryList({
         rows: [
+      
           {
             key: {
               text: "Date received"
             },
             value: {
-              html: "17 April 2026"
+              html: "29 May 2026"
             },
             actions: {
               items: [
@@ -243,7 +281,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               html: "Date of rent increase"
             },
             value: {
-              text: "1 June 2026"
+              text: "1 July 2026"
             },
             actions: {
               items: [
@@ -280,8 +318,8 @@ documents?" ...makes sense but naming of items may need checking. I like this as
             actions: {
               items: [
                 {
-                  href: "#",
-                  text: "Check for duplicates"
+                  href: "case-dashboard-01-03.html",
+                  text: ""
                 }
               ]
             }
@@ -291,23 +329,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
               html: "Date signed by landlord"
             },
             value: {
-              html: "1 April 2026<br><strong>Deadline for application expired</strong>"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  html: "Check date"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Document"
-            },
-            value: {
-              html: "<a href=/public/images/section13.pdf target=_blank>View document (opens in a new tab)</a>"
+              text: "1 June 2026"
             },
             actions: {
               items: [
@@ -325,12 +347,13 @@ documents?" ...makes sense but naming of items may need checking. I like this as
 
       {{ govukSummaryList({
         rows: [
+  
           {
             key: {
               text: "Date received"
             },
             value: {
-              html: "17 April 2026"
+              html: "29 May 2026"
             },
             actions: {
               items: [
@@ -388,22 +411,6 @@ documents?" ...makes sense but naming of items may need checking. I like this as
                 }
               ]
             }
-          },
-          {
-            key: {
-              text: "Document"
-            },
-            value: {
-              html: "<a href=/public/images/tenancy.pdf target=_blank>View document (opens in a new tab)</a>"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: ""
-                }
-              ]
-            }
           }
         ]
       }) }}
@@ -414,8 +421,6 @@ documents?" ...makes sense but naming of items may need checking. I like this as
 
     
         
-        
-       
       </form>
 
 

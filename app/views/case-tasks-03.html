@@ -14,8 +14,8 @@
 
       <div id="case-id" style="float:left;">
         <h1 class="govuk-heading-xl">
-          Case {{ globals.case_number4 }}
-          <span class="govuk-caption-xl">{{ globals.case_property4 }}</span>
+          Case {{ globals.case_number3 }}
+          <span class="govuk-caption-xl">{{ globals.case_property3 }}</span>
         </h1>
       </div>
       
@@ -27,17 +27,16 @@
 
           <div class="govuk-form-group">
             <label class="govuk-label" for="sort" style="float:left">
-              <span style="position:relative;top:7px;margin-right: 12px;">Next action
+              <span style="position:relative;top:7px;margin-right: 12px;">Next steps
             </label>
 
              <div style="float:left">
               <select class="govuk-select" id="sort" name="sort">
-                <option value="choose" selected>Select action</option>
-                <option value="dupe-postcode">Check for duplicates</option>
-                <!--<option value="dupe-postcode">Duplicates - search email</option>
-                <option value="dupe-postcode">Duplicates - search phone number</option>-->
+                <option value="choose">Select action</option>
+                <option value="dupe-postcode">Duplicates - search postcode</option>
+                <option value="dupe-postcode">Duplicates - search postcode</option>
                 <option value="dupe-refer">Duplicates - refer to LO</option>
-                <option value="req">Request for information</option>
+                <option value="review" selected>Case - Review case</option>
                 <option value="acks">Send acknowledgements</option>
                 <option value="payment">Payment - send reminder</option>
                 <option value="payment">General - refer to LO</option>
@@ -45,7 +44,7 @@
             </div>
             
             <div style="float:left;margin-left:6px">
-              <a href="check-dupes-01"><button class="govuk-button">Go</button></a>
+              <a href="case-review-02"><button class="govuk-button">Go</button></a>
             </div>
 
           </div>
@@ -64,8 +63,8 @@
             Contents -- is this just for screen readers?
           </h2>-->
           <ul class="govuk-tabs__list">
-            <li class="govuk-tabs__list-item ">
-              <a class="govuk-tabs__tab" href="case-tasks-00">
+            <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+              <a class="govuk-tabs__tab" href="#">
                 Tasks
               </a>
             </li>
@@ -87,7 +86,7 @@
               </a>
             </li>
             <li class="govuk-tabs__list-item">
-              <a class="govuk-tabs__tab" href="case-files-01">
+              <a class="govuk-tabs__tab" href="#">
                 File view
               </a>
             </li>
@@ -96,8 +95,8 @@
                 Case flags - omitted as I have no idea what this is
               </a>
             </li>-->
-             <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-              <a class="govuk-tabs__tab" href="#">
+             <li class="govuk-tabs__list-item ">
+              <a class="govuk-tabs__tab" href="case-dashboard-03">
                 Summary
               </a>
             </li>
@@ -113,12 +112,12 @@
               </a>
             </li>-->
             <li class="govuk-tabs__list-item ">
-              <a class="govuk-tabs__tab" href="case-history-01">
+              <a class="govuk-tabs__tab" href="#">
                 History
               </a>
             </li>
             <li class="govuk-tabs__list-item">
-              <a class="govuk-tabs__tab" href="case-notes-01">
+              <a class="govuk-tabs__tab" href="case-notes-03">
                 Notes
               </a>
             </li>
@@ -135,7 +134,7 @@
               </a>
             </li>-->
             <li class="govuk-tabs__list-item">
-              <a class="govuk-tabs__tab" href="case-payment-01">
+              <a class="govuk-tabs__tab" href="case-payment-03">
                 Payments
               </a>
             </li>
@@ -150,11 +149,10 @@
 
 
 
-          <div class="govuk-tabs__panel exui-tabpanel" id="Summary">
+          <div class="govuk-tabs__panel exui-tabpanel" id="History">
             <section>
-              <h2 class="govuk-heading-l">Summary</h2>
 
-               {% include "includes/case-summary-00.njk" %}
+               {% include "includes/case-tasks-03.njk" %}
 
             </section>
           </div><!-- end tab-panel for content -->
