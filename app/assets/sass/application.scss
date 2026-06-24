@@ -154,3 +154,25 @@ a.govuk-tabs__tab {
 	color: black !important;
 }
 
+.task-list-row {
+  padding-left: 0;
+}
+.task-list-row li {
+// careful here
+  display:inline-block !important;
+  margin-right:2em;
+}
+.govuk-tabs {
+	width: 1360px;
+}
+
+#successbox {
+	background-image: url('/public/images/greentick.png');
+	background-repeat: no-repeat;
+	background-position: 10px 10px;
+	background-size: 40px ;
+	margin-top:-4em;
+	margin-bottom: 2em;
+	border: 6px solid #0f7a52;
+	padding: 1em 1em 1em 4em;
+}
