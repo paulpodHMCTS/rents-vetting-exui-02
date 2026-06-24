@@ -25,10 +25,10 @@ router.post('/rev3-multi-request', function(req, res) {
 
     var inforequest = req.session.data['info-request'] 
 
-    console.log("requested-01: " + inforequest)
+    console.log("requested-02: " + inforequest)
 
        
-    res.redirect("/case-review-02-summary+LL")
+    res.redirect("/case-review-02-summary")
    
 })
 
