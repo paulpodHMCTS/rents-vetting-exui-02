@@ -68,31 +68,36 @@
       <div id="email-edit" style="max-width:660px">
 
 {% set defaultMessage %}
-Dear {{ globals.case_landlordname }},
+You must send us the following information by {{ globals.case_tenantinfoduedate }}. You must also send a copy to your landlord. 
 
-We have received an application from your tenant requesting a market rent determination for the address above.
+{% if 'miss13' in data['info-request'] %}
+• A copy of the notice that your landlord sent you to propose a new rent (called a Section 13 notice). Your landlord should have sent you this using Form 4 or Form 4A.
+{% endif %}
+{% if 'misslandlord' in data['info-request'] %}
+Your landlord’s name and contact details.
+{% endif %}
+{% if 'missmr1detail' in data['info-request'] %}
+• A completed copy of your MR1 application form. The copy that you sent us is missing [case officer to insert missing details here]. Make sure this information is included in the copy you send.
+{% endif %}
+{% if 'other' in data['info-request'] %}
+• {{ data['otherThing'] }}
+{% endif %}
 
-A copy of their application is included with this message.
-What you need to do
+Send it by email to marketrents@justice.gov.uk
 
-You have 28 days from the date of this message to respond to this application. You can respond online or by completing the MR2 reply form included with this message.
+You can also post it to:
 
-You must send your response to your tenant as well as to the Tribunal.
+First-tier Tribunal (Property Chamber)
+Residential Property – Market Rents
+PO Box 10057
+Leicester
+LE19 9EP
 
-You do not have to respond, but if you do not, the Tribunal will make its decision based only on your tenant's application.
-What happens next
+Include your case reference number {{ globals.case_number2 }} with anything you send us.
 
-  1. If you choose to respond, your tenant will have 14 days to respond online or using the MR3 tenant reply form.
+If we do not receive the information by the deadline, the Tribunal may strike out (cancel) your application.  This is set out in Rule 9 of the Tribunal (Procedure) (First-Tier Tribunal) (Property Chamber) Rules 2013.
 
-  2. The Tribunal will make its decision based on the tenant's application and any responses received.
-
-  3. When the Tribunal has made its decision, we will let you know by email and post.
-
-If we need anything else from you, we will contact you.
-
-Yours sincerely,
-
-{{ globals.case_officer }}
+If this happens, your application will not go ahead.
 {% endset -%}
 
          
@@ -126,12 +131,12 @@ Yours sincerely,
           {{ govukButton({
             text: "Cancel",
             classes: "govuk-button--secondary",
-            href: "case-review-01-summary"
+            href: "case-review-02-summary"
           }) }}
 
           {{ govukButton({
             text: "Save changes",
-            href: "case-review-01-summary"
+            href: "case-review-02-summary"
           }) }}
         </div>
       </form>

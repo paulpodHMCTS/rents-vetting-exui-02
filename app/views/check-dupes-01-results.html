@@ -114,13 +114,13 @@
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
             <td scope="row" class="govuk-table__cell"><a href="case-dashboard-01.html" style="white-space: nowrap;">{{ globals.case_number2 }}</a></td>
-            <td class="govuk-table__cell">26a Lisson Grove, Marylebone, London NW1 6TZ</td>
+            <td class="govuk-table__cell">26 Lisson Grove, Marylebone, London NW1 6TZ</td>
             <td class="govuk-table__cell">2 March 2026, 1:13pm</td>
 
-            <td class="govuk-table__cell">Hugh Davis
+            <td class="govuk-table__cell">Jill Evans
             </td>
             
-            <td class="govuk-table__cell">huge.davis@hotmail.com
+            <td class="govuk-table__cell">j.evans@gmail.test
             </td>
 
             <td class="govuk-table__cell" style="width:160px">
@@ -203,13 +203,18 @@
           
           {{ govukButton({
             text: "Return to case",
-            classes: "govuk-button--secondary",
-            href: "check-dupes-01-noresults"
+            classes: "govuk-button--secondary"
           }) }}
 
           {{ govukButton({
             text: "Refer to LO",
             href: "check-dupes-refer-01"
+          }) }}
+
+          {{ govukButton({
+            text: "None of these are duplicates",
+            classes: "govuk-button--secondary",
+            href: "work-list-000"
           }) }}
         </div>
       </form>

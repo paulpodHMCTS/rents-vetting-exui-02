@@ -309,7 +309,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
             actions: {
               items: [
                 {
-                  href: "case-response-02-edit-tenant-intro",
+                  href: "case-review-02-edit-tenant-intro",
                   text: "Change"
                 }
               ]
@@ -325,7 +325,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
             actions: {
               items: [
                 {
-                  href: "case-response-02-edit-tenant-missinfo",
+                  href: "case-review-02-edit-tenant-missinfo",
                   text: "Change"
                 }
               ]
@@ -341,7 +341,7 @@ documents?" ...makes sense but naming of items may need checking. I like this as
             actions: {
               items: [
                 {
-                  href: "case-response-02-edit-tenant-close",
+                  href: "case-review-02-edit-tenant-close",
                   text: "Change"
                 }
               ]
@@ -349,6 +349,144 @@ documents?" ...makes sense but naming of items may need checking. I like this as
           }
         ]
       }) }}
+
+       
+
+
+      {% set landlordPostSum %}
+
+         {% if 'misslandlord' in data['info-request'] %}
+          <p><strong>The landlord's address has not been supplied</strong></p>
+          {% else %}
+
+          <p><strong>Post:</strong><br>17 Wagstaff Way<br>
+          Luton<br>
+          Bedfordshire<br>
+          LL8 4RA</p>
+          <p><strong>Email:</strong> <br>Address not confirmed</p>
+
+         {% endif %}
+      {% endset -%}
+
+      {% set landlordPostName %}
+
+         
+
+          <!--<p>
+            {{ globals.case_landlordname2 }}
+          </p>-->Ayl Cesear
+
+        
+      {% endset -%}
+
+      {% set previewLandlordMessage %}
+
+      {% if 'misslandlord' in data['info-request'] %}
+          <p>Cannot send landlord acknowledgment and MR2</p>
+          {% else %}
+
+        <p class="govuk-hint">Standard header</p>
+        <p>Dear Ayl Cesear,</p>
+        <p>We have received an application from your tenant requesting a market rent determination for the address above.</p>
+
+        <p>You can view and respond to their application online. A copy is also included with this message.</p>
+
+        <p>The tenant has not yet paid the application fee, so their application is currently on hold. </p>
+
+        <!-- removed ... repetition below <p>If they do not pay the fee by [fee deadline date], the application will be withdrawn and the case will be closed. This is set out in Rule 11(3) of the Tribunal Procedure (First-Tier Tribunal) (Property Chamber) Rules 2013.</p>-->
+
+        <h2 class="govuk-heading-m">What you need to do</h2>
+
+        <p>You have 28 days from the date of this message to respond to this application. You can respond online or by completing the MR2 reply form included with this message.</p>
+
+        <p>If you use the MR2 form, you must send your response to your tenant as well as to the Tribunal.</p>
+
+        <p>You do not have to respond, but if you do not, the Tribunal will make its decision based only on your tenant’s application.</p>
+
+        <h2 class="govuk-heading-m">What happens next</h2>
+
+        <p>If the tenant does not pay the application fee by <strong>{{ globals.case_tenantfeeduedate }}</strong>, the case will be closed. We will let you know if this happens.</p>
+
+        <p>
+          However, we recommend that you respond to the application now to avoid delays if the fee is paid.
+
+          <ol class="govuk-list govuk-list--number">
+            <li>If you respond online or through the the MR2 form, your tenant will have 14 days to respond online or through the MR3 tenant reply form.</li>
+
+            <li>The Tribunal will make its decision based on the tenant’s application and any replies received.</li>
+
+            <li>When the Tribunal has made its decision, we will contact you by post and email.</li>
+          </ol>
+        </p>
+
+        <p>If we need anything else from you, we will contact you.</p>
+
+        <p>Yours sincerely,<p>
+        <p>{{ globals.case_officer }}
+        <br>Case Officer</p>
+        <p class="govuk-hint">Standard footer</p>
+
+        {% endif %}
+
+
+      {% endset -%}
+
+
+      <h3 class="govuk-heading-m">To Landlord</h3>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              html: "Landlord name"
+            },
+            value: {
+              html: landlordPostName
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: ""
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              html: "Send to"
+            },
+            value: {
+              html: landlordPostSum
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              html: "Message text"
+            },
+            value: {
+              html: previewLandlordMessage
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
 
  
         
